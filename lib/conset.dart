@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
 
-import 'dart:ui';
+class StartView extends StatelessWidget {
+  const StartView({Key? key}) : super(key: key);
 
-Color backGroundColor=Color(0XFFF6F6F6);
-// Text('hosny'),
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
