@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/otp_Page.dart';
+import 'OnBoarding/OnBoarding01View.dart';
+
+
 
 void main(){
   runApp(MyApp());
@@ -10,8 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home:OptView(),
+    return const MaterialApp(
+      home:OnBoarding01View(),
     );
   }
 }
