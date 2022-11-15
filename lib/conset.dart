@@ -6,6 +6,7 @@ class StartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // بسم الله الرحمن الرحيم
       color: Colors.black,
     );
   }
