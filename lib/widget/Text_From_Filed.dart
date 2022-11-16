@@ -4,17 +4,13 @@ class ContainerView extends StatelessWidget {
   const ContainerView({
     Key? key,
     required this.Text,
-
-    required this.height,
-    required this.width,
     required this.keyboardType,
     this.Color,
   }) : super(key: key);
 
   final String Text;
 
-  final double height;
-  final double width;
+
   final TextInputType keyboardType;
   final Color;
 
@@ -22,8 +18,8 @@ class ContainerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: height,
-        width: width,
+        height: 56,
+        width: 295,
         decoration: BoxDecoration(
           color: Color,
           borderRadius: BorderRadius.circular(10),
