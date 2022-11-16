@@ -28,7 +28,7 @@ class _SplashViewState extends State<SplashView> {
           // child: Image.asset(),
           height: 200,
           width: 200,
-          child: Image.asset(""),
+          child: Image.asset("assets/images/Logo.png"),
         ),
       ),
     );

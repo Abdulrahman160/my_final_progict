@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'OnBoarding02View.dart';
+
 class OnBoarding01View extends StatelessWidget {
   const OnBoarding01View({Key? key}) : super(key: key);
 
@@ -22,20 +24,25 @@ class OnBoarding01View extends StatelessWidget {
               height: 200,
             ),
             Image.asset("assets/images/Illustration.png"),
-            const Text(
-              'Tittle One',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            const Text('Lorem ipsum dolor sit amet la maryame '),
-            const SizedBox(
-              height: 3,
-            ),
-            const Text('dor sut colondeum.'),
-            const SizedBox(
-              height: 40,
+            SizedBox(height: 24,),
+            Column(
+              children: const [
+                Text(
+                  'Tittle One',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text('Lorem ipsum dolor sit amet la maryame '),
+                SizedBox(
+                  height: 3,
+                ),
+                Text('dor sut colondeum.'),
+                SizedBox(
+                  height: 40,
+                ),
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -76,8 +83,8 @@ class OnBoarding01View extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 40,
-                  width: 80,
+                  height: 56,
+                  width: 140,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
@@ -94,15 +101,15 @@ class OnBoarding01View extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: 100,
+                  width: 15,
                 ),
                 InkWell(
-                  //TODO
-                  // navagator to  next page
-                  onTap: null,
+                  onTap: (){
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => OnBoarding02View()),);
+                  },
                   child: Container(
-                    height: 40,
-                    width: 80,
+                    height: 56,
+                    width: 140,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         color: const Color(0xff2E91EF)),

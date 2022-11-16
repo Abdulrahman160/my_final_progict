@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../widget/Container_Button.dart';
+
 class OnBoarding03View extends StatelessWidget {
   const OnBoarding03View({Key? key}) : super(key: key);
 
@@ -18,81 +20,72 @@ class OnBoarding03View extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 200,),
-            Image.asset("assets/images/Illustration.png"),
-            Text(
-              'Tittle One',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            const SizedBox(
+              height: 200,
             ),
-            SizedBox(
-              height: 12,
-            ),
-            Text('Lorem ipsum dolor sit amet la maryame '),
-            SizedBox(
-              height: 3,
-            ),
-            Text('dor sut colondeum.'),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 12,
-                  width: 12,
-                  decoration: BoxDecoration(
-                      color: Color(0xff7466E3),
-                      borderRadius: BorderRadius.circular(40)),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                Container(
-                  height: 12,
-                  width: 12,
-                  decoration: BoxDecoration(
-                      color: Color(0xff7466E3),
-                      borderRadius: BorderRadius.circular(40)),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                Container(
-                  height: 12,
-                  width: 12,
-                  decoration: BoxDecoration(
-                      color: Color(0xffF77A55),
-                      borderRadius: BorderRadius.circular(40)),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+            Image.asset("assets/images/Illustration (2).png"),
+            SizedBox(height: 24,),
+            Column(
+              children: const [
                 Text(
-                  'Skip',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,color: Color(0xff4838D1)),
+                  'Tittle Three',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
-                SizedBox(width: 100,),
-                Container(
-                  child:
-                  Center(child: Text('Next',style: TextStyle(color: Color(0xffFFFFFF),fontWeight: FontWeight.w500,fontSize: 16),)),
+                SizedBox(
+                  height: 12,
+                ),
+                Text('Lorem ipsum dolor sit amet la maryame '),
+                SizedBox(
+                  height: 3,
+                ),
+                Text('dor sut colondeum.'),
+                SizedBox(
                   height: 40,
-                  width: 80,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 12,
+                  width: 12,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Color(0xff2E91EF)
-                  ),
+                      color: const Color(0xff7466E3),
+                      borderRadius: BorderRadius.circular(40)),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Container(
+                  height: 12,
+                  width: 12,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff7466E3),
+                      borderRadius: BorderRadius.circular(40)),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Container(
+                  height: 12,
+                  width: 12,
+                  decoration: BoxDecoration(
+                      color: const Color(0xffF77A55),
+                      borderRadius: BorderRadius.circular(40)),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            const ContainerView(
+              data: 'Lets Get Started',
             )
+
           ],
         ),
       ),
-    );;
+    );
   }
 }
