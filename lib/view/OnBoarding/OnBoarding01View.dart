@@ -110,9 +110,12 @@ class OnBoarding01View extends StatelessWidget {
                   child: Container(
                     height: 56,
                     width: 140,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: const Color(0xff2E91EF)),
+                    decoration:BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                    gradient: LinearGradient(
+                        colors: [Color(0xff2E91EF),Color(0xff95D7FF)]
+                    )
+                ),
                     child: const Center(
                         child: Text(
                       'Next',
