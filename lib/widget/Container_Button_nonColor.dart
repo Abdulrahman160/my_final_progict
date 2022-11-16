@@ -13,7 +13,7 @@ class ContainernonColorView extends StatelessWidget {
             width: 295,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Color(0xff4838D1))
+              border: Border.all(color:containerBorderColor)
             ),
             child: Center(
                 child: Text(
