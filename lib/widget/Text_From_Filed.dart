@@ -5,14 +5,11 @@ class ContainerView extends StatelessWidget {
     Key? key,
     required this.Text,
     required this.keyboardType,
-    this.Color,
+
   }) : super(key: key);
 
   final String Text;
-
-
   final TextInputType keyboardType;
-  final Color;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +18,7 @@ class ContainerView extends StatelessWidget {
         height: 56,
         width: 295,
         decoration: BoxDecoration(
-          color: Color,
+          color: Color(0xffF5F5FA),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Expanded(
@@ -32,7 +29,6 @@ class ContainerView extends StatelessWidget {
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 hintText: Text,
-
                 border: InputBorder.none,
               ),
             ),
