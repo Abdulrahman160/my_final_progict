@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'OnBoarding/OnBoarding01View.dart';
+import 'package:my_final_progict/view/OnBoarding/OnBoarding01View.dart';
+
 
 
 
