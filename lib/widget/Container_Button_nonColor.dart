@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../conset.dart';
 
-class ContainernonColorView extends StatelessWidget {
-  const ContainernonColorView({Key? key, required this.data}) : super(key: key);
+class ContainerNonColorView extends StatelessWidget {
+  const ContainerNonColorView({Key? key, required this.data}) : super(key: key);
 
   final String data;
   @override

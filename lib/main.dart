@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/Splash.dart';
-import 'package:my_final_progict/widget/Container_Button_Color.dart';
-import 'package:my_final_progict/widget/Container_Button_nonColor.dart';
+import 'package:my_final_progict/view/Email_Send_Password.dart';
+import 'package:my_final_progict/view/Welcome.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -12,7 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
+      home: WelcomeView(),
     );
   }
 }
