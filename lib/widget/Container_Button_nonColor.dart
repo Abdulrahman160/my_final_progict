@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../conset.dart';
+
 class ContainernonColorView extends StatelessWidget {
   const ContainernonColorView({Key? key, required this.data}) : super(key: key);
 
@@ -17,7 +19,7 @@ class ContainernonColorView extends StatelessWidget {
                 child: Text(
                   data,
                   style: TextStyle(
-                      color: Color(0xff4838D1),
+                      color: containerBorderColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 )

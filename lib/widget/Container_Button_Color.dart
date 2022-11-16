@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/conset.dart';
 
 class ContainerColorView extends StatelessWidget {
   const ContainerColorView({Key? key, required this.data}) : super(key: key);
@@ -12,7 +13,7 @@ class ContainerColorView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               gradient: LinearGradient(
-                colors: [Color(0xff2E91EF),Color(0xff95D7FF)]
+                colors: [containerNonBorderColor1,containerNonBorderColor2]
               )
             ),
             child: Center(
