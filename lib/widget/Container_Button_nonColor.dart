@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../conset.dart';
 
 class ContainernonColorView extends StatelessWidget {
