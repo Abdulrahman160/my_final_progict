@@ -64,7 +64,7 @@ class EmailSendPassword extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
-              child: ContainerNonColorView(data: "Close"),
+              child: InkWell(child: ContainerNonColorView(data: "Close")),
             ),
           ],
         ),
