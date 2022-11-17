@@ -59,7 +59,9 @@ class ErrorView extends StatelessWidget {
             'Ops! Something Went Wrong',
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
           )),
-          SizedBox(height: 12,),
+          SizedBox(
+            height: 12,
+          ),
           Center(
               child: Text(
             'Please check your internet connection',
@@ -68,7 +70,9 @@ class ErrorView extends StatelessWidget {
                 fontSize: 16,
                 color: Color(0xff2E2E5D)),
           )),
-          SizedBox(height: 6,),
+          SizedBox(
+            height: 6,
+          ),
           Center(
               child: Text(
             'and try again.',
@@ -77,15 +81,17 @@ class ErrorView extends StatelessWidget {
                 fontSize: 16,
                 color: Color(0xff2E2E5D)),
           )),
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           const Center(
             child: InkWell(
               // onTap: TODO NAVIGATOR TO PAGE,
-              child: ContainernonColorView(
+              child: ContainerNonColorView(
                 data: 'Retry',
               ),
             ),
-          )
+          ),
         ],
       ),
     );
