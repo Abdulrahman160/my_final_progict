@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/Error.dart';
+import 'package:my_final_progict/view/Sign_Up/Confirmation.dart';
 import 'package:my_final_progict/view/Splash.dart';
 import 'package:my_final_progict/widget/Container_Button_Color.dart';
 import 'package:my_final_progict/widget/Container_Button_nonColor.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ErrorView(),
+      home: SignUpConfirmationView(),
     );
   }
 }

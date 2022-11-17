@@ -56,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
           ),
           ContainerView(
             keyboardType: TextInputType.emailAddress,
-            Text: 'Email',
+            text: 'Email',
             onchange: (String value) {
               email = value;
             },
@@ -75,7 +75,7 @@ class _LoginViewState extends State<LoginView> {
           ),
           ContainerView(
             keyboardType: TextInputType.emailAddress,
-            Text: 'Password',
+            text: 'Password',
             onchange: (String value) {
               password = value;
             },
