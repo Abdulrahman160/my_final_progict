@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conset.dart';
 
-import '../widget/Container_Button_nonColor.dart';
+import '../../widget/Container_Button_nonColor.dart';
 
 class EmailSendPassword extends StatelessWidget {
   const EmailSendPassword({Key? key}) : super(key: key);

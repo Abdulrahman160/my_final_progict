@@ -97,20 +97,8 @@ class _LoginViewState extends State<LoginView> {
           SizedBox(
             height: 17,
           ),
-          InkWell(
-            child: ContainerColorView(
-              data: 'Login',
-            ),
-            onTap: () {
-              if (formKay.currentState!.validate()) {
-                return;
-              }
-              if (email == 'a@a.com' && password == '123456') {
-                print('OKay');
-              } else {
-                print('Error');
-              }
-            },
+          ContainerColorView(
+            data: 'Login',
           ),
           SizedBox(
             height: 20,

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '../conset.dart';
 
 class ContainerNonColorView extends StatelessWidget {
-  const ContainerNonColorView({Key? key, required this.data}) : super(key: key);
+  const ContainerNonColorView({Key? key, required this.data, this.onTap}) : super(key: key);
 
   final String data;
+  final GestureTapCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Container(
               height: 56,
               width: 295,

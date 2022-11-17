@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conset.dart';
 
 class ContainerColorView extends StatelessWidget {
-  const ContainerColorView({Key? key, required this.data}) : super(key: key);
+  const ContainerColorView({Key? key, required this.data, this.onTap,}) : super(key: key);
 
   final String data;
+  final GestureTapCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap ,
       child: Container(
               height: 56,
               width: 295,
