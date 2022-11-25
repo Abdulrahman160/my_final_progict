@@ -43,7 +43,7 @@ class _SignUpViewState extends State<SignUpView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 65),
                   child: Row(
-                    children: [
+                    children: const [
                       Text(
                         'Register',
                         style: TextStyle(
@@ -111,7 +111,7 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 16,
                 ),
                 ContainerView(
-                  keyboardType: TextInputType.emailAddress,
+                 keyboardType: TextInputType.emailAddress,
                   text: 'Confirm Password',
                   onchange: (String value) {
                     password = value;
@@ -131,7 +131,7 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text(
                       'By signing up, you agree to our',
                       style: TextStyle(
@@ -168,7 +168,7 @@ class _SignUpViewState extends State<SignUpView> {
                   padding: const EdgeInsets.symmetric(horizontal: 80),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Data policy',
                         style: TextStyle(

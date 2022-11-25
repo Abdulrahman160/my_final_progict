@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Text_From_Filed.dart';
 
@@ -18,7 +19,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: backColor,
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Form(
@@ -74,7 +75,7 @@ class _LoginViewState extends State<LoginView> {
             height: 16,
           ),
           ContainerView(
-            keyboardType: TextInputType.emailAddress,
+           keyboardType: TextInputType.emailAddress,
             text: 'Password',
             onchange: (String value) {
               password = value;
@@ -142,7 +143,7 @@ class _LoginViewState extends State<LoginView> {
                 // onTap: TODO NAVIGATOR TO google ,
                 child: Container(
                   height: 56,
-                  width: 87,
+                  width: 70,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(8)),
                   child: Image.asset("assets/images/Google.png"),
@@ -152,7 +153,7 @@ class _LoginViewState extends State<LoginView> {
                 // onTap: TODO NAVIGATOR TO Facebook ,
                 child: Container(
                   height: 56,
-                  width: 87,
+                  width: 70,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(8)),
                   child: Image.asset("assets/images/Facebook.png"),
@@ -162,7 +163,7 @@ class _LoginViewState extends State<LoginView> {
                 // onTap: TODO NAVIGATOR TO onedrive ,
                 child: Container(
                   height: 56,
-                  width: 87,
+                  width: 70,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(8)),
                   child: Image.asset("assets/images/Twitter.png"),
