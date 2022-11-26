@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Text_From_Filed.dart';
+import 'Sign_Up/SignUp_View.dart';
+import 'forget_password/Enter_Email.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({
@@ -110,7 +112,9 @@ class _LoginViewState extends State<LoginView> {
               Padding(
                 padding: const EdgeInsets.only(right: 15),
                 child: InkWell(
-                  // onTap: TODO NAVIGATOR TO Forget Password ? ,
+                   onTap:  () {
+                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>EnterEmailView()));
+                   },
                   child: Text(
                     'Forget Password ?',
                     style: TextStyle(
@@ -188,7 +192,9 @@ class _LoginViewState extends State<LoginView> {
                 width: 5,
               ),
               InkWell(
-                // onTap: TODO NAVIGATOR TO  Register,
+                 onTap: () {
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUpView()));
+                 },
                 child: Text(
                   'Register',
                   style: TextStyle(

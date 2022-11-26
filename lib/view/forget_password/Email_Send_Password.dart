@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conset.dart';
 
 import '../../widget/Container_Button_nonColor.dart';
+import '../Login.dart';
 
 class EmailSendPassword extends StatelessWidget {
   const EmailSendPassword({Key? key}) : super(key: key);
@@ -64,7 +65,14 @@ class EmailSendPassword extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
-              child: InkWell(child: ContainerNonColorView(data: "Close")),
+              child: InkWell(
+                  child: ContainerNonColorView(
+                data: "Close",
+                    onTap: () {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LoginView()));
+
+                    },
+              )),
             ),
           ],
         ),
@@ -72,4 +80,3 @@ class EmailSendPassword extends StatelessWidget {
     );
   }
 }
-

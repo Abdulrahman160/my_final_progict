@@ -4,6 +4,7 @@ import 'package:my_final_progict/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import 'SignUp_View.dart';
 
 class SignUpConfirmationView extends StatelessWidget {
   const SignUpConfirmationView({Key? key}) : super(key: key);
@@ -67,7 +68,8 @@ class SignUpConfirmationView extends StatelessWidget {
               SizedBox(
                 height: 16,
               ),
-              ContainerView(keyboardType: TextInputType.number,
+              ContainerView(
+                keyboardType: TextInputType.number,
                 text: "Confirmation Code",
                 onchange: (value) {},
                 validator: (value) {},
@@ -100,10 +102,21 @@ class SignUpConfirmationView extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 16,),
-              ContainerColorView(data: "Submit",),
-              SizedBox(height: 16,),
-              ContainerNonColorView(data: "Cancel"),
+              SizedBox(
+                height: 16,
+              ),
+              ContainerColorView(
+                data: "Submit",
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              ContainerNonColorView(
+                data: "Cancel",
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>SignUpView()));
+                },
+              ),
             ],
           ),
         ]),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import '../Login.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -216,6 +217,9 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 ContainerNonColorView(
                   data: 'Cancel',
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginView()));
+                  },
                 )
               ],
             ),

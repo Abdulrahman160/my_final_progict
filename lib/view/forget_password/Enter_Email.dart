@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import '../Login.dart';
+import 'Email_Send_Password.dart';
 
 class EnterEmailView extends StatefulWidget {
   const EnterEmailView({Key? key}) : super(key: key);
@@ -65,10 +67,16 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                   SizedBox(height: 16,),
                   ContainerColorView(
                     data: 'Submit',
+                    onTap: () {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>EmailSendPassword()));
+                    },
                   ),
                   SizedBox(height: 16,),
                   ContainerNonColorView(
                     data: 'Back to Login',
+                    onTap: () {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LoginView()));
+                    },
                   )
                 ],
               ),
