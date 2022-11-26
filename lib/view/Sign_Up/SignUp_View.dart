@@ -209,7 +209,7 @@ class _SignUpViewState extends State<SignUpView> {
                     if (formKay.currentState!.validate()) {
                       return;
                     }
-                    // if(email.isEmpty && !value.contains('@') && ${value[0].toUpperCase()}${value.substring(1).toLowerCase()} )
+
                   },
                 ),
                 SizedBox(
