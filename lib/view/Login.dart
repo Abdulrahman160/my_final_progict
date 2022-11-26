@@ -176,7 +176,7 @@ class _LoginViewState extends State<LoginView> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
+            children: [
               Text(
                 'Don’t have an accoun’t ?',
                 style: TextStyle(
