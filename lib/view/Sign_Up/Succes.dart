@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/view/Welcome.dart';
 
 import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
@@ -9,17 +10,18 @@ class SignUpSuccessfully extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+      height: 500,
+        width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: 10,
               ),
-              Image.asset("assets/images/success_profil.png"),
+              Expanded(child: Image.asset("assets/images/success.png",)),
               Text(
                 "Register Successfully",
                 style: TextStyle(
@@ -50,11 +52,13 @@ class SignUpSuccessfully extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              ContainerColorView(data: "Continue"),
+              ContainerColorView(data: "Continue",onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => WelcomeView(),));
+              },),
             ],
           ),
         ),
-      ),
+
     );
   }
 }

@@ -33,7 +33,7 @@ class ContainerView extends StatelessWidget {
             decoration: InputDecoration(
               hintText: text,
               helperStyle: TextStyle(
-                  color: hintTextColor.withOpacity(0.1),
+                  color: hintTextColor.withOpacity(0.01),
                   fontWeight: FontWeight.w500,
                   fontSize: 16),
               border: InputBorder.none,

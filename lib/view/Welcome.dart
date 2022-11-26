@@ -3,6 +3,7 @@ import 'package:my_final_progict/conset.dart';
 
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
+import 'Personalization.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
@@ -69,6 +70,9 @@ class WelcomeView extends StatelessWidget {
              InkWell(
                child:  ContainerColorView(
                    data: "Personalize Your Account",
+                 onTap: () {
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PersonalizationView(),));
+                 },
              ),
               ),
               SizedBox(
