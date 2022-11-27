@@ -66,7 +66,6 @@ class _SignUpViewState extends State<SignUpView> {
                     if (value == null || value.isEmpty) {
                       return "Email can be not empty";
                     } else {
-                      return "${value[0].toUpperCase()}${value.substring(1).toLowerCase()}";
                     }
                   },
                 ),
@@ -82,8 +81,8 @@ class _SignUpViewState extends State<SignUpView> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Email can be not empty';
-                    } else if (!value.contains('@')) {
-                      return 'Email must contain @.com';
+                    } else if (!value.contains('@gmail.com')) {
+                      return 'Email must contain @gmail.com';
                     } else {
                       return null;
                     }
@@ -120,7 +119,7 @@ class _SignUpViewState extends State<SignUpView> {
                   validator: (value) {
                     if (password == ConfirmPassword) {
                       return 'ok';
-                    } else if (ConfirmPassword != password) {
+                    } else if (value != password) {
                       return "Confirm Password Is Not Equal Password";
                     } else (){
                       return ;

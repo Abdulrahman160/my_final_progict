@@ -9,6 +9,29 @@ class ErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InkWell(
+                // onTap: TODO NAVIGATOR TO ,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 48,
+                  width: 48,
+                  decoration: BoxDecoration(
+                      color: Color(0xffF2F2F5).withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(40)),
+                  child: Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
         centerTitle: true,
         title: Text(
           'Error',
@@ -19,29 +42,7 @@ class ErrorView extends StatelessWidget {
         ),
         shadowColor: Color(0xffF3F1FE).withOpacity(0.2),
         backgroundColor: Color(0xffFFFFFF).withOpacity(0.8),
-        actions: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              InkWell(
-                // onTap: TODO NAVIGATOR TO PAGE,
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 48,
-                  width: 48,
-                  decoration: BoxDecoration(
-                      color: Color(0xffFEFEFE).withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(40)),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+
       ),
       body: ListView(
         children: [

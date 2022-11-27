@@ -42,33 +42,33 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                   SizedBox(height: 12,),
                   Text('Please fill email or phone number and',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
                   SizedBox(height: 5,),
-                  Text('well send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
+                  Text('we\'sll send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
                   SizedBox(height: 5,),
                   Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
                   SizedBox(height: 16,),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 25),
-                    child: ContainerView(
-                      text: 'Email ',
-                      keyboardType: TextInputType.emailAddress,
-                      onchange: (String value) {
-                        email = value;
-                      },
-                        validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email can be not empty';
-                        } else if (!value.contains('@')) {
-                          return 'Email must contain @.com';
-                        } else {
-                          return null;
-                        }},
-                    ),
+                  ContainerView(
+                    text: 'Email ',
+                    keyboardType: TextInputType.emailAddress,
+                    onchange: (String value) {
+                      email = value;
+                    },
+                      validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email can be not empty';
+                      } else if (!value.contains('@')) {
+                        return 'Email must contain @.com';
+                      } else {
+                        return null;
+                      }},
                   ),
                   SizedBox(height: 16,),
                   ContainerColorView(
                     data: 'Submit',
                     onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>EmailSendPassword()));
+                      if (formKay.currentState!.validate()) {
+                        return;
+                      }
+                      //TODO  Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>EmailSendPassword()));
                     },
                   ),
                   SizedBox(height: 16,),
