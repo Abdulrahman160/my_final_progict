@@ -7,14 +7,14 @@ class ContainerView extends StatelessWidget {
     required this.text,
    required this.keyboardType,
     required this.onchange,
-    this.validator, required this.icon,
+    this.validator,
   }) : super(key: key);
 
   final String text;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onchange;
   final FormFieldValidator<String>? validator;
-  final IconData? icon;
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +28,19 @@ class ContainerView extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.only(left: 16, top: 4),
-          child: Row(
-            children: [
-              TextFormField(
-                keyboardType: keyboardType,
-                textAlign: TextAlign.start,
-                decoration: InputDecoration(
-                  hintText: text,
-                  helperStyle: TextStyle(
-                      color: hintTextColor.withOpacity(0.01),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16),
-                  border: InputBorder.none,
-                ),
-                onChanged: onchange,
-                validator: validator,
-              ),
-              SizedBox(),
-              Icon(icon!),
-            ],
+          child: TextFormField(
+            keyboardType: keyboardType,
+            textAlign: TextAlign.start,
+            decoration: InputDecoration(
+              hintText: text,
+              helperStyle: TextStyle(
+                  color: hintTextColor.withOpacity(0.01),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
+              border: InputBorder.none,
+            ),
+            onChanged: onchange,
+            validator: validator,
           )
         ),
       ),

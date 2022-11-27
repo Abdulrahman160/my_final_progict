@@ -48,7 +48,6 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                   Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 16,),
                   ContainerView(
-                    icon: null,
                     text: 'Email ',
                     keyboardType: TextInputType.emailAddress,
                     onchange: (String value) {

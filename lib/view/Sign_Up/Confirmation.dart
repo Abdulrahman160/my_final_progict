@@ -71,7 +71,6 @@ class SignUpConfirmationView extends StatelessWidget {
                 height: 16,
               ),
               ContainerView(
-                icon: null,
                 keyboardType: TextInputType.number,
                 text: "Confirmation Code",
                 onchange: (value) {},
