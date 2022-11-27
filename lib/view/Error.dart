@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../conset.dart';
 import '../widget/Container_Button_nonColor.dart';
 
 class ErrorView extends StatelessWidget {
@@ -8,6 +9,7 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backColor,
       appBar: AppBar(
         actions: [
           Row(
@@ -36,7 +38,7 @@ class ErrorView extends StatelessWidget {
         title: Text(
           'Error',
           style: TextStyle(
-              color: Color(0xff2E2E5D),
+              color: textColor,
               fontSize: 16,
               fontWeight: FontWeight.w500),
         ),
@@ -58,7 +60,7 @@ class ErrorView extends StatelessWidget {
           Center(
               child: Text(
             'Ops! Something Went Wrong',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16,color: textColor),
           )),
           SizedBox(
             height: 12,
@@ -69,7 +71,7 @@ class ErrorView extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
-                color: Color(0xff2E2E5D)),
+                color: textColor),
           )),
           SizedBox(
             height: 6,
@@ -80,7 +82,7 @@ class ErrorView extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
-                color: Color(0xff2E2E5D)),
+                color: textColor),
           )),
           SizedBox(
             height: 50,

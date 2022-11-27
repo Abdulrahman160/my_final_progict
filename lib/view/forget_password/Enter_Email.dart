@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
@@ -19,7 +20,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backColor,
       body: Form(
         key: formKay,
         child: ListView(
@@ -38,15 +39,16 @@ class _EnterEmailViewState extends State<EnterEmailView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Forget Password',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                  Text('Forget Password',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: textColor),),
                   SizedBox(height: 12,),
-                  Text('Please fill email or phone number and',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
+                  Text('Please fill email or phone number and',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 5,),
-                  Text('we\'sll send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
+                  Text('we\'sll send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 5,),
-                  Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14),),
+                  Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 16,),
                   ContainerView(
+                    icon: null,
                     text: 'Email ',
                     keyboardType: TextInputType.emailAddress,
                     onchange: (String value) {

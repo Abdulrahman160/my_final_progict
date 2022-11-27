@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../conset.dart';
+import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
@@ -22,7 +24,7 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backColor,
       body: ListView(
         children: [
           Form(
@@ -42,13 +44,13 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 24,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 65),
+                  padding:  EdgeInsets.symmetric(horizontal: 65),
                   child: Row(
-                    children: const [
+                    children:  [
                       Text(
                         'Register',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+                            fontSize: 16, fontWeight: FontWeight.w600,color: textColor),
                       )
                     ],
                   ),
@@ -131,7 +133,7 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children:  [
                     Text(
                       'By signing up, you agree to our',
                       style: TextStyle(
@@ -147,7 +149,7 @@ class _SignUpViewState extends State<SignUpView> {
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
-                          color: Colors.deepOrange),
+                          color: textOrangeColor),
                     ),
                     SizedBox(
                       width: 3,
@@ -165,16 +167,16 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 8,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  padding:  EdgeInsets.symmetric(horizontal: 80),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children:  [
                       Text(
                         'Data policy',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
-                            color: Colors.deepOrange),
+                            color: textOrangeColor),
                       ),
                       SizedBox(
                         width: 5,
@@ -194,7 +196,7 @@ class _SignUpViewState extends State<SignUpView> {
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
-                            color: Colors.deepOrange),
+                            color: textOrangeColor),
                       ),
                     ],
                   ),

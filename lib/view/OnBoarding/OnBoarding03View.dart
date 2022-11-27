@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
 
 class OnBoarding03View extends StatelessWidget {
@@ -8,6 +9,7 @@ class OnBoarding03View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backColor,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -26,19 +28,19 @@ class OnBoarding03View extends StatelessWidget {
             Image.asset("assets/images/Illustration (2).png"),
             SizedBox(height: 24,),
             Column(
-              children: const [
+              children:  [
                 Text(
                   'Tittle Three',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: textColor),
                 ),
                 SizedBox(
                   height: 12,
                 ),
-                Text('Lorem ipsum dolor sit amet la maryame '),
+                Text('Lorem ipsum dolor sit amet la maryame ',style: TextStyle(color: textColor)),
                 SizedBox(
                   height: 3,
                 ),
-                Text('dor sut colondeum.'),
+                Text('dor sut colondeum.',style: TextStyle(color: textColor)),
                 SizedBox(
                   height: 40,
                 ),
