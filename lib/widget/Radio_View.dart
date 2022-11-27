@@ -17,7 +17,7 @@ class RadioView extends StatefulWidget {
   State<RadioView> createState() => _RadioViewState();
 }
 
-Object? group = 0;
+Object? group = 1;
 bool? colorChange = false;
 
 
@@ -96,7 +96,7 @@ class _RadioViewState extends State<RadioView> {
                     onChanged: (value) {
                       setState(
                         () {
-                          //TODO: put validation
+
                           group = value;
                           if(group==1){
                             colorChange=false;

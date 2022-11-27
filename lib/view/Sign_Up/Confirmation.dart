@@ -4,6 +4,8 @@ import 'package:my_final_progict/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import 'SignUp_View.dart';
+import 'Succes.dart';
 
 class SignUpConfirmationView extends StatelessWidget {
   const SignUpConfirmationView({Key? key}) : super(key: key);
@@ -107,13 +109,30 @@ class SignUpConfirmationView extends StatelessWidget {
               SizedBox(
                 height: 16,
               ),
-              ContainerColorView(
-                data: "Submit",
+              Builder(
+                builder: (context) {
+                  return ContainerColorView( //Todo:put condition when get API,
+                    data: "Submit",
+                    onTap:() {
+                      showBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SignUpSuccessfully();
+
+                        },
+                      );
+                    },
+
+                  );
+                }
               ),
               SizedBox(
                 height: 16,
               ),
-              ContainerNonColorView(data: "Cancel"),
+              ContainerNonColorView(data: "Cancel",onTap:() {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpView(),));
+
+              }, ),
             ],
           ),
         ]),

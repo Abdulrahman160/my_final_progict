@@ -10,7 +10,7 @@ class SignUpSuccessfully extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+    return  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),color: backColor),
       height: 500,
         width: double.infinity,
         child: Padding(
