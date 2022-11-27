@@ -63,6 +63,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 16,
                   ),
                   ContainerView(
+                    icon: null,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email',
                     onchange: (String value) {
@@ -82,6 +83,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 16,
                   ),
                   ContainerView(
+                    icon: null,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
                     onchange: (String value) {
@@ -96,6 +98,7 @@ class _LoginViewState extends State<LoginView> {
                         return null;
                       }
                     },
+
                   ),
                   Row(
                     children: [
@@ -251,6 +254,6 @@ class _LoginViewState extends State<LoginView> {
 
   void keepUserLoggedIn() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setBool(KKeepUserLoggedIn, keepUserLogIn);
+    sp.setBool(kkeepUserLoggedIn, keepUserLogIn);
   }
 }

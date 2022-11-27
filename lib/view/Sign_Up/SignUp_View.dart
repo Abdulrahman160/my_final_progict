@@ -59,6 +59,7 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 16,
                 ),
                 ContainerView(
+                  icon: null,
                   keyboardType: TextInputType.emailAddress,
                   text: 'Name',
                   onchange: (String value) {
@@ -74,7 +75,7 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(
                   height: 16,
                 ),
-                ContainerView(
+                ContainerView(icon: null,
                   keyboardType: TextInputType.emailAddress,
                   text: 'Email',
                   onchange: (String value) {
@@ -94,6 +95,7 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 16,
                 ),
                 ContainerView(
+                  icon: null,
                   keyboardType: TextInputType.emailAddress,
                   text: 'Password',
                   onchange: (String value) {
@@ -113,6 +115,7 @@ class _SignUpViewState extends State<SignUpView> {
                   height: 16,
                 ),
                 ContainerView(
+                  icon: null,
                  keyboardType: TextInputType.emailAddress,
                   text: 'Confirm Password',
                   onchange: (String value) {

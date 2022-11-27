@@ -44,7 +44,7 @@ class ContainerView extends StatelessWidget {
                 onChanged: onchange,
                 validator: validator,
               ),
-              SizedBox()
+              SizedBox(),
               Icon(icon!),
             ],
           )
