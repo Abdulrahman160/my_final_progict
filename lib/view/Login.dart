@@ -55,7 +55,6 @@ class _LoginViewState extends State<LoginView> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: textColor
                         ),
                       ),
                     ],
@@ -97,7 +96,6 @@ class _LoginViewState extends State<LoginView> {
                         return null;
                       }
                     },
-
                   ),
                   Row(
                     children: [
@@ -120,7 +118,7 @@ class _LoginViewState extends State<LoginView> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: textColor,
+                          color: Colors.black,
                         ),
                       )
                     ],
@@ -154,7 +152,7 @@ class _LoginViewState extends State<LoginView> {
                           child: Text(
                             'Forget Password ?',
                             style: TextStyle(
-                                color: textOrangeColor,
+                                color: Color(0xffF77A55),
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16),
                           ),
@@ -169,7 +167,7 @@ class _LoginViewState extends State<LoginView> {
                       child: Text(
                     'Or login with',
                     style: TextStyle(
-                        color:textColor,
+                        color: Color(0xff2E2E5D),
                         fontSize: 14,
                         fontWeight: FontWeight.w400),
                   )),
@@ -218,11 +216,11 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Don’t have an account’t ?',
+                        'Don’t have an accoun’t ?',
                         style: TextStyle(
-                            color: textColor,
+                            color: Color(0xff2E2E5D),
                             fontWeight: FontWeight.w400,
-                            fontSize: 14,),
+                            fontSize: 14),
                       ),
                       SizedBox(
                         width: 5,
@@ -237,7 +235,7 @@ class _LoginViewState extends State<LoginView> {
                         child: Text(
                           'Register',
                           style: TextStyle(
-                              color: textOrangeColor,
+                              color: Color(0xffF77A55),
                               fontWeight: FontWeight.w600,
                               fontSize: 14),
                         ),
@@ -253,6 +251,6 @@ class _LoginViewState extends State<LoginView> {
 
   void keepUserLoggedIn() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setBool(kkeepUserLoggedIn, keepUserLogIn);
+    sp.setBool(KKeepUserLoggedIn, keepUserLogIn);
   }
 }
