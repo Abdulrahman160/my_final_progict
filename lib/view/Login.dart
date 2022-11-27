@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Text_From_Filed.dart';
+import '../widget/cusstom_password_field.dart';
 import 'Sign_Up/SignUp_View.dart';
 import 'forget_password/Enter_Email.dart';
 
@@ -20,6 +21,7 @@ class _LoginViewState extends State<LoginView> {
   String? email;
   String? password;
   bool keepUserLogIn = false;
+  TextEditingController passwordController =TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,8 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 16,
                   ),
-                  ContainerView(
+                  PasswordTextField(
+                    controller: passwordController,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
                     onchange: (String value) {

@@ -5,6 +5,7 @@ import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import '../../widget/cusstom_password_field.dart';
 import '../Login.dart';
 
 class SignUpView extends StatefulWidget {
@@ -20,6 +21,10 @@ class _SignUpViewState extends State<SignUpView> {
   String? password;
   String? name;
   String? ConfirmPassword;
+  TextEditingController passwordController =TextEditingController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +98,7 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(
                   height: 16,
                 ),
-                ContainerView(
+                PasswordTextField(
                   keyboardType: TextInputType.emailAddress,
                   text: 'Password',
                   onchange: (String value) {
@@ -107,12 +112,13 @@ class _SignUpViewState extends State<SignUpView> {
                     } else {
                       return null;
                     }
-                  },
+                  }, controller: passwordController,
                 ),
                 SizedBox(
                   height: 16,
                 ),
-                ContainerView(
+                PasswordTextField(
+                  controller: passwordController,
                  keyboardType: TextInputType.emailAddress,
                   text: 'Confirm Password',
                   onchange: (String value) {

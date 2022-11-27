@@ -141,7 +141,6 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                       height: 12,
                     ),
                     ContainerView(
-
                       keyboardType: TextInputType.datetime,
                       onchange: (value) {
                         date = value;
