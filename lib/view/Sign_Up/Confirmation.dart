@@ -38,8 +38,11 @@ class SignUpConfirmationView extends StatelessWidget {
                   children: [
                     Text(
                       "Confirmation Code",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: textColor,
+                      ),
                     ),
                     SizedBox(
                       height: 12,
@@ -67,7 +70,8 @@ class SignUpConfirmationView extends StatelessWidget {
               SizedBox(
                 height: 16,
               ),
-              ContainerView(keyboardType: TextInputType.number,
+              ContainerView(
+                keyboardType: TextInputType.number,
                 text: "Confirmation Code",
                 onchange: (value) {},
                 validator: (value) {},
@@ -100,9 +104,15 @@ class SignUpConfirmationView extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 16,),
-              ContainerColorView(data: "Submit",),
-              SizedBox(height: 16,),
+              SizedBox(
+                height: 16,
+              ),
+              ContainerColorView(
+                data: "Submit",
+              ),
+              SizedBox(
+                height: 16,
+              ),
               ContainerNonColorView(data: "Cancel"),
             ],
           ),

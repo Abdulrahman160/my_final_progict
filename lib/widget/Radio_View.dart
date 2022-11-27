@@ -17,9 +17,16 @@ class RadioView extends StatefulWidget {
   State<RadioView> createState() => _RadioViewState();
 }
 
-Object? group = 1;
+Object? group = 0;
+bool? colorChange = false;
+
 
 class _RadioViewState extends State<RadioView> {
+  @override
+  void initState() {
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,14 +37,20 @@ class _RadioViewState extends State<RadioView> {
         color: Color(0XFFF5F5FA),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30,
+          vertical: 20,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               widget.title,
               style: TextStyle(
-                  color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
+                color: textColor,
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             SizedBox(
               height: 10,
@@ -45,7 +58,9 @@ class _RadioViewState extends State<RadioView> {
             Container(
               height: 20,
               width: 230,
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Radio(
                     value: 1,
@@ -54,6 +69,12 @@ class _RadioViewState extends State<RadioView> {
                       setState(
                         () {
                           group = value;
+                          if(group==1){
+                            colorChange=false;
+                          }
+                          else if(group==2){
+                            colorChange=true;
+                          }
                         },
                       );
                     },
@@ -61,9 +82,10 @@ class _RadioViewState extends State<RadioView> {
                   Text(
                     widget.textRadio1,
                     style: TextStyle(
-                        color: Color(0XFFB8B8C7),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
+                      color: colorChange!?hintTextColor:Colors.blue,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -73,8 +95,16 @@ class _RadioViewState extends State<RadioView> {
                     groupValue: group,
                     onChanged: (value) {
                       setState(
-                        () {//TODO: put validation
+                        () {
+                          //TODO: put validation
                           group = value;
+                          if(group==1){
+                            colorChange=false;
+                          }
+                          else if(group==2){
+                            colorChange=true;
+                          }
+
                         },
                       );
                     },
@@ -82,7 +112,7 @@ class _RadioViewState extends State<RadioView> {
                   Text(
                     widget.textRadio2,
                     style: TextStyle(
-                        color: Color(0XFFB8B8C7),
+                        color: colorChange!?Colors.blue:hintTextColor,
                         fontSize: 17,
                         fontWeight: FontWeight.w600),
                   ),

@@ -248,9 +248,9 @@ class _LoginViewState extends State<LoginView> {
           ),
         ));
   }
-
   void keepUserLoggedIn() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setBool(KKeepUserLoggedIn, keepUserLogIn);
+
   }
 }
