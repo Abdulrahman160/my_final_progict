@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/Error.dart';
 import 'package:my_final_progict/view/Login.dart';
+import 'package:my_final_progict/view/Personalization.dart';
 import 'package:my_final_progict/view/Sign_Up/SignUp_View.dart';
 import 'package:my_final_progict/view/Splash.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashView(),
+      home: PersonalizationView(),
     );
   }
 }

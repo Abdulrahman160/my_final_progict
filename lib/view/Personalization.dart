@@ -75,7 +75,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                               Container(
                                 alignment: Alignment.center,
                                 height: 50,
-                                width: 65,
+                                width: 50,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
                                   color: Color(0XFFF5F5FA),
@@ -89,12 +89,12 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                                 ),
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 5,
                               ),
                               Container(
                                 alignment: Alignment.center,
                                 height: 50,
-                                width: 220,
+                                width: 243,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8),
                                   color: Color(0XFFF5F5FA),
