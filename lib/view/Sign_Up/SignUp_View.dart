@@ -7,6 +7,7 @@ import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../../widget/cusstom_password_field.dart';
 import '../Login.dart';
+import 'Confirmation.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -112,24 +113,26 @@ class _SignUpViewState extends State<SignUpView> {
                     } else {
                       return null;
                     }
-                  }, controller: passwordController,
+                  },
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 PasswordTextField(
-                  controller: passwordController,
+                // controller: null,
                  keyboardType: TextInputType.emailAddress,
                   text: 'Confirm Password',
                   onchange: (String value) {
-                    password = value;
+                    ConfirmPassword = value;
                   },
                   validator: (value) {
-                    if (password == ConfirmPassword) {
-                      return 'ok';
-                    } else if (value != password) {
+                    if (value == null || value.isEmpty) {
+                      return 'Confirm Password can be not empty';
+                    }
+                    else  if (value != password) {
                       return "Confirm Password Is Not Equal Password";
-                    } else (){
+                    }
+                     else (){
                       return ;
                     };
                   },
@@ -213,9 +216,9 @@ class _SignUpViewState extends State<SignUpView> {
                   data: 'Register',
                   onTap: () {
                     if (formKay.currentState!.validate()) {
-                      return;
-                    }
-
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUpConfirmationView()));
+                    }else{
+                    return;}
                   },
                 ),
                 SizedBox(

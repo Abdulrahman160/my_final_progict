@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../conset.dart';
 import 'OnBoarding/OnBoarding01View.dart';
 
 class SplashView extends StatefulWidget {
@@ -22,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF6F6F6),
+      backgroundColor: backColor,
       body: Center(
         child: Container(
           // child: Image.asset(),

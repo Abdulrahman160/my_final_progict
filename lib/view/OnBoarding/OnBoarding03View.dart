@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../conset.dart';
 import '../../widget/Container_Button_Color.dart';
+import '../Login.dart';
 
 class OnBoarding03View extends StatelessWidget {
   const OnBoarding03View({Key? key}) : super(key: key);
@@ -81,11 +82,13 @@ class OnBoarding03View extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            const InkWell(
-              // onTap: TODO (){ Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => Named the page),);,
-              child: ContainerColorView(
-                data: 'Lets Get Started',
-              ),
+
+            ContainerColorView(
+              data: 'Lets Get Started',
+              onTap:() {
+                Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => LoginView()),);
+
+              },
             )
 
           ],

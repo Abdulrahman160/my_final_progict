@@ -84,7 +84,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 16,
                   ),
                   PasswordTextField(
-                    controller: passwordController,
+                    //controller: passwordController,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
                     onchange: (String value) {

@@ -10,10 +10,10 @@ class PasswordTextField extends StatefulWidget {
     required this.keyboardType,
     required this.onchange,
     this.validator,
-    required this.controller,
+   // required this.controller,
   }) : super(key: key);
 
-  final TextEditingController controller;
+ // final TextEditingController? controller;
   final String text;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onchange;
@@ -39,7 +39,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         child: Padding(
             padding: EdgeInsets.only(left: 16, top: 4),
             child: TextFormField(
-              controller: widget.controller,
+             // controller: widget.controller,
               obscureText: obscureText,
               keyboardType: widget.keyboardType,
               textAlign: TextAlign.start,
