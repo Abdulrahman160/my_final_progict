@@ -18,32 +18,36 @@ class ContainerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: 56,
-        width: 295,
-        decoration: BoxDecoration(
-          color: Color(0xffF5F5FA),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(left: 16, top: 4),
-          child: TextFormField(
-            keyboardType: keyboardType,
-            textAlign: TextAlign.start,
-            decoration: InputDecoration(
-              hintText: text,
-              helperStyle: TextStyle(
-                  color: hintTextColor.withOpacity(0.01),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16),
-              border: InputBorder.none,
+    return TextFormField(
+          keyboardType: keyboardType,
+          textAlign: TextAlign.start,
+          decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(vertical: 19,horizontal: 15),
+            filled:true,
+            fillColor:Color(0xffF5F5FA),
+            enabledBorder: OutlineInputBorder(
+                borderRadius:BorderRadius.circular(10),
+                borderSide: BorderSide.none
             ),
-            onChanged: onchange,
-            validator: validator,
-          )
-        ),
-      ),
-    );
+            focusedBorder: OutlineInputBorder(
+                borderRadius:BorderRadius.circular(15),
+                borderSide: BorderSide.none
+            ),errorBorder:OutlineInputBorder(
+                borderRadius:BorderRadius.circular(10),
+                borderSide: BorderSide.none
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius:BorderRadius.circular(10),
+                borderSide: BorderSide.none
+            ),
+            hintText: text,
+            helperStyle: TextStyle(
+                color: hintTextColor.withOpacity(0.01),
+                fontWeight: FontWeight.w500,
+                fontSize: 16),
+            border: InputBorder.none,
+          ),
+          onChanged: onchange,
+          validator: validator,
+        );
   }
 }
