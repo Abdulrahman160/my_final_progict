@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 
 import '../../conset.dart';
 import 'OnBoarding02View.dart';
 
-class OnBoarding01View extends StatelessWidget {
-  const OnBoarding01View({Key? key}) : super(key: key);
+class OnBoardingView extends StatelessWidget {
+  const OnBoardingView({
+    Key? key,required this.onBoarding,
+
+  }) : super(key: key);
+  final OnBoarding onBoarding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +30,30 @@ class OnBoarding01View extends StatelessWidget {
             const SizedBox(
               height: 200,
             ),
-            Image.asset("assets/images/Illustration.png"),
-            SizedBox(height: 24,),
+            Image.asset(onBoarding.image!),
+            SizedBox(
+              height: 24,
+            ),
             Column(
-              children:  [
+              children: [
                 Text(
-                  'Tittle One',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16,color: textColor),
+                  onBoarding.title!,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: textColor),
                 ),
                 SizedBox(
                   height: 12,
                 ),
-                Text('Lorem ipsum dolor sit amet la maryame ',style: TextStyle(color: textColor),),
+                Text(
+                  onBoarding. text1!,
+                  style: TextStyle(color: textColor),
+                ),
                 SizedBox(
                   height: 3,
                 ),
-                Text('dor sut colondeum.',style: TextStyle(color: textColor)),
+                Text(onBoarding.text2!, style: TextStyle(color: textColor)),
                 SizedBox(
                   height: 40,
                 ),
@@ -88,9 +101,9 @@ class OnBoarding01View extends StatelessWidget {
                   height: 56,
                   width: 140,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.blue),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.blue),
                   ),
                   child: const Center(
                     child: Text(
@@ -106,18 +119,20 @@ class OnBoarding01View extends StatelessWidget {
                   width: 15,
                 ),
                 InkWell(
-                  onTap: (){
-                    Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => OnBoarding02View()),);
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => OnBoarding02View()),
+                    );
                   },
                   child: Container(
                     height: 56,
                     width: 140,
-                    decoration:BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                    gradient: LinearGradient(
-                        colors: [Color(0xff2E91EF),Color(0xff95D7FF)]
-                    )
-                ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        gradient: LinearGradient(
+                            colors: [Color(0xff2E91EF), Color(0xff95D7FF)])),
                     child: const Center(
                         child: Text(
                       'Next',

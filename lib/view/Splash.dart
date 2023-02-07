@@ -15,7 +15,8 @@ class _SplashViewState extends State<SplashView> {
   void initState(){
     Timer(Duration(seconds: 5),
           () =>Navigator.pushReplacement(context, MaterialPageRoute(builder:
-          (context) => OnBoarding01View())),
+
+          (context) => OnBoardingView())),
     );
     super.initState();
   }
