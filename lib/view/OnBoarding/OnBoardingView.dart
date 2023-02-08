@@ -70,38 +70,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ],
             ),
             Spacer(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Container(
-            //       height: 12,
-            //       width: 12,
-            //       decoration: BoxDecoration(
-            //           color: const Color(0xffF77A55),
-            //           borderRadius: BorderRadius.circular(40)),
-            //     ),
-            //     const SizedBox(
-            //       width: 12,
-            //     ),
-            //     Container(
-            //       height: 12,
-            //       width: 12,
-            //       decoration: BoxDecoration(
-            //           color: const Color(0xff7466E3),
-            //           borderRadius: BorderRadius.circular(40)),
-            //     ),
-            //     const SizedBox(
-            //       width: 12,
-            //     ),
-            //     Container(
-            //       height: 12,
-            //       width: 12,
-            //       decoration: BoxDecoration(
-            //           color: const Color(0xff7466E3),
-            //           borderRadius: BorderRadius.circular(40)),
-            //     )
-            //   ],
-            // ),
+
             SmoothPageIndicator(
                 controller: pageController, // PageController
                 count: onBoarding.length,
