@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../conset.dart';
-import 'OnBoarding/OnBoarding01View.dart';
+import 'OnBoarding/OnBording.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(Duration(seconds: 5),
           () =>Navigator.pushReplacement(context, MaterialPageRoute(builder:
 
-          (context) => OnBoardingView())),
+          (context) => OnBoardings())),
     );
     super.initState();
   }

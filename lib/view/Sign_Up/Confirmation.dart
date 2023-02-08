@@ -29,7 +29,9 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
         padding: const EdgeInsets.all(40.0),
         child: Form(
           key: formKay,
-          child: ListView(children: [
+          child: ListView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

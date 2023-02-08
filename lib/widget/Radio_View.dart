@@ -17,8 +17,9 @@ class RadioView extends StatefulWidget {
   State<RadioView> createState() => _RadioViewState();
 }
 
-Object? group = 1;
-bool? colorChange = false;
+Object? group = 0;
+Color textColor1=hintTextColor;
+Color textColor2=hintTextColor;
 
 
 class _RadioViewState extends State<RadioView> {
@@ -70,11 +71,10 @@ class _RadioViewState extends State<RadioView> {
                         () {
                           group = value;
                           if(group==1){
-                            colorChange=false;
+                            textColor1=Colors.blue;
+                            textColor2=hintTextColor;
                           }
-                          else if(group==2){
-                            colorChange=true;
-                          }
+
                         },
                       );
                     },
@@ -82,7 +82,7 @@ class _RadioViewState extends State<RadioView> {
                   Text(
                     widget.textRadio1,
                     style: TextStyle(
-                      color: colorChange!?hintTextColor:Colors.blue,
+                      color: textColor1,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                     ),
@@ -98,11 +98,9 @@ class _RadioViewState extends State<RadioView> {
                         () {
 
                           group = value;
-                          if(group==1){
-                            colorChange=false;
-                          }
-                          else if(group==2){
-                            colorChange=true;
+                          if(group==2){
+                           textColor2=Colors.blue;
+                           textColor1=hintTextColor;
                           }
 
                         },
@@ -112,7 +110,7 @@ class _RadioViewState extends State<RadioView> {
                   Text(
                     widget.textRadio2,
                     style: TextStyle(
-                        color: colorChange!?Colors.blue:hintTextColor,
+                        color: textColor2,
                         fontSize: 17,
                         fontWeight: FontWeight.w600),
                   ),
