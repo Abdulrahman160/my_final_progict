@@ -238,3 +238,14 @@ class _SignUpViewState extends State<SignUpView> {
     );
   }
 }
+
+
+//
+// TextSpan(
+// text: 'Single tap',
+// style: TextStyle(color: Colors.red[300]),
+// recognizer: TapGestureRecognizer()..onTap = () {
+// // Single tapped.
+// },
+// ),
+

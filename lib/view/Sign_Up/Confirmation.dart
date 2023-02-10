@@ -139,11 +139,13 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                     onTap: () {
                       if (formKay.currentState!.validate()) {
                         showBottomSheet(
-                          context: context,
+                          context: context,elevation: 5,
                           builder: (BuildContext context) {
                             return SignUpSuccessfully();
                           },
+
                         );
+                        closeKeyboard(context);
                       } else {
                         return;
                       }

@@ -2,124 +2,35 @@ import 'package:flutter/material.dart';
 
 import '../conset.dart';
 
-class RadioView extends StatefulWidget {
-  const RadioView({
-    Key? key,
-    required this.title,
-    required this.textRadio1,
-    required this.textRadio2,
-  }) : super(key: key);
+
+class CustomRadio extends StatelessWidget {
+  const CustomRadio({Key? key, required this.title, required this.onChange, required this.value, required this.groupValue}) : super(key: key);
+
   final String title;
-  final String textRadio1;
-  final String textRadio2;
+  final Function(dynamic value) onChange;
+  final dynamic groupValue;
+  final dynamic value;
 
-  @override
-  State<RadioView> createState() => _RadioViewState();
-}
-
-Object? group = 0;
-Color textColor1=hintTextColor;
-Color textColor2=hintTextColor;
-
-
-class _RadioViewState extends State<RadioView> {
-  @override
-  void initState() {
-
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 300,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Color(0XFFF5F5FA),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 20,
+    return Row(
+      children: [
+        Radio(
+          value: true,
+          groupValue: groupValue == value,
+          onChanged: (value) {
+            value =  value;
+            onChange( value);
+          },
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.title,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 20,
-              width: 230,
-              child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Radio(
-                    value: 1,
-                    groupValue: group,
-                    onChanged: (value) {
-                      setState(
-                        () {
-                          group = value;
-                          if(group==1){
-                            textColor1=Colors.blue;
-                            textColor2=hintTextColor;
-                          }
-
-                        },
-                      );
-                    },
-                  ),
-                  Text(
-                    widget.textRadio1,
-                    style: TextStyle(
-                      color: textColor1,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Radio(
-                    value: 2,
-                    groupValue: group,
-                    onChanged: (value) {
-                      setState(
-                        () {
-
-                          group = value;
-                          if(group==2){
-                           textColor2=Colors.blue;
-                           textColor1=hintTextColor;
-                          }
-
-                        },
-                      );
-                    },
-                  ),
-                  Text(
-                    widget.textRadio2,
-                    style: TextStyle(
-                        color: textColor2,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-            ),
-          ],
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
         ),
-      ),
+      ],
     );
   }
 }

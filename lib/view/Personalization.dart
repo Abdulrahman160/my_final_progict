@@ -17,6 +17,10 @@ String? phone;
 String? date;
 
 class _PersonalizationViewState extends State<PersonalizationView> {
+
+  String userType = '';
+  final userTypes = ['Doctor', 'Patient', 'Trainer'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +128,15 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                             SizedBox(
                               height: 12,
                             ),
+                            ...userTypes.map((e) {
+                              return CustomRadio(
+                                title: e,
+                                onChange: (v) => setState(() => userType = e),
+                                value: e,
+                                groupValue: userType,
+                              );
+                            }),
+                            /*
                             RadioView(
                               title: "Select user Type",
                               textRadio1: "Doctor",
@@ -137,6 +150,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                               textRadio1: "Male",
                               textRadio2: "Female",
                             ),
+                            */
                             SizedBox(
                               height: 12,
                             ),
@@ -164,7 +178,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                         data: "Continue",
                         onTap: () {
                           //TODO: put the condition
-                          if (formKay.currentState!.validate()) {
+                          if (formKay.currentState!.validate() || userType.isEmpty) {
                             return;
                           }
                         },
