@@ -154,7 +154,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                             SizedBox(
                               height: 12,
                             ),
-                            ContainerView(
+                            ContainerView(enableSuffixIcon: false ,
                               keyboardType: TextInputType.datetime,
                               onchange: (value) {
                                 date = value;
@@ -162,7 +162,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                               text: "Data of  Birth",
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Phone can be not empty';
+                                  return 'Date can be not empty';
                                 } else {
                                   return null;
                                 }
