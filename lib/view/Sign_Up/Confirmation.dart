@@ -87,7 +87,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                 SizedBox(
                   height: 16,
                 ),
-                ContainerView(enableSuffixIcon: false,
+                textFormField(
                   keyboardType: TextInputType.number,
                   text: "Confirmation Code",
                   onchange: (value) {

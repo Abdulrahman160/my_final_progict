@@ -22,10 +22,9 @@ class _OnBoardingState extends State<OnBoardings> {
         },
         controller: pageController,
         children: [
-          OnBoardingView(onBoarding: onBoarding[0]),
-          OnBoardingView(onBoarding: onBoarding[1]),
-          OnBoardingView(onBoarding: onBoarding[2]),
-
+          OnBoardingView(data: onBoarding[0]),
+          OnBoardingView(data: onBoarding[1]),
+          OnBoardingView(data: onBoarding[2]),
 
       ],
       ),

@@ -10,9 +10,9 @@ import 'OnBording.dart';
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({
     Key? key,
-    required this.onBoarding,
+    required this.data,
   }) : super(key: key);
-  final OnBoarding onBoarding;
+  final OnBoarding data;
 
   @override
   State<OnBoardingView> createState() => _OnBoardingViewState();
@@ -38,7 +38,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             const SizedBox(
               height: 200,
             ),
-            Image.asset(widget.onBoarding.image!),
+            Image.asset(widget.data.image!),
             SizedBox(
               height: 24,
             ),
@@ -46,7 +46,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             Column(
               children: [
                 Text(
-                  widget.onBoarding.title!,
+                  widget.data.title!,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -56,13 +56,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   height: 12,
                 ),
                 Text(
-                  widget.onBoarding.text1!,
+                  widget.data.text1!,
                   style: TextStyle(color: textColor),
                 ),
                 SizedBox(
                   height: 3,
                 ),
-                Text(widget.onBoarding.text2!,
+                Text(widget.data.text2!,
                     style: TextStyle(color: textColor)),
                 SizedBox(
                   height: 40,
@@ -70,7 +70,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ],
             ),
             Spacer(),
-
             SmoothPageIndicator(
                 controller: pageController, // PageController
                 count: onBoarding.length,
@@ -83,7 +82,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               height: 40,
             ),
             Expanded(
-                child: widget.onBoarding.changeButton!
+                child: widget.data.changeButton!
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -144,7 +143,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                               )),
                             ),
                           )
-                        ],
+                         ],
                       )
                     : ContainerColorView(
                         data: 'Lets Get Started',

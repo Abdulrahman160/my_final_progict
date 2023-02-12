@@ -154,7 +154,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                             SizedBox(
                               height: 12,
                             ),
-                            ContainerView(enableSuffixIcon: false ,
+                            textFormField(
                               keyboardType: TextInputType.datetime,
                               onchange: (value) {
                                 date = value;
