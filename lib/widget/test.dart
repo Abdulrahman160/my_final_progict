@@ -29,3 +29,20 @@
 //     );
 //   }
 // }
+// suffixIcon: widget.enableSuffixIcon!
+// ? GestureDetector(
+// onTap: () {
+// setState(() {
+// obscureText = !obscureText;
+// });
+// },
+// child: obscureText
+// ? Icon(
+// Icons.visibility_off,
+// color: Colors.grey,
+// )
+// : Icon(
+// Icons.visibility,
+// color: containerNonBorderColor1,
+// ))
+// : Text(""),

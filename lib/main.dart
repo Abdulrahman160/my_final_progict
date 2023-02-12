@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/Sign_Up/Confirmation.dart';
 import 'package:my_final_progict/view/Splash.dart';
 
 
@@ -14,7 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: SplashView(),
+      // theme: theme,
       debugShowCheckedModeBanner:   false,
+      title: 'Mentis',
+      // builder: (context, child) => SafeArea(child: child!)
 
     );
   }

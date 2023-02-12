@@ -63,7 +63,8 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 16,
                   ),
-                  ContainerView(enableSuffixIcon: false,
+                  textFormField(
+
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email',
                     onchange: (String value) {
@@ -82,8 +83,9 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 16,
                   ),
-                  ContainerView(
+                  textFormField(
                     //controller: passwordController,
+                    secure: true,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
                     onchange: (String value) {
@@ -97,7 +99,7 @@ class _LoginViewState extends State<LoginView> {
                       } else {
                         return null;
                       }
-                    }, enableSuffixIcon: true,
+                    },
 
                   ),
                   Row(
