@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -29,7 +28,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImage.background),
+            image: AssetImage("assets/images/Background (1).png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -44,34 +43,31 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               height: 24,
             ),
             Spacer(),
-            Text(
-              widget.data.title!,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: textColor),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Text(textAlign:TextAlign.center,
-              widget.data.text1!,
-              style: TextStyle(color: textColor),
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            Text(widget.data.text2!,
-                style: TextStyle(color: textColor)),
-            SizedBox(
-              height: 40,
+            Column(
+              children: [
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  widget.data.text1!,
+                  style: TextStyle(color: textColor,fontWeight: FontWeight.bold,fontSize: 17),
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                Text(widget.data.text2!,
+                    style: TextStyle(color: textColor,fontWeight: FontWeight.bold,fontSize: 17)),
+                SizedBox(
+                  height: 40,
+                ),
+              ],
             ),
             Spacer(),
             SmoothPageIndicator(
                 controller: pageController, // PageController
                 count: onBoarding.length,
                 effect: JumpingDotEffect(
-                  activeDotColor: Color(0xffF77A55),
+                  activeDotColor: Color(0xff95D7FF),
                   dotColor: Color(0xff7466E3),
                 ) // your preferred effect
                 ),

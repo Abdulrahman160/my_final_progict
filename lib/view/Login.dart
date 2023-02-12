@@ -40,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
                     child: Container(
                       height: 120,
                       width: 120,
-                      child: Image.asset("assets/images/Logo.png"),
+                      child: Image.asset("assets/images/logo.png"),
                     ),
                   ),
                   SizedBox(
