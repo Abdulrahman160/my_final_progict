@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../conset.dart';
+import '../conestant/conset.dart';
+import '../conestant/image.dart';
 import 'OnBoarding/OnBording.dart';
 
 class SplashView extends StatefulWidget {
@@ -30,7 +31,7 @@ class _SplashViewState extends State<SplashView> {
           // child: Image.asset(),
           height: 200,
           width: 200,
-          child: Image.asset("assets/images/Logo.png"),
+          child: Image.asset(AppImage.logo),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../conset.dart';
+import '../conestant/conset.dart';
 
 class ContainerNonColorView extends StatelessWidget {
   const ContainerNonColorView({Key? key, required this.data, this.onTap}) : super(key: key);

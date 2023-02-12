@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conset.dart';
+import 'package:my_final_progict/conestant/conset.dart';
 
+import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
@@ -40,7 +41,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                 ),
                 Center(
                   child: Image.asset(
-                    "assets/images/Logo.png",
+                   AppImage.logo,
                     height: 120,
                     width: 120,
                   ),

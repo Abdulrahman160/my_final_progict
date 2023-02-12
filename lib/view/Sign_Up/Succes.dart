@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/Welcome.dart';
 
-import '../../conset.dart';
+import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 
 class SignUpSuccessfully extends StatelessWidget {

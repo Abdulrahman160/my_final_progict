@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../conestant/image.dart';
+
 class OnBoarding {
   final String? image;
   final String? title;
@@ -18,21 +20,21 @@ class OnBoarding {
 
 List<OnBoarding> onBoarding = [
   OnBoarding(
-    image: "assets/images/Illustration.png",
+    image: AppImage.onBoarding1,
+    title: "Tittle One",
+    text1: "Lorem ipsum dolor sit amet la maryame \n dor sut colondeum.",
+    text2: "dor sut colondeum.",
+    changeButton: true,
+  ),
+  OnBoarding(
+    image: AppImage.onBoarding2,
     title: "Tittle One",
     text1: "Lorem ipsum dolor sit amet la maryame",
     text2: "dor sut colondeum.",
     changeButton: true,
   ),
   OnBoarding(
-    image: "assets/images/Illustration (1).png",
-    title: "Tittle One",
-    text1: "Lorem ipsum dolor sit amet la maryame",
-    text2: "dor sut colondeum.",
-    changeButton: true,
-  ),
-  OnBoarding(
-    image: "assets/images/Illustration (2).png",
+    image:  AppImage.onBoarding2,
     title: "Tittle One",
     text1: "Lorem ipsum dolor sit amet la maryame",
     text2: "dor sut colonnaded.",

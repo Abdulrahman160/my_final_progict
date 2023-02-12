@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conset.dart';
+import 'package:my_final_progict/conestant/conset.dart';
 
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
@@ -17,7 +17,7 @@ class WelcomeView extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/Background (1).png"),
+            image: AssetImage("assets/images/background.png"),
             fit: BoxFit.cover,
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../conset.dart';
+import '../conestant/conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Text_From_Filed.dart';
 import 'Sign_Up/SignUp_View.dart';
@@ -189,7 +189,7 @@ class _LoginViewState extends State<LoginView> {
                           width: 70,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/Google.png"),
+                          child: Image.asset("assets/images/google.png"),
                         ),
                       ),
                       InkWell(
@@ -199,7 +199,7 @@ class _LoginViewState extends State<LoginView> {
                           width: 70,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/Facebook.png"),
+                          child: Image.asset("assets/images/facebook.png"),
                         ),
                       ),
                       InkWell(
@@ -209,7 +209,7 @@ class _LoginViewState extends State<LoginView> {
                           width: 70,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/Twitter.png"),
+                          child: Image.asset("assets/images/twitter.png"),
                         ),
                       ),
                     ],

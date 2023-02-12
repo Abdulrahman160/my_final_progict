@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../conset.dart';
+import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../Login.dart';
 import 'OnBording.dart';
@@ -28,7 +29,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/Background (1).png"),
+            image: AssetImage(AppImage.background),
             fit: BoxFit.cover,
           ),
         ),
@@ -43,31 +44,27 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               height: 24,
             ),
             Spacer(),
-            Column(
-              children: [
-                Text(
-                  widget.data.title!,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: textColor),
-                ),
-                SizedBox(
-                  height: 12,
-                ),
-                Text(
-                  widget.data.text1!,
-                  style: TextStyle(color: textColor),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(widget.data.text2!,
-                    style: TextStyle(color: textColor)),
-                SizedBox(
-                  height: 40,
-                ),
-              ],
+            Text(
+              widget.data.title!,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: textColor),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Text(textAlign:TextAlign.center,
+              widget.data.text1!,
+              style: TextStyle(color: textColor),
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            Text(widget.data.text2!,
+                style: TextStyle(color: textColor)),
+            SizedBox(
+              height: 40,
             ),
             Spacer(),
             SmoothPageIndicator(

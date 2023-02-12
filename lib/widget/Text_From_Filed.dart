@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conset.dart';
+import 'package:my_final_progict/conestant/conset.dart';
 
 class textFormField extends StatefulWidget {
   const textFormField({
@@ -23,6 +23,7 @@ class textFormField extends StatefulWidget {
 
 class _ContainerViewState extends State<textFormField> {
   late bool secure;
+
   @override
   void initState() {
     this.secure = widget.secure;
@@ -35,14 +36,21 @@ class _ContainerViewState extends State<textFormField> {
       keyboardType: widget.keyboardType,
       textAlign: TextAlign.start,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 15),
-        suffixIcon: !widget.secure ? SizedBox() : IconButton(
-          icon: Icon(secure ? Icons.visibility_off: Icons.visibility,),
-          onPressed: () {
-            secure = !secure;
-            setState(() {});
-          },
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 19,
+          horizontal: 15,
         ),
+        suffixIcon: !widget.secure
+            ? SizedBox()
+            : IconButton(
+                icon: Icon(
+                  secure ?Icons.visibility :Icons.visibility_off,
+                ),
+                onPressed: () {
+                  secure = !secure;
+                  setState(() {});
+                },
+              ),
         filled: true,
         fillColor: Color(0xffF5F5FA),
         enabledBorder: OutlineInputBorder(

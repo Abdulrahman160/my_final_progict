@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conset.dart';
+import 'package:my_final_progict/conestant/conset.dart';
+import 'package:my_final_progict/conestant/image.dart';
 
 import '../../widget/Container_Button_nonColor.dart';
 import '../Login.dart';
@@ -21,7 +22,7 @@ class EmailSendPassword extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                "assets/images/Logo.png",
+               AppImage.logo,
                 height: 120,
                 width: 120,
               ),

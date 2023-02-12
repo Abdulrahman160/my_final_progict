@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conset.dart';
+import 'package:my_final_progict/conestant/conset.dart';
 
 import '../widget/Container_Button_Color.dart';
 import '../widget/Radio_View.dart';
@@ -27,7 +27,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
       backgroundColor: backColor,
       body: Stack(
         children: [
-          Image.asset("assets/images/Background (1).png"),
+          Image.asset("assets/images/background.png"),
           Positioned(child: Form(
             key: formKay,
             child: Padding(
@@ -42,7 +42,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                       ),
                       Center(
                         child: Image.asset(
-                          "assets/images/Personalization.png",
+                          "assets/images/personalization.png",
                         ),
                       ),
                       SizedBox(

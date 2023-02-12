@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../conset.dart';
+import '../conestant/conset.dart';
+import '../conestant/image.dart';
 import '../widget/Container_Button_nonColor.dart';
 
 class ErrorView extends StatelessWidget {
@@ -36,7 +37,7 @@ class ErrorView extends StatelessWidget {
         ],
         centerTitle: true,
         title: Text(
-          'Error',
+          'error',
           style: TextStyle(
               color: textColor,
               fontSize: 16,
@@ -52,7 +53,7 @@ class ErrorView extends StatelessWidget {
             height: 100,
           ),
           Center(
-            child: Image.asset("assets/images/Error.png"),
+            child: Image.asset( AppImage.error),
           ),
           SizedBox(
             height: 32,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../conset.dart';
+import '../../conestant/conset.dart';
+import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
@@ -40,7 +41,7 @@ class _SignUpViewState extends State<SignUpView> {
                   Container(
                     height: 120,
                     width: 120,
-                    child: Image.asset("assets/images/Logo.png"),
+                    child: Image.asset(AppImage.logo),
                   ),
                   SizedBox(
                     height: 24,
