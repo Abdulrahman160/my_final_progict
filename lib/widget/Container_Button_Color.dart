@@ -13,11 +13,11 @@ class ContainerColorView extends StatelessWidget {
       child: Center(
         child: Container(
                 height: 56,
-                width: 295,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   gradient: LinearGradient(
-                    colors: [containerNonBorderColor1,containerNonBorderColor2]
+                    colors: [containerNonBorderColor1,containerNonBorderColor2],
                   )
                 ),
                 child: Center(

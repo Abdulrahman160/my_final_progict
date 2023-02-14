@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../conestant/conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Text_From_Filed.dart';
-import 'Sign_Up/SignUp_View.dart';
+import 'SignUp/SignUp_View.dart';
 import 'forget_password/Enter_Email.dart';
 
 class LoginView extends StatefulWidget {
@@ -66,7 +66,7 @@ class _LoginViewState extends State<LoginView> {
                   textFormField(
 
                     keyboardType: TextInputType.emailAddress,
-                    text: 'Email',
+                    text: 'Email / Phone Number',
                     onchange: (String value) {
                       email = value;
                     },
@@ -244,7 +244,8 @@ class _LoginViewState extends State<LoginView> {
                               fontWeight: FontWeight.w600,
                               fontSize: 14),
                         ),
-                      )
+                      ),
+
                     ],
                   )
                 ]),

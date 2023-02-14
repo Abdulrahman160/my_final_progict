@@ -13,25 +13,23 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
-  void initState(){
-    Timer(Duration(seconds: 5),
-          () =>Navigator.pushReplacement(context, MaterialPageRoute(builder:
-
-          (context) => OnBoardings())),
+  void initState() {
+    Timer(
+      Duration(seconds: 5),
+      () => Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => OnBoardings())),
     );
     super.initState();
   }
-
 
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backColor,
       body: Center(
-        child: Container(
-          // child: Image.asset(),
-          height: 200,
-          width: 200,
-          child: Image.asset(AppImage.logo),
+        child: Image.asset(
+          AppImage.logo,
+          height: double.infinity,
+          width: double.infinity,
         ),
       ),
     );

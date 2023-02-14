@@ -65,11 +65,11 @@ class WelcomeView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 35,
+                height: 50,
               ),
              InkWell(
                child:  ContainerColorView(
-                   data: "Personalize Your Account",
+                   data: "Complete Your Account",
                  onTap: () {
                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PersonalizationView(),));
                  },
@@ -78,11 +78,7 @@ class WelcomeView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              InkWell(
-                child: ContainerNonColorView(
-                  data: "Skip",
-                ),
-              ),
+
             ],
           ),
         ),

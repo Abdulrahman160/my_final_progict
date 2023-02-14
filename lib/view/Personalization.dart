@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
+import 'package:my_final_progict/conestant/image.dart';
 
 import '../widget/Container_Button_Color.dart';
 import '../widget/Radio_View.dart';
@@ -17,7 +18,6 @@ String? phone;
 String? date;
 
 class _PersonalizationViewState extends State<PersonalizationView> {
-
   String userType = '';
   final userTypes = ['Doctor', 'Patient', 'Trainer'];
 
@@ -27,163 +27,92 @@ class _PersonalizationViewState extends State<PersonalizationView> {
       backgroundColor: backColor,
       body: Stack(
         children: [
-          Image.asset("assets/images/background.png"),
-          Positioned(child: Form(
+          Image.asset(
+            AppImage.background,
+          ),
+          Positioned(
+              child: Form(
             key: formKay,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: ListView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 75,
+                  ),
+                  Center(
+                    child: Image.asset(
+                      AppImage.personalization,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Complete Your Information",
+                    style: TextStyle(
+                        color: textColor,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(height: 20,),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 75,
-                      ),
-                      Center(
-                        child: Image.asset(
-                          "assets/images/personalization.png",
+                      Padding(
+                        padding: EdgeInsets.only(left: 17),
+                        child: Text(
+                          "Who are you?",
+                          style: TextStyle(
+                              color: textColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
-                      Container(
-                        width: 300,
-
-                        child: Column(
-                          children: [
-                            Align(alignment: Alignment.bottomLeft,
-                              child: Text(
-                                "Complete Your Information",
-                                style: TextStyle(
-                                    color: textColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  height: 50,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Color(0XFFF5F5FA),
-                                  ),
-                                  child: Text(
-                                    "+20",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  height: 50,
-                                  width: 243,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: Color(0XFFF5F5FA),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: TextFormField(
-                                      keyboardType: TextInputType.number,
-                                      textAlign: TextAlign.start,
-                                      decoration: InputDecoration(
-                                        hintText: "Phone Number",
-                                        helperStyle: TextStyle(
-                                            color: hintTextColor.withOpacity(0.1),
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14),
-                                        border: InputBorder.none,
-                                      ),
-                                      onChanged: (value) {
-                                        phone = value;
-                                      },
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Phone can be not empty';
-                                        } else if (value.length < 6) {
-                                          return 'Phone must be 10 number';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            ...userTypes.map((e) {
-                              return CustomRadio(
-                                title: e,
-                                onChange: (v) => setState(() => userType = e),
-                                value: e,
-                                groupValue: userType,
-                              );
-                            }),
-                            /*
-                            RadioView(
-                              title: "Select user Type",
-                              textRadio1: "Doctor",
-                              textRadio2: "Pation",
-                            ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            RadioView(
-                              title: "Choose Gender",
-                              textRadio1: "Male",
-                              textRadio2: "Female",
-                            ),
-                            */
-                            SizedBox(
-                              height: 12,
-                            ),
-                            textFormField(
-                              keyboardType: TextInputType.datetime,
-                              onchange: (value) {
-                                date = value;
-                              },
-                              text: "Data of  Birth",
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Date can be not empty';
-                                } else {
-                                  return null;
-                                }
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                      ...userTypes.map((e) {
+                        return CustomRadio(
+                          title: e,
+                          onChange: (v) => setState(() => userType = e),
+                          value: e,
+                          groupValue: userType,
+                        );
+                      }),
+                      /*
+                          RadioView(
+                            title: "Select user Type",
+                            textRadio1: "Doctor",
+                            textRadio2: "Pation",
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          RadioView(
+                            title: "Choose Gender",
+                            textRadio1: "Male",
+                            textRadio2: "Female",
+                          ),
+                          */
                       SizedBox(
-                        height: 50,
-                      ),
-                      ContainerColorView(
-                        data: "Continue",
-                        onTap: () {
-                          //TODO: put the condition
-                          if (formKay.currentState!.validate() || userType.isEmpty) {
-                            return;
-                          }
-                        },
+                        height: 12,
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ContainerColorView(
+                    data: "Continue",
+                    onTap: () {
+                      //TODO: put the condition
+                      if (formKay.currentState!.validate() ||
+                          userType.isEmpty) {
+                        return;
+                      }
+                    },
                   ),
                 ],
               ),

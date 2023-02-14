@@ -6,7 +6,7 @@ import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../Login.dart';
-import 'Confirmation.dart';
+import 'confirmation.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -29,11 +29,11 @@ class _SignUpViewState extends State<SignUpView> {
       backgroundColor: backColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            Form(
-              key: formKay,
-              child: Column(
+        child: Form(
+          key: formKay,
+          child: SingleChildScrollView(
+            child:
+              Column(
                 children: [
                   SizedBox(
                     height: 60,
@@ -46,7 +46,8 @@ class _SignUpViewState extends State<SignUpView> {
                   SizedBox(
                     height: 24,
                   ),
-                  Align(alignment: Alignment.centerLeft,
+                  Align(
+                    alignment: Alignment.centerLeft,
                     child: Text(
                       'Register',
                       style: TextStyle(
@@ -56,26 +57,12 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ),
                   SizedBox(
-                    height: 16,
+                    height: 32,
                   ),
+
                   textFormField(
                     keyboardType: TextInputType.emailAddress,
-                    text: 'Name',
-                    onchange: (String value) {
-                      name = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Email can be not empty";
-                      } else {}
-                    },
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  textFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    text: 'Email',
+                    text: 'Email / Phone Number',
                     onchange: (String value) {
                       email = value;
                     },
@@ -89,12 +76,10 @@ class _SignUpViewState extends State<SignUpView> {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
+
+
                   textFormField(
                     secure: true,
-
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
                     onchange: (String value) {
@@ -110,9 +95,7 @@ class _SignUpViewState extends State<SignUpView> {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: 16,
-                  ),
+
                   textFormField(
                     secure: true,
 
@@ -133,9 +116,7 @@ class _SignUpViewState extends State<SignUpView> {
                         };
                     },
                   ),
-                  SizedBox(
-                    height: 24,
-                  ),
+
                   RichText(
                     text: TextSpan(
                         text: "By signing up, you agree to our ",
@@ -197,15 +178,15 @@ class _SignUpViewState extends State<SignUpView> {
                   )
                 ],
               ),
-            )
-          ],
+
+          ),
         ),
       ),
     );
   }
 }
 
-//
+
 // TextSpan(
 // text: 'Single tap',
 // style: TextStyle(color: Colors.red[300]),

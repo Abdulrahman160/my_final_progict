@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../conestant/conset.dart';
 
-
 class CustomRadio extends StatelessWidget {
-  const CustomRadio({Key? key, required this.title, required this.onChange, required this.value, required this.groupValue}) : super(key: key);
+  const CustomRadio({
+    Key? key,
+    required this.title,
+    required this.onChange,
+    required this.value,
+    required this.groupValue,
+  }) : super(key: key);
 
   final String title;
   final Function(dynamic value) onChange;
@@ -19,14 +24,15 @@ class CustomRadio extends StatelessWidget {
           value: true,
           groupValue: groupValue == value,
           onChanged: (value) {
-            value =  value;
-            onChange( value);
+            value = value;
+            onChange(value);
           },
         ),
         Text(
           title,
           style: TextStyle(
             fontSize: 17,
+            color: Colors.grey,
             fontWeight: FontWeight.w600,
           ),
         ),

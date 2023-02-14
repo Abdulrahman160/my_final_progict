@@ -1,6 +1,6 @@
 class AppImage {
   static const String afterQuiz = "assets/images/afterQuiz.png";
-  static const String background = "assets/images/background.png";
+
   static const String beforeStartQuiz = "assets/images/beforeStartQuiz.png";
   static const String error = "assets/images/error.png";
   static const String facebook = "assets/images/facebook.png";
@@ -15,4 +15,5 @@ class AppImage {
   static const String smallCard = "assets/images/smallCard.png";
   static const String success = "assets/images/success.png";
   static const String twitter = "assets/images/twitter.png";
+  static const String background = "assets/images/background.png";
 }

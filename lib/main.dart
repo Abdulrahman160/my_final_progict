@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: SplashView(),
-      // theme: theme,
+       // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',
-      // builder: (context, child) => SafeArea(child: child!)
+
 
     );
   }

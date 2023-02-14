@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../conestant/conset.dart';
 
 class textFormField extends StatefulWidget {
@@ -25,6 +24,7 @@ class textFormField extends StatefulWidget {
 
 class _ContainerViewState extends State<textFormField> {
   late bool secure;
+
   @override
   void initState() {
     this.secure = widget.secure;
@@ -32,42 +32,54 @@ class _ContainerViewState extends State<textFormField> {
   }
 
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: secure,
-      keyboardType: widget.keyboardType,
-      textAlign: TextAlign.start,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 15),
-        suffixIcon: !widget.secure ? SizedBox() : IconButton(
-          icon: Icon(secure ? Icons.visibility_off: Icons.visibility,),
-          onPressed: () {
-            secure = !secure;
-            setState(() {});
-          },
+    return Column(
+      children: [
+        TextFormField(
+          obscureText: secure,
+          keyboardType: widget.keyboardType,
+          textAlign: TextAlign.start,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 15),
+            suffixIcon: !widget.secure
+                ? SizedBox()
+                : IconButton(
+                    icon: Icon(
+                      secure ? Icons.visibility_off : Icons.visibility,
+                      color: secure ? Colors.grey : Colors.blue,
+                    ),
+                    onPressed: () {
+                      secure = !secure;
+                      setState(() {});
+                    },
+                  ),
+            filled: true,
+            fillColor: Color(0xffF5F5FA),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide.none),
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            hintText: widget.text,
+            helperStyle: TextStyle(
+                color: hintTextColor.withOpacity(0.01),
+                fontWeight: FontWeight.w500,
+                fontSize: 16),
+            border: InputBorder.none,
+          ),
+          onChanged: widget.onchange,
+          validator: widget.validator,
         ),
-        filled: true,
-        fillColor: Color(0xffF5F5FA),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide.none),
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none),
-        focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none),
-        hintText: widget.text,
-        helperStyle: TextStyle(
-            color: hintTextColor.withOpacity(0.01),
-            fontWeight: FontWeight.w500,
-            fontSize: 16),
-        border: InputBorder.none,
-      ),
-      onChanged: widget.onchange,
-      validator: widget.validator,
+        SizedBox(
+          height: 16,
+        ),
+      ],
     );
   }
 }

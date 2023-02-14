@@ -10,6 +10,7 @@ Color textOrangeColor = Color(0XFFF77A55);
 Color backGroundColor = Color(0XFFC4C4C4);
 Color backColor= Color(0XFFFFFFFF);
 Color hintTextColor=Color(0XFFB8B8C7);
+
 const kkeepUserLoggedIn ='keepUserLogIn';
 
 void closeKeyboard(context) => FocusScope.of(context).unfocus();
