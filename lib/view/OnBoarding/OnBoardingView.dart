@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
+import '../../widget/Container_Button_nonColor.dart';
 import '../Login.dart';
 import 'OnBording.dart';
 
@@ -86,15 +87,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 56,
-                              width: 140,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.blue),
-                              ),
-                              child: InkWell(
+                            InkWell(
                                 onTap: () {
                                   pageController.animateToPage(
                                     pageChanged = 2,
@@ -102,17 +95,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                     curve: Curves.bounceInOut,
                                   );
                                 },
-                                child: Center(
-                                  child: Text(
-                                    'Skip',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xff4838D1)),
-                                  ),
-                                ),
+                                child: ContainerNonColorView(data: 'Skip',)
                               ),
-                            ),
                             const SizedBox(
                               width: 15,
                             ),
@@ -124,24 +108,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                   curve: Curves.bounceInOut,
                                 );
                               },
-                              child: Container(
-                                height: 56,
-                                width: 140,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    gradient: LinearGradient(colors: [
-                                      Color(0xff2E91EF),
-                                      Color(0xff95D7FF)
-                                    ])),
-                                child: const Center(
-                                    child: Text(
-                                  'Next',
-                                  style: TextStyle(
-                                      color: Color(0xffFFFFFF),
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16),
-                                )),
-                              ),
+                              child: ContainerColorView(
+                                data: 'Next',
+                              )
                             )
                           ],
                         )
