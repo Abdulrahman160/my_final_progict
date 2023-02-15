@@ -5,7 +5,9 @@ import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../Login.dart';
-import 'Email_Send_Password.dart';
+
+import '../SignUp/confirmation.dart';
+import 'set_new_password.dart';
 
 class EnterEmailView extends StatefulWidget {
   const EnterEmailView({Key? key}) : super(key: key);
@@ -49,7 +51,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                   Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 16,),
                   textFormField(
-                    text: 'Email ',
+                    text: 'Email / Phone Number ',
                     keyboardType: TextInputType.emailAddress,
                     onchange: (String value) {
                       email = value;
@@ -68,7 +70,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                     data: 'Submit',
                     onTap: () {
                       if (formKay.currentState!.validate()) {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>EmailSendPassword()));
+                         Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>SignUpConfirmationView()));
 
                       }else{
                         return;

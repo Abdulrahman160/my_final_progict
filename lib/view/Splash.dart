@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../conestant/conset.dart';
 import '../conestant/image.dart';
-import 'OnBoarding/OnBording.dart';
+import 'OnBoarding/on_bording.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);

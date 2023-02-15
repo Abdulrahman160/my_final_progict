@@ -1,12 +1,15 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/conestant/image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../conestant/conset.dart';
-import '../conestant/image.dart';
+import '../conestant/conset.dart';
+import '../conestant/conset.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
 import '../widget/Text_From_Filed.dart';
-import 'SignUp/SignUp_View.dart';
-import 'forget_password/Enter_Email.dart';
+import 'SignUp/signup_view.dart';
+import 'forget_password/enter_email.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({
@@ -43,18 +46,17 @@ class _LoginViewState extends State<LoginView> {
                       child: Container(
                         height: 120,
                         width: 120,
-                        child: Image.asset(AppImage.logo),
+                        child: Image.asset("assets/images/logo.png"),
                       ),
                     ),
                     SizedBox(
                       height: 24,
                     ),
-                    Text(
-                      'Login to Your Account',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    RichText(
+                      text: TextSpan(
+                          text: "Login to Your Account",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 16,color: Colors.black)),
                     ),
                     SizedBox(
                       height: 16,
@@ -133,24 +135,23 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: 20,
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EnterEmailView()));
-                      },
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          'Forget Password ?',
-                          style: TextStyle(
-                            color: Color(0xffF77A55),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: RichText(
+                          text: TextSpan(
+                              text: "Forget Password ? ",
+                              style: TextStyle(
+                                  color: textOrangeColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EnterEmailView()));
+                                })),
                     ),
                     SizedBox(
                       height: 36,
@@ -159,32 +160,33 @@ class _LoginViewState extends State<LoginView> {
                         child: Text(
                       'Or login with',
                       style: TextStyle(
-                          color: Color(0xff2E2E5D),
+                          color: textColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400),
                     )),
                     SizedBox(
                       height: 20,
                     ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ContainerNonColorView(
-                          enableImage: true,
-                          image: AppImage.google,
+                        Expanded(
+                          child: ContainerNonColorView(
+                              enableImage: true, image: AppImage.google),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 16,
                         ),
-                        ContainerNonColorView(
-                          enableImage: true,
-                          image: AppImage.google,
+                        Expanded(
+                          child: ContainerNonColorView(
+                              enableImage: true, image: AppImage.facebook),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 16,
                         ),
-                        ContainerNonColorView(
-                          enableImage: true,
-                          image: AppImage.google,
+                        Expanded(
+                          child: ContainerNonColorView(
+                              enableImage: true, image: AppImage.twitter),
                         ),
                       ],
                     ),
@@ -194,33 +196,32 @@ class _LoginViewState extends State<LoginView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Don’t have an accoun’t ?',
-                          style: TextStyle(
-                              color: Color(0xff2E2E5D),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignUpView()));
-                          },
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                                color: Color(0xffF77A55),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14),
-                          ),
+                        RichText(
+                          text: TextSpan(
+                              text: "Don’t have an account’t ?",
+                              style: TextStyle(
+                                  color: textColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14),
+                              children: [
+                                TextSpan(
+                                    text: "  Register",
+                                    style: TextStyle(
+                                        color: textOrangeColor,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SignUpView()));
+                                      }),
+                              ]),
                         ),
                       ],
-                    ),
+                    )
                   ]),
             ),
           ),
