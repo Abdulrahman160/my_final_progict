@@ -29,14 +29,16 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
         backgroundColor: backColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(
             key: formKay,
             child: SingleChildScrollView(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   SizedBox(height: 60,),
+                    SizedBox(
+                      height: 60,
+                    ),
                     Center(
                       child: Container(
                         height: 120,
@@ -44,15 +46,16 @@ class _LoginViewState extends State<LoginView> {
                         child: Image.asset(AppImage.logo),
                       ),
                     ),
-                        SizedBox(height: 24,),
-                        Text(
-                          'Login to Your Account',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      'Login to Your Account',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     SizedBox(
                       height: 16,
                     ),
@@ -72,7 +75,6 @@ class _LoginViewState extends State<LoginView> {
                         }
                       },
                     ),
-
                     textFormField(
                       //controller: passwordController,
                       secure: true,
@@ -131,25 +133,28 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: 20,
                     ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => EnterEmailView()));
-                          },
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: Text(
-                              'Forget Password ?',
-                              style: TextStyle(
-                                  color: Color(0xffF77A55),
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16),
-                            ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EnterEmailView()));
+                      },
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          'Forget Password ?',
+                          style: TextStyle(
+                            color: Color(0xffF77A55),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
                           ),
                         ),
-                  SizedBox(height:36 ,),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 36,
+                    ),
                     Center(
                         child: Text(
                       'Or login with',
@@ -161,20 +166,24 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ContainerNonColorView(
-                          secure: true,
+                          enableImage: true,
                           image: AppImage.google,
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         ContainerNonColorView(
-                          secure: true,
+                          enableImage: true,
                           image: AppImage.google,
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         ContainerNonColorView(
-                          secure: true,
+                          enableImage: true,
                           image: AppImage.google,
                         ),
                       ],
@@ -212,8 +221,6 @@ class _LoginViewState extends State<LoginView> {
                         ),
                       ],
                     ),
-
-
                   ]),
             ),
           ),

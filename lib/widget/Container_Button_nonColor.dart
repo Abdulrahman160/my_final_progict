@@ -6,12 +6,12 @@ class ContainerNonColorView extends StatefulWidget {
       {Key? key,
       this.data,
       this.onTap,
-      this.secure = false,
+      this.enableImage = false,
       this.image,
       //required this.width,
       })
       : super(key: key);
-  final bool secure;
+  final bool enableImage;
   final String? data;
   final GestureTapCallback? onTap;
   final String? image;
@@ -23,11 +23,11 @@ class ContainerNonColorView extends StatefulWidget {
 }
 
 class _ContainerNonColorViewState extends State<ContainerNonColorView> {
-  late bool secure;
+  late bool enableImage;
 
   @override
   void initState() {
-    this.secure = widget.secure;
+    this.enableImage = widget.enableImage;
     super.initState();
   }
 
@@ -42,7 +42,7 @@ class _ContainerNonColorViewState extends State<ContainerNonColorView> {
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: containerBorderColor)),
             child: Center(
-                child: secure
+                child: enableImage
                     ? Image.asset(widget.image!)
                     : Text(
                         widget.data!,
