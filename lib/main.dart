@@ -16,8 +16,6 @@ class MyApp extends StatelessWidget {
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',
-
-
     );
   }
 }

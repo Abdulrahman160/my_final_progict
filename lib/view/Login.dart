@@ -163,7 +163,7 @@ class _LoginViewState extends State<LoginView> {
                       child: Text(
                         'Or login with',
                         style: TextStyle(
-                            color: textOrangeColor,
+                            color: textColor,
                             fontSize: 14,
                             fontWeight: FontWeight.w400),
                       )),
