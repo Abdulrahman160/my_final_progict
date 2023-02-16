@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/OnBoarding/OnBoardingView.dart';
+import 'package:my_final_progict/view/OnBoarding/on_boarding_view.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 
 class OnBoardings extends StatefulWidget {

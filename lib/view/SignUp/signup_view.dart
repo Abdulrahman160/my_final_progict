@@ -57,7 +57,7 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ),
                   SizedBox(
-                    height: 32,
+                    height: 16,
                   ),
 
                   TextFormFieldView(
@@ -116,7 +116,7 @@ class _SignUpViewState extends State<SignUpView> {
                         };
                     },
                   ),
-
+                  SizedBox(height: 14,),
                   RichText(
                     text: TextSpan(
                         text: "By signing up, you agree to our ",
@@ -144,9 +144,7 @@ class _SignUpViewState extends State<SignUpView> {
                           ),
                         ]),
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
+
                   SizedBox(
                     height: 24,
                   ),
@@ -157,7 +155,7 @@ class _SignUpViewState extends State<SignUpView> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpConfirmationView()),
+                              builder: (context) => SignUpConfirmationView(controlacsses: true,)),
                         );
                       } else {
                         return;
@@ -165,7 +163,7 @@ class _SignUpViewState extends State<SignUpView> {
                     },
                   ),
                   SizedBox(
-                    height: 24,
+                    height: 16,
                   ),
                   ContainerNonColorView(
                     data: 'Cancel',
@@ -178,7 +176,6 @@ class _SignUpViewState extends State<SignUpView> {
                   )
                 ],
               ),
-
           ),
         ),
       ),
@@ -186,11 +183,3 @@ class _SignUpViewState extends State<SignUpView> {
   }
 }
 
-
-// TextSpan(
-// text: 'Single tap',
-// style: TextStyle(color: Colors.red[300]),
-// recognizer: TapGestureRecognizer()..onTap = () {
-// // Single tapped.
-// },
-// ),

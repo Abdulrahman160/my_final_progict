@@ -68,7 +68,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                     data: 'Submit',
                     onTap: () {
                       if (formKay.currentState!.validate()) {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>EmailSendPassword()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>()));
 
                       }else{
                         return;
