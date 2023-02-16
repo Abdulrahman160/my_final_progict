@@ -63,7 +63,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 16,
                   ),
-                  textFormField(
+                  TextFormFieldView(
 
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email / Phone Number',
@@ -83,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 16,
                   ),
-                  textFormField(
+                  TextFormFieldView(
                     //controller: passwordController,
                     secure: true,
                     keyboardType: TextInputType.emailAddress,

@@ -48,7 +48,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                   SizedBox(height: 5,),
                   Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
                   SizedBox(height: 16,),
-                  textFormField(
+                  TextFormFieldView(
                     text: 'Email ',
                     keyboardType: TextInputType.emailAddress,
                     onchange: (String value) {

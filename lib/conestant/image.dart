@@ -16,4 +16,6 @@ class AppImage {
   static const String success = "assets/images/success.png";
   static const String twitter = "assets/images/twitter.png";
   static const String background = "assets/images/background.png";
+  static const String homeBackground = "assets/images/homeBackground.png";
+
 }

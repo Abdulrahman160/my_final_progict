@@ -60,7 +60,7 @@ class _SignUpViewState extends State<SignUpView> {
                     height: 32,
                   ),
 
-                  textFormField(
+                  TextFormFieldView(
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email / Phone Number',
                     onchange: (String value) {
@@ -78,7 +78,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
 
 
-                  textFormField(
+                  TextFormFieldView(
                     secure: true,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
@@ -96,7 +96,7 @@ class _SignUpViewState extends State<SignUpView> {
                     },
                   ),
 
-                  textFormField(
+                  TextFormFieldView(
                     secure: true,
 
                     // controller: null,

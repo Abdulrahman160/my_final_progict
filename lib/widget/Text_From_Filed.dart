@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../conestant/conset.dart';
 
-class textFormField extends StatefulWidget {
-  const textFormField({
+class TextFormFieldView extends StatefulWidget {
+  const TextFormFieldView({
     Key? key,
     required this.text,
     required this.keyboardType,
@@ -19,10 +19,10 @@ class textFormField extends StatefulWidget {
   final bool secure;
 
   @override
-  State<textFormField> createState() => _ContainerViewState();
+  State<TextFormFieldView> createState() => _ContainerViewState();
 }
 
-class _ContainerViewState extends State<textFormField> {
+class _ContainerViewState extends State<TextFormFieldView> {
   late bool secure;
 
   @override
