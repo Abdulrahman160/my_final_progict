@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/conestant/image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../conestant/conset.dart';
 import '../widget/Container_Button_Color.dart';
+import '../widget/Container_Button_nonColor.dart';
 import '../widget/Text_From_Filed.dart';
 import 'SignUp/SignUp_View.dart';
 import 'forget_password/Enter_Email.dart';
@@ -20,21 +23,21 @@ class _LoginViewState extends State<LoginView> {
   String? email;
   String? password;
   bool keepUserLogIn = false;
-  TextEditingController passwordController =TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: backColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(
             key: formKay,
-            child: ListView(
-              children: [
+            child: SingleChildScrollView(
+              child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   SizedBox(
-                    height: 126,
+                    height: 60,
                   ),
                   Center(
                     child: Container(
@@ -46,11 +49,6 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 20,
-                      ),
                       Text(
                         'Login to Your Account',
                         style: TextStyle(
@@ -58,13 +56,10 @@ class _LoginViewState extends State<LoginView> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ],
-                  ),
                   SizedBox(
                     height: 16,
                   ),
                   TextFormFieldView(
-
                     keyboardType: TextInputType.emailAddress,
                     text: 'Email / Phone Number',
                     onchange: (String value) {
@@ -79,9 +74,6 @@ class _LoginViewState extends State<LoginView> {
                         return null;
                       }
                     },
-                  ),
-                  SizedBox(
-                    height: 16,
                   ),
                   TextFormFieldView(
                     //controller: passwordController,
@@ -100,7 +92,6 @@ class _LoginViewState extends State<LoginView> {
                         return null;
                       }
                     },
-
                   ),
                   Row(
                     children: [
@@ -170,86 +161,67 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Center(
                       child: Text(
-                    'Or login with',
-                    style: TextStyle(
-                        color: Color(0xff2E2E5D),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400),
-                  )),
+                        'Or login with',
+                        style: TextStyle(
+                            color: textOrangeColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
+                      )),
                   SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
-                        // onTap: TODO NAVIGATOR TO google ,
-                        child: Container(
-                          height: 56,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/google.png"),
-                        ),
+                      Expanded(
+                          child: ContainerNonColorView(
+                            enableImage: true,
+                            image: AppImage.google,
+                          )),
+                      SizedBox(
+                        width: 10,
                       ),
-                      InkWell(
-                        // onTap: TODO NAVIGATOR TO Facebook ,
-                        child: Container(
-                          height: 56,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/facebook.png"),
-                        ),
+                      Expanded(
+                          child: ContainerNonColorView(
+                            enableImage: true,
+                            image: AppImage.facebook,
+                          )),
+                      SizedBox(
+                        width: 10,
                       ),
-                      InkWell(
-                        // onTap: TODO NAVIGATOR TO onedrive ,
-                        child: Container(
-                          height: 56,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Image.asset("assets/images/twitter.png"),
-                        ),
-                      ),
+                      Expanded(
+                          child: ContainerNonColorView(
+                            enableImage: true,
+                            image: AppImage.twitter,
+                          )),
                     ],
                   ),
                   SizedBox(
                     height: 24,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don’t have an accoun’t ?',
-                        style: TextStyle(
-                            color: Color(0xff2E2E5D),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignUpView()));
-                        },
-                        child: Text(
-                          'Register',
-                          style: TextStyle(
-                              color: Color(0xffF77A55),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14),
-                        ),
-                      ),
-
-                    ],
+                  Center(
+                    child: RichText(
+                        text: TextSpan(
+                            text: "Don't have an account ?",
+                            style: TextStyle(
+                              color: textColor,
+                              fontSize: 14,
+                            ),
+                            children: [
+                              TextSpan(
+                                  text: "   Rigester",
+                                  style: TextStyle(
+                                      color: textOrangeColor, fontSize: 14,fontWeight: FontWeight.w600),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushReplacement(context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SignUpView()));
+                                    })
+                            ])),
                   )
                 ]),
-              ],
             ),
           ),
         ));
