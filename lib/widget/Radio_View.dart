@@ -26,15 +26,12 @@ class _CustomRadioState extends State<CustomRadio> {
     return Row(
       children: [
         Radio(
-          fillColor: MaterialStatePropertyAll(
-            Colors.black,
-          ),
           value: true,
           groupValue: widget.groupValue == widget.value,
           onChanged: (value) {
             value = value;
             if(widget.groupValue ==widget.value){
-            color!=Colors.black;
+              color!=Colors.black;
             }
             else{
               color!=Colors.grey;
