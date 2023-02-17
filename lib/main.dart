@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/Splash.dart';
+import 'package:my_final_progict/view/HomePage/home_view.dart';
+import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 
 
 void main(){
@@ -12,10 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashView(),
+      home: NavBarView(),
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',
+
 
 
     );
