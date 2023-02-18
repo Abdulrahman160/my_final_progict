@@ -112,7 +112,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       height: 100,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                          color:Textfiled,
+                                          color:TextFiled,
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: Center(

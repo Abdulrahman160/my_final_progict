@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/view/Finish_Exam.dart';
 import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: CompleteInformationView(),
+      home: FinishExamView(),
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',

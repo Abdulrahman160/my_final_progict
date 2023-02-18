@@ -21,14 +21,14 @@ class _ContainerChooseViewState extends State<ContainerChooseView> {
       height: 85,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Textfiled, borderRadius: BorderRadius.circular(8)),
+          color: TextFiled, borderRadius: BorderRadius.circular(8)),
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(left:1,top: 16),
             child: Text(
               widget.question,
-              style: TextStyle(color: Graytext,fontWeight: FontWeight.w500,fontSize: 14),
+              style: TextStyle(color: GrayText,fontWeight: FontWeight.w500,fontSize: 14),
             ),
           ),
           Row(

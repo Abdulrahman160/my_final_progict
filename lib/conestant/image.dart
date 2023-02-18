@@ -25,6 +25,7 @@ class AppImage {
   static const String training = "assets/images/training.png";
   static const String  home ="assets/images/home.png";
   static const String  message ="assets/images/message.png";
+  static const String finish_exam ="assets/images/finish_exam.png";
 
 
 }
