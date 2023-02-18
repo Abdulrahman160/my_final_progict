@@ -19,6 +19,8 @@ Color kWhite=Color(0xFFFFFFFF);
 Color backgroundCircleAvatar=Color(0xffDFDFDF);
 Color kBlue=Color(0xff2E91EF);
 Color kLiteBlue=Color(0xffAFD8FF);
+Color Textfiled =Color(0xffF5F5FA);
+Color Graytext =Color(0xffB8B8C7);
 const kKeepUserLoggedIn ='keepUserLogIn';
 
 void closeKeyboard(context) => FocusScope.of(context).unfocus();

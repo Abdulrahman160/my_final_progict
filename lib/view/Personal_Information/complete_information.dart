@@ -105,7 +105,6 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: FileImage(imageFile!)),
-                                          color: Colors.grey.shade400,
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                     )
@@ -113,7 +112,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       height: 100,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                          color: Color(0xffEFF1F3),
+                                          color:Textfiled,
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: Center(
