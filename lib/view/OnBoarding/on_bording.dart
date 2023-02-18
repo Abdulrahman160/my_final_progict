@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding_view.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 
+import 'on_boarding_view.dart';
+
 class OnBoardings extends StatefulWidget {
   const OnBoardings({Key? key}) : super(key: key);
 

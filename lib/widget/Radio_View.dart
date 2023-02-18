@@ -36,7 +36,6 @@ class _CustomRadioState extends State<CustomRadio> {
             else{
               color!=Colors.grey;
             }
-
             widget.onChange(value);
           },
         ),

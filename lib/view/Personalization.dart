@@ -14,8 +14,6 @@ class PersonalizationView extends StatefulWidget {
 }
 
 final formKay = GlobalKey<FormState>();
-String? phone;
-String? date;
 
 class _PersonalizationViewState extends State<PersonalizationView> {
   String userType = '';

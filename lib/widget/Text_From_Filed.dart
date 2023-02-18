@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../conestant/conset.dart';
 
 class TextFormFieldView extends StatefulWidget {
-  const TextFormFieldView({
+    TextFormFieldView({
     Key? key,
     required this.text,
     required this.keyboardType,
@@ -18,18 +18,22 @@ class TextFormFieldView extends StatefulWidget {
   final FormFieldValidator<String>? validator;
   final bool secure;
 
-  @override
+
+
+    @override
   State<TextFormFieldView> createState() => _ContainerViewState();
 }
 
 class _ContainerViewState extends State<TextFormFieldView> {
   late bool secure;
 
+
   @override
   void initState() {
     this.secure = widget.secure;
     super.initState();
   }
+
 
   Widget build(BuildContext context) {
     return Column(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/HomePage/widget/circle_image.dart';
@@ -175,6 +174,7 @@ class HomePageView extends StatelessWidget {
                       ),
                       ContainerPlacesView(
                         image: AppImage.street,
+
                         title: "Bus",
                       ),
                     ],

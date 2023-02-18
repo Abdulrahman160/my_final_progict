@@ -1,5 +1,6 @@
 class AppImage {
   static const String afterQuiz = "assets/images/afterQuiz.png";
+
   static const String beforeStartQuiz = "assets/images/beforeStartQuiz.png";
   static const String error = "assets/images/error.png";
   static const String facebook = "assets/images/facebook.png";
@@ -16,13 +17,14 @@ class AppImage {
   static const String twitter = "assets/images/twitter.png";
   static const String background = "assets/images/background.png";
   static const String homeBackground = "assets/images/homeBackground.png";
-  static const String street = "assets/images/street.png";
+  static const String startexam = "assets/images/startexam.png";
   static const String shadow = "assets/images/shadow.png";
-  static const String star = "assets/images/star.png";
-  static const String home = "assets/images/home.png";
-  static const String training = "assets/images/training.png";
+  static const String street = "assets/images/street.png";
   static const String profile = "assets/images/profile.png";
-  static const String message = "assets/images/message.png";
+  static const String  star = "assets/images/star.png";
+  static const String training = "assets/images/training.png";
+  static const String  home ="assets/images/home.png";
+  static const String  message ="assets/images/message.png";
 
 
 }
