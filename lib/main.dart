@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/Finish_Exam.dart';
 import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
+import 'package:my_final_progict/view/Personalization.dart';
+
+import 'Upload_Photo_Card.dart';
+
+
 
 
 
@@ -14,12 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FinishExamView(),
+      home: UploadCardView(),
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',
-
-
     );
   }
 }

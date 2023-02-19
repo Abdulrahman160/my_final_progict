@@ -21,7 +21,6 @@ Color kBlue=Color(0xff2E91EF);
 Color kLiteBlue=Color(0xffAFD8FF);
 Color TextFiled =Color(0xffF5F5FA);
 Color GrayText =Color(0xffB8B8C7);
-Color FinishExam=Color(0xff2E2E5D);
 const kKeepUserLoggedIn ='keepUserLogIn';
 
 void closeKeyboard(context) => FocusScope.of(context).unfocus();

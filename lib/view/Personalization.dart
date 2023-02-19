@@ -83,21 +83,6 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                           groupValue: userType,
                         );
                       }),
-                      /*
-                          RadioView(
-                            title: "Select user Type",
-                            textRadio1: "Doctor",
-                            textRadio2: "Pation",
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          RadioView(
-                            title: "Choose Gender",
-                            textRadio1: "Male",
-                            textRadio2: "Female",
-                          ),
-                          */
                       SizedBox(
                         height: 12,
                       ),

@@ -38,9 +38,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 Spacer(
                   flex: 5,
                 ),
-                // const SizedBox(
-                //   height: 200,
-                // ),
                 Center(child: Image.asset(widget.data.image!)),
                 SizedBox(
                   height: 24,

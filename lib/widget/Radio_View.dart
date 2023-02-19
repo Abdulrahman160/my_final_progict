@@ -34,14 +34,6 @@ class _CustomRadioState extends State<CustomRadio> {
             value: value,
             groupValue: widget.groupValue == widget.value,
             onChanged: (value) {
-              // if(widget.groupValue ==widget.value){
-              //   setState(() {
-              //     color = Colors.black;
-              //   });
-              // }
-              // else{
-              //   color = Colors.grey;
-              // }
               widget.onChange(value);
             },
           ),
