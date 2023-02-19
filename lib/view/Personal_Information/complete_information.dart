@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
 import 'package:my_final_progict/conestant/image.dart';
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
@@ -9,8 +10,9 @@ import '../../widget/Text_From_Filed.dart';
 import 'container_choose.dart';
 
 class CompleteInformationView extends StatefulWidget {
-  const CompleteInformationView({Key? key, }) : super(key: key);
-
+  const CompleteInformationView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<CompleteInformationView> createState() =>
@@ -25,7 +27,6 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
   final formKay = GlobalKey<FormState>();
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: backColor,
@@ -112,7 +113,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       height: 100,
                                       width: 100,
                                       decoration: BoxDecoration(
-                                          color:TextFiled,
+                                          color: TextFiled,
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: Center(
@@ -123,11 +124,11 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             height: 10,
                           ),
                           TextFormFieldView(
-                            text: 'Full Name',
-                            keyboardType: TextInputType.text,
-                            onchange: (String value) {
-                              value = name!;
-                            },
+                              text: 'Full Name',
+                              keyboardType: TextInputType.text,
+                              onchange: (String value) {
+                                value = name!;
+                              },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Full Name can be not empty';
@@ -136,7 +137,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               }),
                           BirthDateView(
                             text: 'Data of Birth',
-                            Onchage: (dynamic value){
+                            Onchage: (dynamic value) {
                               value = date;
                               (value) {
                                 if (value == null || value.isEmpty) {
@@ -149,7 +150,9 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                           ContainerChooseView(
                             question: 'Choose your Gender',
                           ),
-                          SizedBox(height: 16,),
+                          SizedBox(
+                            height: 16,
+                          ),
                           TextFormFieldView(
                               text: 'Address',
                               keyboardType: TextInputType.text,
@@ -161,17 +164,17 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                   return 'address can be not empty';
                                 } else
                                   return null;
-                              }
-                          ),
+                              }),
                           ContainerChooseView(
                             question: 'Are you following up with a doctor?',
                           ),
-                          SizedBox(height: 16,),
+                          SizedBox(
+                            height: 16,
+                          ),
                           ContainerColorView(
                             data: 'Continue',
-                            onTap: (){},
+                            onTap: () {},
                           ),
-
                         ],
                       ),
                     ),

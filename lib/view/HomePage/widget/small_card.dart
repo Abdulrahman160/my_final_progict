@@ -8,26 +8,28 @@ class SmallCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 235,
+    return Container(
+      // height: 235,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: backgroundCircleAvatar.withOpacity(0.5)),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(flex: 6,fit: FlexFit.loose,child: Image.asset(AppImage.smallCard)),
+          Image.asset(
+            AppImage.smallCard,
+          ),
           SizedBox(
             height: 5,
           ),
-          Flexible(fit: FlexFit.loose,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                "Social Anxiety",
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 12,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "Social Anxiety",
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 12,
               ),
             ),
           ),
@@ -36,18 +38,17 @@ class SmallCardView extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Flexible(fit: FlexFit.loose,
-              child: Row(
-                children: [Spacer(flex: 1,),
-                  Image.asset(
-                    AppImage.star,
-                  ),
-                  Text(
-                    "4.9",
-                    style: TextStyle(fontSize: 10),
-                  ),Spacer(flex: 4,),
-                ],
-              ),
+            child: Row(
+              children: [
+                Image.asset(
+                  AppImage.star,
+                ),
+                SizedBox(width: 4,),
+                Text(
+                  "4.9",
+                  style: TextStyle(fontSize: 10),
+                ),
+              ],
             ),
           )
         ],

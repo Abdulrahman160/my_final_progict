@@ -7,7 +7,7 @@ import 'package:my_final_progict/view/HomePage/widget/small_card.dart';
 import 'package:my_final_progict/view/HomePage/widget/title_of_parts.dart';
 
 import '../../conestant/conset.dart';
-import '../../widget/container_search_view.dart';
+import '../../widget/container_search/container_search_view.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class HomePageView extends StatelessWidget {
         children: [
           Image.asset(AppImage.homeBackground),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 9, vertical: 27),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 27),
             child: ListView(
               children: [
                 Padding(
@@ -205,6 +205,7 @@ class HomePageView extends StatelessWidget {
                   hintTitle: 'view all',
                 ),
                 GridView.count(
+                  childAspectRatio: 3/4,
                 children:  List.generate(5, (index) {
                   return SmallCardView();
                 }),

@@ -5,6 +5,8 @@ import 'package:my_final_progict/conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Radio_View.dart';
 import '../widget/Text_From_Filed.dart';
+import 'NavBar/nav_bar_view.dart';
+import 'Splash.dart';
 
 class PersonalizationView extends StatefulWidget {
   const PersonalizationView({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class PersonalizationView extends StatefulWidget {
 final formKay = GlobalKey<FormState>();
 
 class _PersonalizationViewState extends State<PersonalizationView> {
-  String userType = '';
+  String userType = "";
   final userTypes = ['Doctor', 'Patient', 'Trainer'];
 
   @override
@@ -54,7 +56,9 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                         fontSize: 22,
                         fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -106,9 +110,25 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                     data: "Continue",
                     onTap: () {
                       //TODO: put the condition
-                      if (formKay.currentState!.validate() ||
-                          userType.isEmpty) {
-                        return;
+                      // if (
+                      // formKay.currentState!.validate()
+                      //     || userType.isEmpty
+                      // ) {
+                      //   return print("object");
+                      // }
+
+                      if (userType == "Patient") {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NavBarView(),
+                            ));
+                      } else if (userType == "Doctor") {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SplashView(),
+                            ));
                       }
                     },
                   ),
