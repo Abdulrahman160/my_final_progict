@@ -4,8 +4,8 @@ import '../conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
 
-class StartExamView extends StatelessWidget {
-  const StartExamView({Key? key}) : super(key: key);
+class PageStartExamView extends StatelessWidget {
+  const PageStartExamView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,9 @@ class StartExamView extends StatelessWidget {
                     Expanded(
                       child: ContainerColorView(
                         data: 'GO',
-                        // onTap: TODO ,
+                         onTap: () {
+
+                         },
                       ),
                     ),
                   ],
