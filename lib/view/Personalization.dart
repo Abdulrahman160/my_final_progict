@@ -98,14 +98,10 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                             textRadio2: "Female",
                           ),
                           */
-                      SizedBox(
-                        height: 12,
-                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
+
+                Spacer(),
                   ContainerColorView(
                     data: "Continue",
                     onTap: () {
@@ -132,6 +128,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                       }
                     },
                   ),
+                  SizedBox(height: 70,),
                 ],
               ),
             ),

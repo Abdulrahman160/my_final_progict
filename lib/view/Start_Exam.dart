@@ -22,7 +22,7 @@ class StartExamView extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 260,),
-                Image.asset(AppImage.startexam),
+                Image.asset(AppImage.startExam),
                 SizedBox(
                   height: 50,
                 ),

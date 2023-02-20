@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../conestant/conset.dart';
 
-class PartTitleView extends StatelessWidget {
-  const PartTitleView({
+class HeaderSectionsHomeView extends StatelessWidget {
+  const HeaderSectionsHomeView({
     Key? key,
 
     required this.title,

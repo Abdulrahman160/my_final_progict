@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../conestant/conset.dart';
+
 class CustomRadio extends StatefulWidget {
   const CustomRadio({
     Key? key,
@@ -30,7 +32,7 @@ class _CustomRadioState extends State<CustomRadio> {
       },
       child: Row(
         children: [
-          Radio(
+          Radio(fillColor: MaterialStatePropertyAll(kBlack),
             value: value,
             groupValue: widget.groupValue == widget.value,
             onChanged: (value) {
@@ -50,8 +52,8 @@ class _CustomRadioState extends State<CustomRadio> {
             style: TextStyle(
               fontSize: 17,
               color: widget.groupValue == widget.value
-                  ? Colors.black
-                  : Colors.grey,
+                  ? kBlack
+                  : GrayText,
               fontWeight: FontWeight.w600,
             ),
           ),

@@ -23,7 +23,7 @@ class FinishExamView extends StatelessWidget {
                 SizedBox(
                   height: 260,
                 ),
-                Center(child: Image.asset(AppImage.finish_exam)),
+                Center(child: Image.asset(AppImage.finishExam)),
                 SizedBox(
                   height: 50,
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/Finish_Exam.dart';
-import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
+import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 
 
 
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: FinishExamView(),
+      home: NavBarView(),
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',

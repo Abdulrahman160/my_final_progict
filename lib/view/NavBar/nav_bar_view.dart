@@ -3,6 +3,7 @@ import 'package:my_final_progict/conestant/image.dart';
 
 import '../../conestant/conset.dart';
 import '../HomePage/home_view.dart';
+import '../TrainingPage/tranning_page_view.dart';
 
 class NavBarView extends StatefulWidget {
   const NavBarView({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _NavBarViewState extends State<NavBarView> {
     [
       AppImage.training,
       "Training",
-      HomePageView(),
+      TrainingPageView(),
     ],
     [
       AppImage.message,

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/HomePage/widget/circle_image.dart';
-import 'package:my_final_progict/view/HomePage/widget/container_places_view.dart';
+import 'package:my_final_progict/view/HomePage/widget/container_place_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/container_type_view.dart';
-import 'package:my_final_progict/view/HomePage/widget/small_card.dart';
-import 'package:my_final_progict/view/HomePage/widget/title_of_parts.dart';
+import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
+import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
+import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
 
 import '../../conestant/conset.dart';
 import '../../widget/container_search/container_search_view.dart';
+import '../AllDoctor/AllDoctor.dart';
+import '../AllDoctor/widget/doctor_model.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({Key? key}) : super(key: key);
@@ -158,7 +161,7 @@ class HomePageView extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                PartTitleView(
+                HeaderSectionsHomeView(
                   title: 'Places',
                   hintTitle: 'Open Desktop Please',
                   hintTitleColor: textRedColor,
@@ -183,24 +186,25 @@ class HomePageView extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                PartTitleView(
+                HeaderSectionsHomeView(
                   title: 'Top  Doctors',
                   hintTitle: 'explore',
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AllDoctorView(),)),
                 ),
                 SizedBox(
                   height: 112,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                    itemCount: doctorDetailes.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return CircleImage();
+                      return CircleImage(doctors: doctorDetailes[index],);
                     },
                   ),
                 ),
                 SizedBox(
                   height: 17,
                 ),
-                PartTitleView(
+                HeaderSectionsHomeView(
                   title: 'Explore Training ',
                   hintTitle: 'view all',
                 ),

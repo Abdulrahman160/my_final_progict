@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/view/AllDoctor/widget/doctor_model.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
 
 class CircleImage extends StatelessWidget {
-  const CircleImage({Key? key}) : super(key: key);
-
+  const CircleImage({Key? key, required this.doctors}) : super(key: key);
+final Doctors doctors;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +17,7 @@ class CircleImage extends StatelessWidget {
               radius: 44,
               backgroundColor: backgroundCircleAvatar.withOpacity(0.5),
               child: CircleAvatar(
-                backgroundImage: AssetImage(AppImage.person),
+                backgroundImage: AssetImage(doctors.image!),
                 radius: 40,
               ),
             ),
@@ -24,7 +25,7 @@ class CircleImage extends StatelessWidget {
               height: 8,
             ),
             Text(
-              "Ahmed",
+              doctors.name!,
               style: TextStyle(fontSize: 13),
             ),
           ],
