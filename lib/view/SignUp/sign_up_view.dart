@@ -1,40 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../Login.dart';
+import 'confirmation.dart';
 
-
-class SetNewPassword extends StatefulWidget {
-  const SetNewPassword({Key? key}) : super(key: key);
+class SignUpView extends StatefulWidget {
+  const SignUpView({Key? key}) : super(key: key);
 
   @override
-  State<SetNewPassword> createState() => _SetNewPasswordState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SetNewPasswordState extends State<SetNewPassword> {
+class _SignUpViewState extends State<SignUpView> {
   final formKay = GlobalKey<FormState>();
   String? email;
   String? password;
   String? name;
   String? ConfirmPassword;
   TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         backgroundColor: backColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(
             key: formKay,
             child: SingleChildScrollView(
-              child:
-              Column(
+              child: Column(
                 children: [
                   SizedBox(
                     height: 60,
@@ -50,7 +49,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Set New Password',
+                      'Register',
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -59,6 +58,22 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                   ),
                   SizedBox(
                     height: 16,
+                  ),
+                  TextFormFieldView(
+                    keyboardType: TextInputType.emailAddress,
+                    text: 'Email / Phone Number',
+                    onchange: (String value) {
+                      email = value;
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email can be not empty';
+                      } else if (!value.contains('@gmail.com')) {
+                        return 'Email must contain @gmail.com';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                   TextFormFieldView(
                     secure: true,
@@ -77,11 +92,8 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       }
                     },
                   ),
-
                   TextFormFieldView(
                     secure: true,
-
-                    // controller: null,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Confirm Password',
                     onchange: (String value) {
@@ -93,12 +105,14 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       } else if (value != password) {
                         return "Confirm Password Is Not Equal Password";
                       } else
-                            () {
+                        () {
                           return;
                         };
                     },
                   ),
-                  SizedBox(height: 14,),
+                  SizedBox(
+                    height: 14,
+                  ),
                   RichText(
                     text: TextSpan(
                         text: "By signing up, you agree to our ",
@@ -126,18 +140,19 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                           ),
                         ]),
                   ),
-
                   SizedBox(
                     height: 24,
                   ),
                   ContainerColorView(
-                    data: 'Continue',
+                    data: 'Register',
                     onTap: () {
                       if (formKay.currentState!.validate()) {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginView()),
+                              builder: (context) => SignUpConfirmationView(
+                                    controlacsses: true,
+                                  )),
                         );
                       } else {
                         return;

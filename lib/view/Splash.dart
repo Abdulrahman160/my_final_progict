@@ -23,13 +23,15 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backColor,
-      body: Center(
-        child: Image.asset(
-          AppImage.logo,
-          height: double.infinity,
-          width: double.infinity,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: backColor,
+        body: Center(
+          child: Image.asset(
+            AppImage.logo,
+            height: double.infinity,
+            width: double.infinity,
+          ),
         ),
       ),
     );

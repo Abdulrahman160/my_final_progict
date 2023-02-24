@@ -6,7 +6,7 @@ class ContainerColorView extends StatelessWidget {
     Key? key,
     required this.data,
     this.onTap,
-  //  required this.width,
+    //  required this.width,
   }) : super(key: key);
 
 //final double ?width;
@@ -18,7 +18,7 @@ class ContainerColorView extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          height: 56,
+          height: 68,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               gradient: LinearGradient(

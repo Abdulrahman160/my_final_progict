@@ -2,9 +2,10 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 Color containerBorderColor = Color(0XFF4838D1);
-Color containerNonBorderColor1 = Color(0XFF2E91EF);
+Color containerNonBorderColor1 = kBlue;
 Color containerNonBorderColor2 = Color(0XFF95D7FF);
 Color textColor = Color(0XFF2E2E5D);
 Color textOrangeColor = Color(0XFFF77A55);
@@ -23,6 +24,11 @@ Color TextFiled =Color(0xffF5F5FA);
 Color GrayText =Color(0xffB8B8C7);
 Color FinishExam=Color(0xff2E2E5D);
 Color kBlack=Color(0xFF000000);
+Color kTransparent=Color(0x0);
+Color backgroundForCircular=Color(0xffD2DAEF);
+Color kRatioColor=Color(0xff08CEFF);
+Color textResult=Color(0xff7C828A);
+
 
 const kKeepUserLoggedIn ='keepUserLogIn';
 

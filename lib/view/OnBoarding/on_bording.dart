@@ -15,20 +15,22 @@ int? pageChanged;
 class _OnBoardingState extends State<OnBoardings> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        onPageChanged: (index) {
-          setState(() {
-             pageChanged = index;
-          });
-        },
-        controller: pageController,
-        children: [
-          OnBoardingView(data: onBoarding[0]),
-          OnBoardingView(data: onBoarding[1]),
-          OnBoardingView(data: onBoarding[2]),
+    return SafeArea(
+      child: Scaffold(
+        body: PageView(
+          onPageChanged: (index) {
+            setState(() {
+               pageChanged = index;
+            });
+          },
+          controller: pageController,
+          children: [
+            OnBoardingView(data: onBoarding[0]),
+            OnBoardingView(data: onBoarding[1]),
+            OnBoardingView(data: onBoarding[2]),
 
-      ],
+        ],
+        ),
       ),
     );
   }

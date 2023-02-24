@@ -41,8 +41,8 @@ class _UploadCardViewState extends State<UploadCardView> {
                 SizedBox(
                   height: 160,
                 ),
-                ElevatedButton(
-                  onPressed: ()=> getImage(
+                InkWell(
+                  onTap: ()=> getImage(
                       source: ImageSource.gallery),
                   child:
                   imageFile != null ?
@@ -93,8 +93,8 @@ class _UploadCardViewState extends State<UploadCardView> {
                 SizedBox(height: 33,),
                 SpearatorView(),
                 SizedBox(height: 25,),
-                ElevatedButton(
-                  onPressed: ()=> getImage(source: ImageSource.camera),
+                InkWell(
+                  onTap: ()=> getImage(source: ImageSource.camera),
                   child: Container(
                     height: 53,
                     decoration: BoxDecoration(

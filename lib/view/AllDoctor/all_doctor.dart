@@ -11,7 +11,37 @@ class AllDoctorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(appBar: AppBar(
+      toolbarHeight: 100,
+      centerTitle: true,
+      title: Text(
+        "All Doctors",
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w900,
+          color: textColor,
+        ),
+      ),
+      elevation: 0,
+      backgroundColor: kTransparent,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: CircleAvatar(
+          radius: 23,
+          backgroundColor: kGray,
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: kBlack,
+              size: 15,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+      ),
+    ),
       backgroundColor: kWhite,
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -22,34 +52,7 @@ class AllDoctorView extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 45,
-                ),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 23,
-                      backgroundColor: kGray,
-                      child: Icon(
-                        Icons.search,
-                        color: kBlack,
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      "All Doctors ",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w900,
-                        color: textColor,
-                      ),
-                    ),
-                    Spacer()
-                  ],
-                ),
-                SizedBox(
-                  height: 32,
-                ),
+
                 SearchView(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),

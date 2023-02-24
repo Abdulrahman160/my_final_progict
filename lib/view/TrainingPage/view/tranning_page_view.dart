@@ -28,18 +28,21 @@ class TrainingPageView extends StatelessWidget {
             backgroundColor: kGray,
             child: Icon(
               Icons.search,
-              color: kBlack,
+              color: kBlack,size: 20,
             ),
           ),
         ),
       ),
       backgroundColor: kWhite,
-      body: ListView.builder(
+      body: ListView.separated(
         itemBuilder: (context, index) => LargeCardTrainingView(),
         itemCount: 5,
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            height: 20,
+          );
+        },
       ),
-
-
     );
   }
 }

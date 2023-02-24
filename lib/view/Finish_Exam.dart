@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../conestant/conset.dart';
 import '../conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
+import 'NavBar/nav_bar_view.dart';
 
 class FinishExamView extends StatelessWidget {
   const FinishExamView({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class FinishExamView extends StatelessWidget {
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30,right: 30,bottom: 40),
+            padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),
             child: Column(
               children: [
                 SizedBox(
@@ -34,7 +35,9 @@ class FinishExamView extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       color: FinishExam),
                 ),
-                SizedBox(height: 12,),
+                SizedBox(
+                  height: 12,
+                ),
                 Text(
                   'Congratulation, any interesting topics \n       will be shortly in your hands.',
                   style: TextStyle(
@@ -44,11 +47,14 @@ class FinishExamView extends StatelessWidget {
                 ),
                 Spacer(),
                 ContainerColorView(
-                  data: 'Finish',
-                  onTap: (){
-                  //  TODO
-                  }
-                ),
+                    data: 'Finish',
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBarView(),
+                          ));
+                    }),
               ],
             ),
           )

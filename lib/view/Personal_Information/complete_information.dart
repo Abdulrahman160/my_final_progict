@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_final_progict/conestant/image.dart';
+import '../../Upload_Photo_Card.dart';
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Radio_View.dart';
@@ -17,7 +18,6 @@ class CompleteInformationView extends StatefulWidget {
   }) : super(key: key);
 
   final bool chooseUser;
-
 
   @override
   State<CompleteInformationView> createState() =>
@@ -62,7 +62,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             child: Text(
                               'Let’s Complele \n Information',
                               style: TextStyle(
-                                   fontWeight: FontWeight.w600, fontSize: 30),
+                                  fontWeight: FontWeight.w600, fontSize: 30),
                             ),
                           ),
                           SizedBox(
@@ -210,55 +210,56 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                 } else
                                   return null;
                               }),
-                          widget.chooseUser? TextFormFieldView(
-                              text: 'Headline',
-                              keyboardType: TextInputType.text,
-                              onchange: (String value) {
-                                value = headline!;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Headline can be not empty';
-                                } else
-                                  return null;
-                              })
+                          widget.chooseUser
+                              ? TextFormFieldView(
+                                  text: 'Headline',
+                                  keyboardType: TextInputType.text,
+                                  onchange: (String value) {
+                                    value = headline!;
+                                  },
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Headline can be not empty';
+                                    } else
+                                      return null;
+                                  })
                               : Container(
-                            height: 85,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: TextFiled,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 1, top: 16),
-                                  child: Text(
-                                    'Are you following up with a doctor?',
-                                    style: TextStyle(
-                                        color: GrayText,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14),
+                                  height: 85,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: TextFiled,
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 1, top: 16),
+                                        child: Text(
+                                          'Are you following up with a doctor?',
+                                          style: TextStyle(
+                                              color: GrayText,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          ...chooses.map((e) {
+                                            return CustomRadio(
+                                              title: e,
+                                              onChange: (v) =>
+                                                  setState(() => choose = e),
+                                              value: e,
+                                              groupValue: choose,
+                                            );
+                                          }),
+                                        ],
+                                      )
+                                    ],
                                   ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    ...chooses.map((e) {
-                                      return CustomRadio(
-                                        title: e,
-                                        onChange: (v) =>
-                                            setState(() => choose = e),
-                                        value: e,
-                                        groupValue: choose,
-                                      );
-                                    }),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
                           SizedBox(
                             height: 42,
                           ),
@@ -266,12 +267,18 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             data: 'Continue',
                             onTap: () {
                               if (formKay.currentState!.validate()) {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PageStartExamView()),
-                                );
-
+                                widget.chooseUser
+                                    ? Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                UploadCardView()))
+                                    : Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                PageStartExamView()),
+                                      );
                               } else {
                                 return;
                               }

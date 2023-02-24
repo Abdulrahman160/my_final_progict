@@ -3,6 +3,7 @@ import '../conestant/conset.dart';
 import '../conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
+import 'Finish_Exam.dart';
 
 class PageStartExamView extends StatelessWidget {
   const PageStartExamView({Key? key}) : super(key: key);
@@ -37,7 +38,9 @@ class PageStartExamView extends StatelessWidget {
                     Expanded(
                       child: ContainerNonColorView(
                         data: 'Skip',
-                        // onTap: TODO  ,
+                         onTap: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FinishExamView(),));
+                         },
                       ),
                     ),
                     SizedBox(width: 44,),
@@ -45,6 +48,7 @@ class PageStartExamView extends StatelessWidget {
                       child: ContainerColorView(
                         data: 'GO',
                          onTap: () {
+
 
                          },
                       ),

@@ -21,73 +21,75 @@ class _EnterEmailViewState extends State<EnterEmailView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backColor,
-      body: Form(
-        key: formKay,
-        child: ListView(
-          children: [
-            SizedBox(height: 60,),
-            Center(
-              child: Container(
-                height: 120,
-                width: 120,
-                child: Image.asset(AppImage.logo),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: backColor,
+        body: Form(
+          key: formKay,
+          child: ListView(
+            children: [
+              SizedBox(height: 60,),
+              Center(
+                child: Container(
+                  height: 120,
+                  width: 120,
+                  child: Image.asset(AppImage.logo),
+                ),
               ),
-            ),
-            SizedBox(height: 24,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 48),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Forget Password',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: textColor),),
-                  SizedBox(height: 12,),
-                  Text('Please fill email or phone number and',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
-                  SizedBox(height: 5,),
-                  Text('we\'sll send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
-                  SizedBox(height: 5,),
-                  Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
-                  SizedBox(height: 16,),
-                  TextFormFieldView(
-                    text: 'Email ',
-                    keyboardType: TextInputType.emailAddress,
-                    onchange: (String value) {
-                      email = value;
-                    },
-                      validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Email can be not empty';
-                      } else if (!value.contains('@')) {
-                        return 'Email must contain @.com';
-                      } else {
-                        return null;
-                      }},
-                  ),
-                  SizedBox(height: 16,),
-                  ContainerColorView(
-                    data: 'Submit',
-                    onTap: () {
-                      if (formKay.currentState!.validate()) {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>SignUpConfirmationView()));
+              SizedBox(height: 24,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 48),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Forget Password',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: textColor),),
+                    SizedBox(height: 12,),
+                    Text('Please fill email or phone number and',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
+                    SizedBox(height: 5,),
+                    Text('we\'sll send you a link to get back into your ',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
+                    SizedBox(height: 5,),
+                    Text('account.',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: textColor),),
+                    SizedBox(height: 16,),
+                    TextFormFieldView(
+                      text: 'Email ',
+                      keyboardType: TextInputType.emailAddress,
+                      onchange: (String value) {
+                        email = value;
+                      },
+                        validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email can be not empty';
+                        } else if (!value.contains('@')) {
+                          return 'Email must contain @.com';
+                        } else {
+                          return null;
+                        }},
+                    ),
+                    SizedBox(height: 16,),
+                    ContainerColorView(
+                      data: 'Submit',
+                      onTap: () {
+                        if (formKay.currentState!.validate()) {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>SignUpConfirmationView()));
 
-                      }else{
-                        return;
+                        }else{
+                          return;
 
-                      }
-                    },
-                  ),
-                  SizedBox(height: 16,),
-                  ContainerNonColorView(
-                    data: 'Back to Login',
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LoginView()));
-                    },
-                  )
-                ],
-              ),
-            )
-          ],
+                        }
+                      },
+                    ),
+                    SizedBox(height: 16,),
+                    ContainerNonColorView(
+                      data: 'Back to Login',
+                      onTap: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=>LoginView()));
+                      },
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
