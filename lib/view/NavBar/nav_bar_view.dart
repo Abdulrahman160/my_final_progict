@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
+import 'package:my_final_progict/widget/SaveArea.dart';
 
 import '../../conestant/conset.dart';
 import '../HomePage/home_view.dart';
+import '../ProfilePage/profile_view.dart';
 import '../TrainingPage/view/tranning_page_view.dart';
 
 class NavBarView extends StatefulWidget {
@@ -33,13 +35,13 @@ class _NavBarViewState extends State<NavBarView> {
     [
       AppImage.profile,
       "Profile",
-      HomePageView(),
+       ProfilePageView(),
     ],
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return CustomSaveArea(
       child: Scaffold(
         body: content[currentIndex][2],
         backgroundColor: kWhite,
@@ -87,7 +89,7 @@ class _NavBarViewState extends State<NavBarView> {
           onPressed: () {},
         ),
         floatingActionButtonLocation:
-        FloatingActionButtonLocation.miniCenterDocked,
+            FloatingActionButtonLocation.miniCenterDocked,
       ),
     );
   }

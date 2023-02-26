@@ -1,34 +1,34 @@
 class Question{
   final String? question;
-  final String? text;
-  final String? text2;
+  final int? num;
+
   Question({
     required this.question,
-    required this.text,
-    required this.text2,
+    required this.num,
+
 });
 }
 
 List< Question > question=[
   Question(
+    num: 1,
     question: "I am afraid of people in authority?",
-    text: "Not At All",
-    text2:"A Little Bit",
+
   ),
   Question(
+    num: 2,
     question: "I am afraid of people in authority?",
-    text: "Not At All",
-    text2:"A Little Bit",
+
   ),
   Question(
+    num: 3,
     question: "I am afraid of people in authority?",
-    text: "Not At All",
-    text2:"A Little Bit",
+
   ),
   Question(
+    num: 4,
     question: "I am afraid of people in authority?",
-    text: "Not At All",
-    text2:"A Little Bit",
+
   ),
 ];
 

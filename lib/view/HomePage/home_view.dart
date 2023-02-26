@@ -9,11 +9,12 @@ import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.
 
 import '../../conestant/conset.dart';
 import '../../widget/container_search/container_search_view.dart';
-import '../AllDoctor/all_doctor.dart';
-import '../AllDoctor/widget/doctor_model.dart';
+import '../Doctors/view/all_doctor_view.dart';
+import '../Doctors/widget/doctor_model.dart';
+
 
 class HomePageView extends StatelessWidget {
-  const HomePageView({Key? key}) : super(key: key);
+  const   HomePageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

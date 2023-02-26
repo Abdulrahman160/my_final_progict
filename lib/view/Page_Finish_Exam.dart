@@ -33,17 +33,18 @@ class FinishExamView extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: FinishExam),
+                      color: textColor),
                 ),
                 SizedBox(
                   height: 12,
                 ),
                 Text(
-                  'Congratulation, any interesting topics \n       will be shortly in your hands.',
+                  textAlign: TextAlign.center,
+                  ' Congratulation, any interesting topics \n will be shortly in your hands.',
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: FinishExam),
+                      color: textColor),
                 ),
                 Spacer(),
                 ContainerColorView(

@@ -1,6 +1,5 @@
 class AppImage {
   static const String afterQuiz = "assets/images/afterQuiz.png";
-
   static const String beforeStartQuiz = "assets/images/beforeStartQuiz.png";
   static const String error = "assets/images/error.png";
   static const String facebook = "assets/images/facebook.png";
@@ -36,6 +35,19 @@ class AppImage {
   static const String bigCompany = "assets/images/big Company.png";
   static const String publicSpeaking = "assets/images/public Speaking.png";
   static const String streets = "assets/images/street.png";
+  static const String profileBackground = "assets/images/profileBackground.png";
+  static const String Frame = "assets/images/Frame.png";
+  static const String lock = "assets/images/lock.png";
+  static const String Globe = "assets/images/Globe.png";
+  static const String Notification = "assets/images/Notification.png";
+  static const String Dark_mode = "assets/images/Dark_mode.png";
+  static const String Help = "assets/images/Help.png";
+  static const String logout = "assets/images/logout.png";
+  static const String Mobile = "assets/images/Mobile.png";
+  static const String Share = "assets/images/Share.png";
+  static const String Security = "assets/images/Security.png";
+  static const String Team = "assets/images/Team.png";
+
 
 
 }

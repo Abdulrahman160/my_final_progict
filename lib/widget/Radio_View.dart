@@ -32,7 +32,7 @@ class _CustomRadioState extends State<CustomRadio> {
       },
       child: Row(
         children: [
-          Radio(fillColor: MaterialStatePropertyAll(kBlack),
+          Radio(fillColor:MaterialStateProperty.all(kBlack),
             value: value,
             groupValue: widget.groupValue == widget.value,
             onChanged: (value) {

@@ -18,7 +18,7 @@ class ContainerColorView extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          height: 68,
+          height: 56,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               gradient: LinearGradient(

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "758002135549",
+    "project_id": "mentis-b64a2",
+    "storage_bucket": "mentis-b64a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758002135549:android:9f72e5c69e5ebe2fc42994",
+        "android_client_info": {
+          "package_name": "com.example.my_final_progict"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758002135549-3njsjc27m2mbn1u2i8ungperpcjh646p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.my_final_progict",
+            "certificate_hash": "dc9f276f8510a4bbd74c6fd6606c2eb4dba809b8"
+          }
+        },
+        {
+          "client_id": "758002135549-nmvnnpv2dt9k7l961a3to5ltauvgt9l0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyOmM4xcE6OigI5BqtBacfVR5EL-yebJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758002135549-nmvnnpv2dt9k7l961a3to5ltauvgt9l0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

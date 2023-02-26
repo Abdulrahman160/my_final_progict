@@ -3,7 +3,7 @@ import '../conestant/conset.dart';
 import '../conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
-import 'Finish_Exam.dart';
+import 'Page_Finish_Exam.dart';
 
 class PageStartExamView extends StatelessWidget {
   const PageStartExamView({Key? key}) : super(key: key);

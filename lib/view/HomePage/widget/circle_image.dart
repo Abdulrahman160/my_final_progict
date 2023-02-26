@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/AllDoctor/widget/doctor_model.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
+import '../../Doctors/widget/doctor_model.dart';
 
 class CircleImage extends StatelessWidget {
   const CircleImage({Key? key, required this.doctors}) : super(key: key);

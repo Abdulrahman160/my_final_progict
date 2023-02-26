@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
-import 'package:my_final_progict/view/AllDoctor/widget/doctor_model.dart';
 
-import '../../conestant/conset.dart';
-import '../../widget/container_search/container_search_view.dart';
-import 'widget/docotr_card_view.dart';
+import '../../../conestant/conset.dart';
+import '../../../widget/container_search/container_search_view.dart';
+import '../widget/docotr_card_view.dart';
+import '../widget/doctor_model.dart';
 
 class AllDoctorView extends StatelessWidget {
   const AllDoctorView({Key? key}) : super(key: key);
