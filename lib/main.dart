@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/view/AllTraining/view/all_trainig_view.dart';
-import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
+import 'package:my_final_progict/view/Doctors/view/doctor_details.dart';
 
 
 
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AllTrainingView(),
+      home: DoctorDetailsView(),
        // theme: theme,
       debugShowCheckedModeBanner:   false,
       title: 'Mentis',

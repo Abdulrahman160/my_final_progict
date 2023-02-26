@@ -28,6 +28,7 @@ Color kTransparent=Color(0x0);
 Color backgroundForCircular=Color(0xffD2DAEF);
 Color kRatioColor=Color(0xff08CEFF);
 Color textResult=Color(0xff7C828A);
+Color doctorDetailsColor=Color(0xff577CEF);
 
 
 const kKeepUserLoggedIn ='keepUserLogIn';
