@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/HomePage/widget/circle_image.dart';
@@ -6,15 +7,15 @@ import 'package:my_final_progict/view/HomePage/widget/container_type_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
 import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
+import 'package:my_final_progict/view/Login.dart';
 
 import '../../conestant/conset.dart';
 import '../../widget/container_search/container_search_view.dart';
 import '../Doctors/view/all_doctor_view.dart';
 import '../Doctors/widget/doctor_model.dart';
 
-
 class HomePageView extends StatelessWidget {
-  const   HomePageView({Key? key}) : super(key: key);
+  const HomePageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,19 @@ class HomePageView extends StatelessWidget {
                           color: Color(0xffECEDF3),
                         ),
                       ),
-                      child: Text(
-                        "level 1",
-                        style: TextStyle(fontSize: 12, color: textColor),
+                      child: InkWell(
+                        onTap: () async {
+                          await FirebaseAuth.instance.signOut();
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginView(),
+                              ));
+                        },
+                        child: Text(
+                          "level 1",
+                          style: TextStyle(fontSize: 12, color: textColor),
+                        ),
                       ),
                     ),
                     Spacer(),

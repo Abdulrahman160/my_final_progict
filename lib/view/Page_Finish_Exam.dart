@@ -39,8 +39,8 @@ class FinishExamView extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  textAlign: TextAlign.center,
                   ' Congratulation, any interesting topics \n will be shortly in your hands.',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,

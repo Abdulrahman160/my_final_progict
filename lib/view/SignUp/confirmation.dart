@@ -107,7 +107,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                           } else {
                             return null;
                           }
-                        },
+                        }, onSaved:(val){},
                       ),
                       SizedBox(
                         height: 10,

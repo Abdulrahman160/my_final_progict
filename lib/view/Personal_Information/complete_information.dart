@@ -145,7 +145,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                   return 'Full Name can be not empty';
                                 } else
                                   return null;
-                              }),
+                              }, onSaved:(val){},),
                           BirthDateView(
                             text: 'Data of Birth',
                             Onchage: (dynamic value) {
@@ -209,7 +209,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                   return 'address can be not empty';
                                 } else
                                   return null;
-                              }),
+                              }, onSaved:(val){},),
                           widget.chooseUser
                               ? TextFormFieldView(
                                   text: 'Headline',
@@ -222,7 +222,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       return 'Headline can be not empty';
                                     } else
                                       return null;
-                                  })
+                                  }, onSaved:(val){},)
                               : Container(
                                   height: 85,
                                   width: double.infinity,

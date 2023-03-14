@@ -55,6 +55,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                       keyboardType: TextInputType.emailAddress,
                       onchange: (String value) {
                         email = value;
+
                       },
                         validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -63,7 +64,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
                           return 'Email must contain @.com';
                         } else {
                           return null;
-                        }},
+                        }}, onSaved: (val){},
                     ),
                     SizedBox(height: 16,),
                     ContainerColorView(

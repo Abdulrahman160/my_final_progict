@@ -47,6 +47,9 @@ class AppImage {
   static const String Share = "assets/images/Share.png";
   static const String Security = "assets/images/Security.png";
   static const String Team = "assets/images/Team.png";
+  static const String mediumCard = "assets/images/mediumCard.png";
+  static const String mediumShadow = "assets/images/mediumShadow.png";
+  static const String upLoad = "assets/images/upLoad.png";
 
 
 

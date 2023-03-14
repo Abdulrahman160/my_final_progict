@@ -75,7 +75,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       } else {
                         return null;
                       }
-                    },
+                    }, onSaved: (val){},
                   ),
 
                   TextFormFieldView(
@@ -96,7 +96,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                             () {
                           return;
                         };
-                    },
+                    }, onSaved: (val){},
                   ),
                   SizedBox(height: 14,),
                   RichText(

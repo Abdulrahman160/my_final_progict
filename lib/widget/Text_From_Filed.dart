@@ -9,7 +9,7 @@ class TextFormFieldView extends StatefulWidget {
     required this.keyboardType,
     required this.onchange,
     this.validator,
-    this.secure = false,
+    this.secure = false, required this.onSaved,
   }) : super(key: key);
 
   final String text;
@@ -17,7 +17,7 @@ class TextFormFieldView extends StatefulWidget {
   final ValueChanged<String>? onchange;
   final FormFieldValidator<String>? validator;
   final bool secure;
-
+final Function(String?)? onSaved;
 
 
     @override
@@ -26,6 +26,8 @@ class TextFormFieldView extends StatefulWidget {
 
 class _ContainerViewState extends State<TextFormFieldView> {
   late bool secure;
+
+
 
 
   @override
@@ -38,7 +40,7 @@ class _ContainerViewState extends State<TextFormFieldView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
+        TextFormField(onSaved: widget.onSaved,
           obscureText: secure,
           keyboardType: widget.keyboardType,
           textAlign: TextAlign.start,

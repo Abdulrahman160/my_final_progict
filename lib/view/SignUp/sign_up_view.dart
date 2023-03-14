@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../conestant/conset.dart';
@@ -16,12 +18,49 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  final formKay = GlobalKey<FormState>();
+  GlobalKey<FormState> formKay = GlobalKey<FormState>();
   String? email;
   String? password;
   String? name;
-  String? ConfirmPassword;
+  String? confirmPassword;
   TextEditingController passwordController = TextEditingController();
+
+  singUp() async {
+    var formData = formKay.currentState!;
+
+    if (formData.validate()) {
+      formData.save();
+      try {
+        UserCredential userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email!,
+          password: password!,
+        );
+        return userCredential;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          AwesomeDialog(
+              context: context,
+              title: "Error",
+              body: Text("password is to week"))
+            ..show();
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          AwesomeDialog(
+              context: context,
+              title: "Error",
+              body: Text("The account already exists for that email."))
+            ..show();
+
+          print('The account already exists for that email.');
+        }
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +113,9 @@ class _SignUpViewState extends State<SignUpView> {
                         return null;
                       }
                     },
+                    onSaved: (val) {
+                      email = val;
+                    },
                   ),
                   TextFormFieldView(
                     secure: true,
@@ -91,13 +133,16 @@ class _SignUpViewState extends State<SignUpView> {
                         return null;
                       }
                     },
+                    onSaved: (val) {
+                      password = val;
+                    },
                   ),
                   TextFormFieldView(
                     secure: true,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Confirm Password',
                     onchange: (String value) {
-                      ConfirmPassword = value;
+                      confirmPassword = value;
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -108,6 +153,9 @@ class _SignUpViewState extends State<SignUpView> {
                         () {
                           return;
                         };
+                    },
+                    onSaved: (val) {
+                      confirmPassword = val;
                     },
                   ),
                   SizedBox(
@@ -145,18 +193,21 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   ContainerColorView(
                     data: 'Register',
-                    onTap: () {
-                      if (formKay.currentState!.validate()) {
+                    onTap: () async {
+                      UserCredential response = await singUp();
+                      print("=======================================");
+                      if (response != null) {
                         Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpConfirmationView(
-                                    controlacsses: true,
-                                  )),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpConfirmationView(
+                                      controlacsses: true,
+                                    )));
                       } else {
-                        return;
+                        print("Sign Up faild");
                       }
+                      ;
+                      print("=======================================");
                     },
                   ),
                   SizedBox(
@@ -165,7 +216,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ContainerNonColorView(
                     data: 'Cancel',
                     onTap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => LoginView()),
                       );
