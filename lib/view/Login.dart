@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/HomePage/home_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +30,7 @@ class _LoginViewState extends State<LoginView> {
   bool keepUserLogIn = false;
   TextEditingController passwordController = TextEditingController();
 
+// SigIn With Hosni
   SignIn() async {
     var formData = formKay.currentState!;
 
@@ -66,6 +68,25 @@ class _LoginViewState extends State<LoginView> {
     if (keepUserLogIn == true) {
       keepUserLoggedIn();
     }
+  }
+
+  // SigIn With google  hassan.
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
@@ -231,6 +252,17 @@ class _LoginViewState extends State<LoginView> {
                               child: ContainerNonColorView(
                             enableImage: true,
                             image: AppImage.google,
+                            onTap: () async {
+                              UserCredential cred = await signInWithGoogle();
+                              print(cred);
+                              if (cred != null) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            PersonalizationView()));
+                              }
+                            },
                           )),
                           SizedBox(
                             width: 10,
