@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_final_progict/widget/Container_Button_Color.dart';
 import 'package:my_final_progict/widget/Spareator_Between.dart';
-
-import 'conestant/conset.dart';
-import 'conestant/image.dart';
+import '../conestant/conset.dart';
+import '../conestant/image.dart';
 
 class UploadCardView extends StatefulWidget {
   const UploadCardView({Key? key}) : super(key: key);

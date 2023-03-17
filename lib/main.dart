@@ -4,6 +4,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/Login.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
+
+
 bool? isLogin;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: isLogin!?NavBarView():LoginView(),
+      home:
+      // NavBarView(),
+       isLogin!?NavBarView():LoginView(),
       builder: (context, child) => SafeArea(child: child!),
       debugShowCheckedModeBanner: false,
       title: 'Mentis',
