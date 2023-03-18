@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_final_progict/conestant/image.dart';
-import '../../Upload_Photo_Card.dart';
+import '../Upload_Photo_Card.dart';
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Radio_View.dart';
