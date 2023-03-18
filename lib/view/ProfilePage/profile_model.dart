@@ -24,7 +24,7 @@ List<Setting> setting = [
     text: 'Notification',
   ),
   Setting(
-    icon: AppImage.Dark_mode,
+    icon: AppImage.darkMode,
     text: 'Dark mode',
   ),
   Setting(

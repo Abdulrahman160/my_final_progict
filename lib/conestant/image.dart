@@ -40,7 +40,7 @@ class AppImage {
   static const String lock = "assets/images/lock.png";
   static const String Globe = "assets/images/Globe.png";
   static const String Notification = "assets/images/Notification.png";
-  static const String Dark_mode = "assets/images/Dark_mode.png";
+  static const String darkMode = "assets/images/Dark_mode.png";
   static const String Help = "assets/images/Help.png";
   static const String logout = "assets/images/logout.png";
   static const String Mobile = "assets/images/Mobile.png";
@@ -50,7 +50,10 @@ class AppImage {
   static const String mediumCard = "assets/images/mediumCard.png";
   static const String mediumShadow = "assets/images/mediumShadow.png";
   static const String upLoad = "assets/images/upLoad.png";
-
-
+  static const String mastercard = "assets/images/mastercard.png";
+  static const String paypal = "assets/images/paypal.png";
+  static const String visa = "assets/images/visa.png";
+  static const String wallet = "assets/images/wallet.png";
+  static const String date = "assets/images/date.png";
 
 }

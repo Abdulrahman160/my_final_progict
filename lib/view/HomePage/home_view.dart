@@ -56,6 +56,7 @@ class HomePageView extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     Spacer(),
                     Container(
                       height: 50,

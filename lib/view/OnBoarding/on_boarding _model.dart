@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class OnBoarding {
   final String? image;
   final String? text;
-  bool? changeButton;
+  final bool? changeButton;
 
   OnBoarding({
     required this.image,

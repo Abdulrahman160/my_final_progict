@@ -16,6 +16,7 @@ Color hintTextColor=Color(0XFFB8B8C7);
 Color hintTextFiledColor=Color(0XFFA1A5C1);
 Color kDarkGreen=Color(0xff234F68);
 Color kGray=Color(0xffF5F4F8);
+Color kDarkGray=Color(0xff53587A);
 Color kWhite=Color(0xFFFFFFFF);
 Color backgroundCircleAvatar=Color(0xffDFDFDF);
 Color kBlue=Color(0xff2E91EF);
@@ -29,6 +30,7 @@ Color backgroundForCircular=Color(0xffD2DAEF);
 Color kRatioColor=Color(0xff08CEFF);
 Color textResult=Color(0xff7C828A);
 Color doctorDetailsColor=Color(0xff577CEF);
+Color blueBorderColor=Color(0xff577CEF);
 
 
 const kKeepUserLoggedIn ='keepUserLogIn';

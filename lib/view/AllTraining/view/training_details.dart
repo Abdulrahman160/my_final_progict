@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_final_progict/widget/Container_Button_Color.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
@@ -43,7 +44,7 @@ class TrainingDetailsView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -52,17 +53,93 @@ class TrainingDetailsView extends StatelessWidget {
                 Image.asset(AppImage.mediumCard),
                 Image.asset(AppImage.mediumShadow),
                 Positioned(
-                  top: 50,left: 30,
+                  top: 50,
+                  left: 30,
                   child: Text(
                     "Social\nAnxiety",
                     style: TextStyle(
-                      fontSize: 19,fontWeight: FontWeight.w700,
+                      fontSize: 19,
+                      fontWeight: FontWeight.w700,
                       color: kWhite,
                     ),
                   ),
                 ),
               ],
             ),
+            SizedBox(
+              height: 25,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Social Anxiety",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w800,
+                    color: textColor,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 2.0),
+                      child: Image.asset(AppImage.date),
+                    ),
+                    Text(
+                      "October 27, 2022",
+                      style: TextStyle(fontSize: 10, color: textColor),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Social anxiety disorder (SAD) is characterized by an excessive fear of negative evaluation and rejection by other people and a consistent fear of embarrassment or humiliation. The most commonly reported fear relates to public speaking or speaking up in a meeting, which can be referred to as “performance only” subtype of SAD.",
+               //todo :hosni how to make space between the lines
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: kDarkGray.withOpacity(0.8),
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Social Anxiety",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w800,
+                        color: textColor,
+                      ),
+                    ),
+                    Text(
+                      " 220",
+                      //todo :hosni how to add $ in text
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w800,
+                        color: textColor,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+              Text("10 Lesson in 2 months",style: TextStyle(color: textColor,fontSize: 12),),
+              ],
+            ),
+            Spacer(),
+            ContainerColorView(data: "Buy Now"),
+            SizedBox(height: 30,)
           ],
         ),
       ),

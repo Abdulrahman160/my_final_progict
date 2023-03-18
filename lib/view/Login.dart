@@ -29,7 +29,7 @@ class _LoginViewState extends State<LoginView> {
   bool keepUserLogIn = false;
   TextEditingController passwordController = TextEditingController();
 
-  SignIn() async {
+  signIn() async {
     var formData = formKay.currentState!;
 
     if (formData.validate()) {
@@ -173,7 +173,7 @@ class _LoginViewState extends State<LoginView> {
                       ContainerColorView(
                         data: 'Login',
                         onTap: () async {
-                          var user = await SignIn();
+                          var user = await signIn();
                           if (user != null) {
                             Navigator.push(
                                 context,

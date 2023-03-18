@@ -124,7 +124,7 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                   ),
                   ContainerSettingView(data: setting[7]),
                   ContainerSettingView(data: setting[8]),
-                  ContainerSettingView(data: setting[9]),
+                  ContainerSettingView(data: setting[9],),
                   SizedBox(height: 20,),
                   Text('')
 
