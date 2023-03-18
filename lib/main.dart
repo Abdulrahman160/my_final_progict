@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
 import 'package:my_final_progict/view/AllTraining/view/training_details.dart';
 import 'package:my_final_progict/view/Booking/view/booking_for_doctor.dart';
+import 'package:my_final_progict/view/Booking/view/booking_for_training.dart';
 import 'package:my_final_progict/view/Login.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 import 'package:my_final_progict/view/Payment/view/payment_view.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home:
-      BookingForDoctorView()
+      BookingForTrainingView()
       // isLogin!?NavBarView():LoginView()
       //is to login
 

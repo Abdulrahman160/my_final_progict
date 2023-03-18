@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
 import '../../../widget/Container_Button_Color.dart';
+import '../widget/container_image.dart';
 import '../widget/doctor_day.dart';
 import '../widget/doctor_time.dart';
 import '../widget/text_style.dart';
@@ -140,29 +141,7 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
                 ),
                 Positioned(
                   right: 5,
-                  child: Container(
-                    height: 105,
-                    width: 115,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: backgroundCircleAvatar,
-                          blurRadius: 10,
-                          spreadRadius: 2,
-                          offset: Offset(3, 5),
-                        ),
-                      ],
-                      color: doctorDetailsColor,
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: CircleAvatar(
-                        backgroundColor: kTransparent,
-                        child: CircleAvatar(
-                            radius: 50,
-                            backgroundImage: AssetImage(
-                              AppImage.person3,
-                            ))),
-                  ),
+                  child: ImageContainer(),
                 ),
               ],
             ),

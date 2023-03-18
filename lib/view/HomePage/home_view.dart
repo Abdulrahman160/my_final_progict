@@ -5,8 +5,8 @@ import 'package:my_final_progict/view/HomePage/widget/circle_image.dart';
 import 'package:my_final_progict/view/HomePage/widget/container_place_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/container_type_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
-import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
-import 'package:my_final_progict/view/HomePage/widget/header_sections_home_view.dart';
+import 'package:my_final_progict/widget/header_sections_home_view.dart';
+import 'package:my_final_progict/widget/header_sections_home_view.dart';
 import 'package:my_final_progict/view/Login.dart';
 
 import '../../conestant/conset.dart';
@@ -56,7 +56,6 @@ class HomePageView extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     Spacer(),
                     Container(
                       height: 50,
@@ -173,10 +172,13 @@ class HomePageView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              HeaderSectionsHomeView(
-                title: 'Places',
-                hintTitle: 'Open Desktop Please',
-                hintTitleColor: textRedColor,
+              Padding(
+                padding: const EdgeInsets.only(right: 35),
+                child: HeaderSectionsHomeView(
+                  title: 'Places',
+                  hintTitle: 'Open Desktop Please',
+                  hintTitleColor: textRedColor,
+                ),
               ),
               SizedBox(
                 height: 180,
@@ -197,14 +199,17 @@ class HomePageView extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              HeaderSectionsHomeView(
-                title: 'Top  Doctors',
-                hintTitle: 'explore',
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AllDoctorView(),
-                    )),
+              Padding(
+                padding: const EdgeInsets.only(right: 35),
+                child: HeaderSectionsHomeView(
+                  title: 'Top  Doctors',
+                  hintTitle: 'explore',
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AllDoctorView(),
+                      )),
+                ),
               ),
               SizedBox(
                 height: 112,
@@ -221,9 +226,12 @@ class HomePageView extends StatelessWidget {
               SizedBox(
                 height: 17,
               ),
-              HeaderSectionsHomeView(
-                title: 'Explore Training ',
-                hintTitle: 'view all',
+              Padding(
+                padding: const EdgeInsets.only(right: 35),
+                child: HeaderSectionsHomeView(
+                  title: 'Explore Training ',
+                  hintTitle: 'view all',
+                ),
               ),
               GridView.count(
                 childAspectRatio: 3 / 4,

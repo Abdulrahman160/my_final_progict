@@ -6,10 +6,8 @@ class ContainerColorView extends StatelessWidget {
     Key? key,
     required this.data,
     this.onTap,
-    //  required this.width,
   }) : super(key: key);
 
-//final double ?width;
   final String data;
   final GestureTapCallback? onTap;
 
@@ -18,21 +16,23 @@ class ContainerColorView extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          height: 63
-          ,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              gradient: LinearGradient(
-                colors: [containerNonBorderColor1, containerNonBorderColor2],
-              )),
-          child: Center(
-              child: Text(
+        margin: EdgeInsets.only(bottom: 30),
+        height: 63,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            gradient: LinearGradient(
+              colors: [containerNonBorderColor1, containerNonBorderColor2],
+            )),
+        child: Center(
+          child: Text(
             data,
             style: TextStyle(
                 color: Color(0xffFFFFFF),
                 fontSize: 16,
                 fontWeight: FontWeight.w500),
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -55,5 +55,8 @@ class AppImage {
   static const String visa = "assets/images/visa.png";
   static const String wallet = "assets/images/wallet.png";
   static const String date = "assets/images/date.png";
+  static const String largeMastercard = "assets/images/largeMastercard.png";
+  static const String blueCircle = "assets/images/blueCircle.png";
+  static const String rightMark = "assets/images/rightMark.png";
 
 }
