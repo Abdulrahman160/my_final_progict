@@ -100,8 +100,8 @@ class TrainingDetailsView extends StatelessWidget {
                 ),
                 Text(
                   "Social anxiety disorder (SAD) is characterized by an excessive fear of negative evaluation and rejection by other people and a consistent fear of embarrassment or humiliation. The most commonly reported fear relates to public speaking or speaking up in a meeting, which can be referred to as “performance only” subtype of SAD.",
-               //todo :hosni how to make space between the lines
                   style: TextStyle(
+                    height: 1.5,
                     fontSize: 14,
                     color: kDarkGray.withOpacity(0.8),
                   ),
@@ -121,8 +121,7 @@ class TrainingDetailsView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      " 220",
-                      //todo :hosni how to add $ in text
+                      "\$ 220",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
@@ -134,12 +133,17 @@ class TrainingDetailsView extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-              Text("10 Lesson in 2 months",style: TextStyle(color: textColor,fontSize: 12),),
+                Text(
+                  "10 Lesson in 2 months",
+                  style: TextStyle(color: textColor, fontSize: 12),
+                ),
               ],
             ),
             Spacer(),
             ContainerColorView(data: "Buy Now"),
-            SizedBox(height: 30,)
+            SizedBox(
+              height: 30,
+            )
           ],
         ),
       ),
