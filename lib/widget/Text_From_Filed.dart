@@ -9,7 +9,9 @@ class TextFormFieldView extends StatefulWidget {
     required this.keyboardType,
     required this.onchange,
     this.validator,
-    this.secure = false, required this.onSaved,
+    this.secure = false,
+      required this.onSaved,
+      required this.number,
   }) : super(key: key);
 
   final String text;
@@ -17,7 +19,8 @@ class TextFormFieldView extends StatefulWidget {
   final ValueChanged<String>? onchange;
   final FormFieldValidator<String>? validator;
   final bool secure;
-final Function(String?)? onSaved;
+  final Function(String?)? onSaved;
+  final int number;
 
 
     @override
@@ -44,7 +47,8 @@ class _ContainerViewState extends State<TextFormFieldView> {
           obscureText: secure,
           keyboardType: widget.keyboardType,
           textAlign: TextAlign.start,
-          decoration: InputDecoration(
+          decoration:
+          InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 15),
             suffixIcon: !widget.secure
                 ? SizedBox()
@@ -79,6 +83,7 @@ class _ContainerViewState extends State<TextFormFieldView> {
                 fontSize: 16),
             border: InputBorder.none,
           ),
+          maxLines: widget.number,
           onChanged: widget.onchange,
           validator: widget.validator,
         ),

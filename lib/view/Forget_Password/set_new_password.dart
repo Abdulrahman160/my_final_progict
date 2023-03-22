@@ -7,7 +7,6 @@ import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../Login.dart';
 
-
 class SetNewPassword extends StatefulWidget {
   const SetNewPassword({Key? key}) : super(key: key);
 
@@ -22,19 +21,18 @@ class _SetNewPasswordState extends State<SetNewPassword> {
   String? name;
   String? ConfirmPassword;
   TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
         backgroundColor: backColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(
             key: formKay,
             child: SingleChildScrollView(
-              child:
-              Column(
+              child: Column(
                 children: [
                   SizedBox(
                     height: 60,
@@ -61,6 +59,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                     height: 16,
                   ),
                   TextFormFieldView(
+                    number: 1,
                     secure: true,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Password',
@@ -75,12 +74,12 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       } else {
                         return null;
                       }
-                    }, onSaved: (val){},
+                    },
+                    onSaved: (val) {},
                   ),
-
                   TextFormFieldView(
                     secure: true,
-
+                    number: 1,
                     // controller: null,
                     keyboardType: TextInputType.emailAddress,
                     text: 'Confirm Password',
@@ -93,12 +92,15 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       } else if (value != password) {
                         return "Confirm Password Is Not Equal Password";
                       } else
-                            () {
+                        () {
                           return;
                         };
-                    }, onSaved: (val){},
+                    },
+                    onSaved: (val) {},
                   ),
-                  SizedBox(height: 14,),
+                  SizedBox(
+                    height: 14,
+                  ),
                   RichText(
                     text: TextSpan(
                         text: "By signing up, you agree to our ",
@@ -126,7 +128,6 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                           ),
                         ]),
                   ),
-
                   SizedBox(
                     height: 24,
                   ),
@@ -136,8 +137,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                       if (formKay.currentState!.validate()) {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginView()),
+                          MaterialPageRoute(builder: (context) => LoginView()),
                         );
                       } else {
                         return;

@@ -35,7 +35,7 @@ class _ContainerNonColorViewState extends State<ContainerNonColorView> {
     return InkWell(
       onTap: widget.onTap,
         child: Container(
-            height: 56,
+            height: 63,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: containerBorderColor)),

@@ -142,9 +142,10 @@ class _LoginViewState extends State<LoginView> {
                         },
                         onSaved: (val) {
                           email = val;
-                        },
+                        }, number: 1,
                       ),
                       TextFormFieldView(
+
                         //controller: passwordController,
                         secure: true,
                         keyboardType: TextInputType.emailAddress,
@@ -163,7 +164,7 @@ class _LoginViewState extends State<LoginView> {
                         },
                         onSaved: (val) {
                           password = val;
-                        },
+                        }, number: 1,
                       ),
                       Row(
                         children: [

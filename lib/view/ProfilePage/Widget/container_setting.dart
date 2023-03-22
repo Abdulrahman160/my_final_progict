@@ -16,6 +16,7 @@ class ContainerSettingView extends StatefulWidget {
 class _ContainerSettingViewState extends State<ContainerSettingView> {
   @override
   bool state = true;
+
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(right: 24),
@@ -31,32 +32,40 @@ class _ContainerSettingViewState extends State<ContainerSettingView> {
                 borderRadius: BorderRadius.circular(12),
                 border:
                     Border.all(color: Colors.grey.withOpacity(0.1), width: 1)),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 14,
-                ),
-                Image.asset(widget.data.icon!),
-                SizedBox(
-                  width: 17,
-                ),
-                Text(widget.data.text!),
-                SizedBox(
-                  width: 113,
-                ),
-                SizedBox(
-                    child: widget.data.changeSwitch! ? Switch(
-                        value: state,
-                        activeColor: Colors.blue.shade800,
-                        inactiveTrackColor: Colors.grey.shade400,
-                        inactiveThumbColor: Colors.black.withOpacity(0.6),
-                        onChanged: (bool s) {
-                          setState(() {
-                            state = s;
-                            print(state);
-                          });
-                        }) : SizedBox())
-              ],
+            child: InkWell(
+              onTap:(){widget.data.changeSwitch?widget.data.namePage!:
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context)=>widget.data.namePage!));
+              } ,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 14,
+                  ),
+                  Image.asset(widget.data.icon!),
+                  SizedBox(
+                    width: 17,
+                  ),
+                  Text(widget.data.text!),
+                  SizedBox(
+                    width: 117,
+                  ),
+                  SizedBox(
+                      child: widget.data.changeSwitch
+                          ? Switch(
+                              value: state,
+                              activeColor: Colors.blue.shade800,
+                              inactiveTrackColor: Colors.grey.shade400,
+                              inactiveThumbColor: Colors.black.withOpacity(0.6),
+                              onChanged: (bool s) {
+                                setState(() {
+                                  state = s;
+                                  print(state);
+                                });
+                              })
+                          : SizedBox())
+                ],
+              ),
             ),
           ),
         ]));

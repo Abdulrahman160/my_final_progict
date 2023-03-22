@@ -13,6 +13,9 @@ class SignUpSuccessfully extends StatelessWidget {
     return BottomSheet(
       onClosing: () {},
       enableDrag: false,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+              top: Radius.circular(25))),
       builder: (context) => Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(

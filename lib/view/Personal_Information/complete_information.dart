@@ -7,7 +7,6 @@ import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Radio_View.dart';
 import '../Page_Start_Exam.dart';
-import '../SignUp/confirmation.dart';
 import 'birth_date.dart';
 import '../../widget/Text_From_Filed.dart';
 
@@ -48,6 +47,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                 Image.asset(
                   AppImage.background,
                   width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
                 Form(
                   key: formKay,
@@ -76,33 +76,33 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                     builder: (BuildContext context) {
                                       return BottomSheet(
                                         onClosing: () {},
-                                        enableDrag: true,
+                                        enableDrag: false,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.vertical(
+                                                top: Radius.circular(25))),
                                         builder: (context) => Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 50),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                            ),
+                                            height: 50,
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                ElevatedButton(
-                                                    onPressed: () => getImage(
+                                                InkWell(
+                                                    onTap: () => getImage(
                                                         source:
                                                             ImageSource.camera),
                                                     child: Icon(
                                                       Icons.camera_alt_outlined,
-                                                      size: 30,
+                                                      color: Colors.blue,
+                                                      size: 40,
                                                     )),
-                                                ElevatedButton(
-                                                  onPressed: () => getImage(
+                                                InkWell(
+                                                  onTap: () => getImage(
                                                       source:
                                                           ImageSource.gallery),
                                                   child: Icon(
                                                     Icons.photo_library,
-                                                    size: 30,
+                                                    color: Colors.blue,
+                                                    size: 40,
                                                   ),
                                                 ),
                                               ],
@@ -116,7 +116,8 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       width: 100,
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
-                                              image: FileImage(imageFile!)),
+                                              image: FileImage(imageFile!),
+                                              fit: BoxFit.cover),
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                     )
@@ -135,17 +136,20 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             height: 10,
                           ),
                           TextFormFieldView(
-                              text: 'Full Name',
-                              keyboardType: TextInputType.text,
-                              onchange: (String value) {
-                                value = name!;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Full Name can be not empty';
-                                } else
-                                  return null;
-                              }, onSaved:(val){},),
+                            number: 1,
+                            text: 'Full Name',
+                            keyboardType: TextInputType.text,
+                            onchange: (String value) {
+                              value = name!;
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Full Name can be not empty';
+                              } else
+                                return null;
+                            },
+                            onSaved: (val) {},
+                          ),
                           BirthDateView(
                             text: 'Data of Birth',
                             Onchage: (dynamic value) {
@@ -199,19 +203,23 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             height: 16,
                           ),
                           TextFormFieldView(
-                              text: 'Address',
-                              keyboardType: TextInputType.text,
-                              onchange: (String value) {
-                                value = address!;
-                              },
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'address can be not empty';
-                                } else
-                                  return null;
-                              }, onSaved:(val){},),
+                            number: 1,
+                            text: 'Address',
+                            keyboardType: TextInputType.text,
+                            onchange: (String value) {
+                              value = address!;
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'address can be not empty';
+                              } else
+                                return null;
+                            },
+                            onSaved: (val) {},
+                          ),
                           widget.chooseUser
                               ? TextFormFieldView(
+                                  number: 1,
                                   text: 'Headline',
                                   keyboardType: TextInputType.text,
                                   onchange: (String value) {
@@ -222,7 +230,9 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                       return 'Headline can be not empty';
                                     } else
                                       return null;
-                                  }, onSaved:(val){},)
+                                  },
+                                  onSaved: (val) {},
+                                )
                               : Container(
                                   height: 85,
                                   width: double.infinity,

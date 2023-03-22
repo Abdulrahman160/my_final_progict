@@ -1,34 +1,41 @@
+
+import 'package:flutter/material.dart';
 import '../../conestant/image.dart';
+import 'Update_Password.dart';
 
 class Setting {
   final String? icon;
   final String? text;
-   bool? changeSwitch;
+  final bool changeSwitch;
+  final Widget? namePage;
+  final GestureTapCallback? onTap;
 
-  Setting({
-    required this.icon,
-    required this.text,
-    required this.changeSwitch,
-  });
+  Setting(
+      {this.namePage,
+      required this.icon,
+      required this.text,
+      this.changeSwitch = false,
+      this.onTap});
 }
 
 List<Setting> setting = [
   Setting(
     icon: AppImage.lock,
     text: 'Change Password',
-    changeSwitch: false,
+    namePage: PageUpdatePasswordView(),
   ),
   Setting(
     icon: AppImage.Globe,
     text: 'Language',
-    changeSwitch: false,
   ),
   Setting(
+    onTap: () {},
     icon: AppImage.Notification,
     text: 'Notification',
     changeSwitch: true,
   ),
   Setting(
+    onTap: () {},
     icon: AppImage.darkMode,
     text: 'Dark mode',
     changeSwitch: true,
@@ -36,31 +43,40 @@ List<Setting> setting = [
   Setting(
     icon: AppImage.Help,
     text: 'FAQ',
-    changeSwitch: false,
   ),
   Setting(
     icon: AppImage.Security,
     text: 'Privacy Policy',
-    changeSwitch: false,
   ),
   Setting(
     icon: AppImage.Team,
     text: 'Contact Us',
-    changeSwitch: false,
   ),
   Setting(
     icon: AppImage.Share,
     text: 'Share',
-    changeSwitch: false,
   ),
   Setting(
     icon: AppImage.Mobile,
     text: 'Get The Latest Version',
-    changeSwitch: false,
   ),
   Setting(
-    icon: AppImage.logout,
-    text: 'Log out',
-    changeSwitch: false,
-  ),
+      icon: AppImage.logout,
+      text: 'Log out',
+    onTap: (){
+      {
+        // TODO hassan showModalBottomSheet(
+        //     backgroundColor: Colors.transparent,
+        //     context: context ,
+        //     builder: (BuildContext context) {
+        //       return BottomSheetView(
+        //         title: 'Log Out',
+        //         hint: 'Are you sure you want to Log out?',
+        //         nameColor: 'Log out',
+        //         nameNonColor: 'Cancel',
+        //       );
+        //     });
+      }
+    }
+),
 ];

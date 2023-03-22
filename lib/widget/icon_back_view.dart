@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../conestant/conset.dart';
 
 class IconBackView extends StatelessWidget {
@@ -14,7 +13,7 @@ class IconBackView extends StatelessWidget {
         icon: Icon(
           Icons.arrow_back_ios_new,
           color: kBlack,
-          size: 15,
+          size: 18,
         ),
         onPressed: () {
           Navigator.pop(context);

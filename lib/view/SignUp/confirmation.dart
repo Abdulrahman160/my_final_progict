@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
-
 import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
 import '../Forget_Password/set_new_password.dart';
 import '../Login.dart';
-import 'sign_up_view.dart';
 import 'succes.dart';
 
 class SignUpConfirmationView extends StatefulWidget {
   const SignUpConfirmationView({
     Key? key,
-    this.controlacsses = false,
+    this.controlacsses = true,
   }) : super(key: key);
 
   @override
@@ -96,6 +94,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                         height: 16,
                       ),
                       TextFormFieldView(
+                        number: 1,
                         keyboardType: TextInputType.number,
                         text: "Confirmation Code",
                         onchange: (value) {
@@ -137,7 +136,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                           onTap: () {
                             if (formKay.currentState!.validate()) {
                               widget.controlacsses
-                                  ? showBottomSheet(
+                                  ? showModalBottomSheet(
                                       context: context,
                                       elevation: 5,
                                       builder: (BuildContext context) {
