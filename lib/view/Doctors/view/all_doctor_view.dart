@@ -3,6 +3,7 @@ import 'package:my_final_progict/conestant/image.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../widget/container_search/container_search_view.dart';
+import '../../../widget/icon_back_view.dart';
 import '../widget/docotr_card_view.dart';
 import '../widget/doctor_model.dart';
 
@@ -29,16 +30,7 @@ class AllDoctorView extends StatelessWidget {
         child: CircleAvatar(
           radius: 23,
           backgroundColor: kGray,
-          child: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              color: kBlack,
-              size: 15,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          child:IconBackView() ,
         ),
       ),
     ),

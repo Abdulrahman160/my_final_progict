@@ -44,7 +44,7 @@ class _SettingViewState extends State<SettingView> {
                             MaterialPageRoute(
                                 builder: (context) => EditProfileView()));
                       },
-                      icons: Icons.edit_square,
+                      icons: Icons.arrow_back,
                     )
                   ],
                 ),

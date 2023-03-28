@@ -7,8 +7,6 @@ import 'package:my_final_progict/view/Welcome.dart';
 import '../../../conestant/image.dart';
 import '../../../widget/Container_Button_Color.dart';
 
-
-
 class BookingSuccess extends StatelessWidget {
   const BookingSuccess({Key? key}) : super(key: key);
 
@@ -23,10 +21,11 @@ class BookingSuccess extends StatelessWidget {
           horizontal: 40,
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(25),
-            ),
-            color: Colors.red),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25),
+          ),
+          color: Colors.red,
+        ),
         height: 500,
         width: double.infinity,
         child: Column(
@@ -37,8 +36,8 @@ class BookingSuccess extends StatelessWidget {
               animate: true,
               glowColor: kBlue,
               repeatPauseDuration: Duration(milliseconds: 100),
-              // repeat: true,
-              // showTwoGlows: true,
+              repeat: true,
+              showTwoGlows: true,
               child: Stack(
                 alignment: Alignment.center,
                 children: [

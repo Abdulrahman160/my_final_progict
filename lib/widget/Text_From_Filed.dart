@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../conestant/conset.dart';
 
 class TextFormFieldView extends StatefulWidget {
-    TextFormFieldView({
+  TextFormFieldView({
     Key? key,
     required this.text,
-    required this.keyboardType,
+    this.keyboardType = TextInputType.text,
     required this.onchange,
     this.validator,
     this.secure = false,
-      required this.onSaved,
-      required this.number,
+    required this.onSaved,
+    required this.number,
   }) : super(key: key);
 
   final String text;
@@ -22,16 +22,12 @@ class TextFormFieldView extends StatefulWidget {
   final Function(String?)? onSaved;
   final int number;
 
-
-    @override
+  @override
   State<TextFormFieldView> createState() => _ContainerViewState();
 }
 
 class _ContainerViewState extends State<TextFormFieldView> {
   late bool secure;
-
-
-
 
   @override
   void initState() {
@@ -39,16 +35,15 @@ class _ContainerViewState extends State<TextFormFieldView> {
     super.initState();
   }
 
-
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(onSaved: widget.onSaved,
+        TextFormField(
+          onSaved: widget.onSaved,
           obscureText: secure,
           keyboardType: widget.keyboardType,
           textAlign: TextAlign.start,
-          decoration:
-          InputDecoration(
+          decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 15),
             suffixIcon: !widget.secure
                 ? SizedBox()

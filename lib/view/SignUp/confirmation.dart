@@ -136,7 +136,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
                           onTap: () {
                             if (formKay.currentState!.validate()) {
                               widget.controlacsses
-                                  ? showModalBottomSheet(
+                                  ? showBottomSheet(
                                       context: context,
                                       elevation: 5,
                                       builder: (BuildContext context) {

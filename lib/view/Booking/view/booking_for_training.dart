@@ -49,15 +49,37 @@ class _BookingForTrainingViewState extends State<BookingForTrainingView> {
             width: double.infinity,
             decoration: BoxDecoration(
                 color: kGray, borderRadius: BorderRadius.circular(25)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  AppImage.largeCard,
-                  width: 150,
-                  height: double.infinity,
-                  fit: BoxFit.fill,
+                Stack(
+                  children: [
+                    Image.asset(
+                      AppImage.largeCard,
+                      width: 150,
+                      height: double.infinity,
+                      fit: BoxFit.fill,
+                    ),
+                    Positioned(top: 10,left: 10,
+                      child: CircleAvatar(
+                        backgroundColor: kWhite.withOpacity(.6),
+                        radius: 15,
+                        child: IconButton(
+                          onPressed: () {
+
+                          },
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: kDarkGreen,size: 12,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.start,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Social Anxiety",
@@ -71,7 +93,8 @@ class _BookingForTrainingViewState extends State<BookingForTrainingView> {
                       "Social anxiety disorder\n(SAD) is characterized by \nan excessive fear of\nnegative evaluation and \nrejection by other people",
                       style: TextStyle(
                         color: kDarkGray,
-                        fontSize: 11,height: 1.5,
+                        fontSize: 11,
+                        height: 1.5,
                         fontWeight: FontWeight.w700,
                       ),
                     )
@@ -89,7 +112,10 @@ class _BookingForTrainingViewState extends State<BookingForTrainingView> {
               enableHintTitle: false,
             ),
           ),
-          ContainerSalary(time: 'Forever', price: 200,),
+          ContainerSalary(
+            time: 'Forever',
+            price: 200,
+          ),
           Padding(
             padding: const EdgeInsets.only(
               top: 35.0,
@@ -135,7 +161,7 @@ class _BookingForTrainingViewState extends State<BookingForTrainingView> {
             onTap: () => showBottomSheet(
               context: context,
               elevation: 5,
-              builder: (BuildContext context) {
+              builder: (context) {
                 return BookingSuccess();
                 //todo hosni:why show button shit does not work
               },
