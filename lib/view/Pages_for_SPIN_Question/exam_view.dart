@@ -1,109 +1,108 @@
 import 'package:flutter/material.dart';
-import '../../widget/Container_Button_Color.dart';
-import '../../widget/Container_Button_nonColor.dart';
-import '../../widget/Radio_View.dart';
+import 'package:my_final_progict/view/Pages_for_SPIN_Question/question_view.dart';
+import 'package:my_final_progict/view/Pages_for_SPIN_Question/widget/question_number.dart';
+import 'exam_model.dart';
 
 class ExamView extends StatefulWidget {
   const ExamView({
     Key? key,
   }) : super(key: key);
 
-  // final int num;
-  // final Question data;
-
   @override
   State<ExamView> createState() => _ExamViewState();
 }
 
-String choose = '';
-final chooses = [
-  'Not At All',
-  'A Little Bit',
-  'Somewhat',
-  'Very Much',
-  'Extremely'
-];
+int? questionChange;
+final questionController = PageController();
 
 class _ExamViewState extends State<ExamView> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.blue,
-        body: Column(
-          children: [
-            SizedBox(
-              height: 26,
-            ),
-            Text(
-              ' Please read each statement and \n click in the column that indicates \n how much the statement applied \n to you over the past week.',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            Container(
-              width: double.infinity,
-              height: 670,
+        body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              SliverAppBar(
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Text(
+                    ' Please read each statement and \n click in the column that indicates \n how much the statement applied \nto you over the past week.',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15),
+                  ),
+                ),
+                pinned: false,
+                floating: true,
+                expandedHeight: MediaQuery.of(context).size.height * 0.200,
+              )
+            ];
+          },
+          body: Container(
+              height: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25))),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Text(
-                      'I am afraid of people in authority.',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 27,
-                    ),
-                    ...chooses.map((e) {
-                      return CustomRadio(
-                        title: e,
-                        onChange: (v) => setState(() => choose = e),
-                        value: e,
-                        groupValue: choose,
-                      );
-                    }),
-                    Spacer(),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: ContainerNonColorView(
-                          data: 'Previous',
-                        )),
-                        SizedBox(
-                          width: 44,
-                        ),
-                        Expanded(
-                            child: ContainerColorView(
-                          data: 'Next',
-                        ))
-                      ],
-                    ),
-                    Spacer(),
-                    SizedBox(
-                      height: 25,
-                    ),
-                  ],
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+              child: Column(children: [
+                SizedBox(
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      // TODO Container scroll with the press a button Next
+                      itemCount: question.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            questionController.animateToPage(index,
+                                duration: Duration(milliseconds: 250),
+                                curve: Curves.easeInOut);
+                            setState(() {
+                              question.forEach((element) => element.isSelected = true);
+                              question[index].isSelected =
+                                  !question[index].isSelected;
+                            });
+                          },
+                          child: QuestionNumberView(
+                            number: question[index],
+                          ),
+                        );
+                      }),
+                  height: 100,
+                ),
+                Expanded(
+                  child: PageView(
+                    onPageChanged: (index) {
+                      setState(() {
+                        questionChange = index;
+                        question
+                            .forEach((element) => element.isSelected = true);
+                        question[index].isSelected =
+                            !question[index].isSelected;
+                      });
+                    },
+                    controller: questionController,
+                    children:
+                        question.map((e) => QuestionView(data: e)).toList(),
+                  ),
+                ),
+                // Expanded(
+                //
+                //     child: PageView(
+                //       onPageChanged: (value) {
+                //         setState(() {
+                //           questionChange =value;
+                //         });
+                //       },
+                //       itemBuilder: (context, index) =>
+                //           QuestionView(data: question[index]),
+                //       controller: questionController,
+                //     )),
+              ])),
+        ));
   }
 }

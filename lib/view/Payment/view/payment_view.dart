@@ -89,9 +89,7 @@ class _PaymentViewState extends State<PaymentView> {
                               borderSide: BorderSide.none,
                             ),
                             hintText: 'Visa Card Number',
-                            suffix: Image.asset(
-                              AppImage.calendar,
-                            ),
+
                           ),
                         ),
                       ),

@@ -15,33 +15,26 @@ class ContainerColorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          onTap: onTap,
-          child: Container(
-              height: 63,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  gradient: LinearGradient(
-                    colors: [
-                      containerNonBorderColor1,
-                      containerNonBorderColor2
-                    ],
-                  )),
-              child: Center(
-                  child: Text(
-                data,
-                style: TextStyle(
-                    color: Color(0xffFFFFFF),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500),
-              ))),
-        ),
-        SizedBox(
-          height: 25,
-        ),
-      ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+          height: 63,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              gradient: LinearGradient(
+                colors: [
+                  containerNonBorderColor1,
+                  containerNonBorderColor2
+                ],
+              )),
+          child: Center(
+              child: Text(
+            data,
+            style: TextStyle(
+                color: Color(0xffFFFFFF),
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
+          ))),
     );
   }
 }

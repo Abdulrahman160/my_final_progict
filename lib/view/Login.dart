@@ -93,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: backColor,
+          backgroundColor: kWhite,
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Form(
@@ -109,7 +109,7 @@ class _LoginViewState extends State<LoginView> {
                         child: Container(
                           height: 120,
                           width: 120,
-                          child: Image.asset("assets/images/logo.png"),
+                          child: Image.asset("assets/images/logo.png",),
                         ),
                       ),
                       SizedBox(

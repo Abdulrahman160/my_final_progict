@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_final_progict/conestant/appBar.dart';
-
 import '../../../conestant/conset.dart';
 import '../widget/result_model.dart';
 import '../widget/result_widget.dart';

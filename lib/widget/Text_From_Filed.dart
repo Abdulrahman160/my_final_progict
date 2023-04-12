@@ -63,7 +63,7 @@ class _ContainerViewState extends State<TextFormFieldView> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),

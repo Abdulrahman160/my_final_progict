@@ -8,15 +8,14 @@ Color textColor = Color(0XFF2E2E5D);
 Color textOrangeColor = Color(0XFFF77A55);
 Color textRedColor = Color(0XFFED0101);
 Color backGroundColor = Color(0XFFC4C4C4);
-Color backColor = Color(0XFFFFFFFF);
+Color kWhite = Color(0XFFFFFFFF);
 Color hintTextColor = Color(0XFFB8B8C7);
 Color hintTextFiledColor = Color(0XFFA1A5C1);
 Color kDarkGreen = Color(0xff234F68);
 Color kGray = Color(0xffF7F8F8);
 Color kDarkGray = Color(0xff53587A);
 Color kShadowGray = Color(0xff7B6F72);
-
-Color kWhite = Color(0xFFFFFFFF);
+Color borderContainerSettingColor =  Color(0xffF3F3F3);
 Color backgroundCircleAvatar = Color(0xffDFDFDF);
 Color kBlue = Color(0xff2E91EF);
 Color kLiteBlue = Color(0xffAFD8FF);
@@ -30,6 +29,7 @@ Color kRatioColor = Color(0xff08CEFF);
 Color textResult = Color(0xff7C828A);
 Color doctorDetailsColor = Color(0xff577CEF);
 Color blueBorderColor = Color(0xff577CEF);
+
 
 const kKeepUserLoggedIn = 'keepUserLogIn';
 

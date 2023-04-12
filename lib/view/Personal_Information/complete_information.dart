@@ -1,7 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:my_final_progict/conestant/image.dart';
+import '../../widget/Widget_Open_Camera.dart';
 import '../Upload_Photo_Card.dart';
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
@@ -29,7 +28,6 @@ String choose = '';
 final chooses = ['Yes', 'No'];
 
 class _CompleteInformationViewState extends State<CompleteInformationView> {
-  File? imageFile;
   String? name;
   String? address;
   String? headline;
@@ -39,7 +37,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: ListView(
           children: [
             Stack(
@@ -68,70 +66,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                           SizedBox(
                             height: 5,
                           ),
-                          InkWell(
-                              onTap: () {
-                                showModalBottomSheet(
-                                    backgroundColor: Colors.transparent,
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return BottomSheet(
-                                        onClosing: () {},
-                                        enableDrag: false,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.vertical(
-                                                top: Radius.circular(25))),
-                                        builder: (context) => Container(
-                                            height: 50,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                InkWell(
-                                                    onTap: () => getImage(
-                                                        source:
-                                                            ImageSource.camera),
-                                                    child: Icon(
-                                                      Icons.camera_alt_outlined,
-                                                      color: Colors.blue,
-                                                      size: 40,
-                                                    )),
-                                                InkWell(
-                                                  onTap: () => getImage(
-                                                      source:
-                                                          ImageSource.gallery),
-                                                  child: Icon(
-                                                    Icons.photo_library,
-                                                    color: Colors.blue,
-                                                    size: 40,
-                                                  ),
-                                                ),
-                                              ],
-                                            )),
-                                      );
-                                    });
-                              },
-                              child: imageFile != null
-                                  ? Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: FileImage(imageFile!),
-                                              fit: BoxFit.cover),
-                                          borderRadius:
-                                              BorderRadius.circular(50)),
-                                    )
-                                  : Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                          color: TextFiled,
-                                          borderRadius:
-                                              BorderRadius.circular(50)),
-                                      child: Center(
-                                          child: Icon(
-                                        Icons.camera_alt_rounded,
-                                      )))),
+                          OpenCameraView(),
                           SizedBox(
                             height: 10,
                           ),
@@ -305,12 +240,5 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
         ));
   }
 
-  void getImage({required ImageSource source}) async {
-    final file = await ImagePicker().pickImage(source: source);
-    if (file?.path != null) {
-      setState(() {
-        imageFile = File(file!.path);
-      });
-    }
-  }
+
 }

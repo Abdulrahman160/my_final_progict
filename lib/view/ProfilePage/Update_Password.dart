@@ -14,7 +14,6 @@ class PageUpdatePasswordView extends StatefulWidget {
 }
 
 class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
-
   String? oldPassword;
   String? newPassword;
   String? confirmNewPassword;
@@ -22,39 +21,37 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
-        child: AppBar(
-            backgroundColor: backColor,
-            elevation: 0.0,
-            centerTitle: true,
-            title: Padding(
-              padding: const EdgeInsets.only(top: 6.0),
-              child: Row(
-                children: [
-                  IconBackView(),
-                  SizedBox(
-                    width: 60,
-                  ),
-                  Text(
-                    'Update Password',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black),
-                  ),
-                ],
+      backgroundColor: kWhite,
+      body: ListView(children: [
+        SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            children: [
+              IconBackView(),
+              SizedBox(
+                width: 70,
               ),
-            )),
-      ),
-      backgroundColor: backColor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+              Text(
+                'Update Password',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 31,),
+              SizedBox(
+                height: 31,
+              ),
               Text(
                 'Old Password',
                 style: TextStyle(
@@ -62,7 +59,9 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                     fontWeight: FontWeight.w600,
                     color: Colors.black),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormFieldView(
                 number: 1,
                 secure: true,
@@ -91,7 +90,9 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                     fontWeight: FontWeight.w600,
                     color: Colors.black),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormFieldView(
                 number: 1,
                 secure: true,
@@ -103,10 +104,10 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Confirm Password can be not empty';
-                  // }TODO Hassan edit of condition else if (value != oldPassword) {
-                  //   return "Confirm Password Is Not Equal Password";
+                    // }TODO Hassan edit of condition else if (value != oldPassword) {
+                    //   return "Confirm Password Is Not Equal Password";
                   } else
-                        () {
+                    () {
                       return;
                     };
                 },
@@ -121,7 +122,9 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                     fontWeight: FontWeight.w600,
                     color: Colors.black),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormFieldView(
                 number: 1,
                 secure: true,
@@ -136,7 +139,7 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                   } else if (value != newPassword) {
                     return "Confirm Password Is Not Equal Password";
                   } else
-                        () {
+                    () {
                       return;
                     };
                 },
@@ -144,17 +147,23 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
                   confirmNewPassword = val;
                 },
               ),
-              SizedBox(height: 310,),
+              SizedBox(
+                height: 310,
+              ),
               ContainerColorView(
                 data: 'Update',
-                onTap: (){
+                onTap: () {
                   showModalBottomSheet(
                       backgroundColor: Colors.transparent,
                       context: context,
                       builder: (BuildContext context) {
                         return BottomSheetView(
+                          onTapContainerColor: (){
+                          //  TODO  onTap for save
+                          },
                           title: 'Undo Changes ?',
-                          hint: 'Are you sure you want to change what\n you entered?',
+                          hint:
+                              'Are you sure you want to change what\n you entered?',
                           nameColor: 'Save',
                           nameNonColor: 'Cancel',
                         );
@@ -163,8 +172,8 @@ class _PageUpdatePasswordViewState extends State<PageUpdatePasswordView> {
               )
             ],
           ),
-        ),
-      ),
+        )
+      ]),
     );
   }
 }

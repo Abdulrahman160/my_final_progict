@@ -25,134 +25,129 @@ class _EditProfileViewState extends State<EditProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
-        child: AppBar(
-            backgroundColor: backColor,
-            elevation: 0.0,
-            centerTitle: true,
-            title: Padding(
-              padding: const EdgeInsets.only(top: 6.0),
-              child: Row(
-                children: [
-                  IconBackView(),
-                  SizedBox(
-                    width: 100,
-                  ),
-                  Text(
-                    'My Profile',
+      backgroundColor: kWhite,
+      body: ListView(
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Row(
+              children: [
+                IconBackView(),
+                SizedBox(
+                  width: 100,
+                ),
+                Text('My Profile',
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
-            )),
-      ),
-      backgroundColor: backColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 50,
+                        color: Colors.black))
+              ],
             ),
-            InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return BottomSheet(
-                        onClosing: () {},
-                        enableDrag: false,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(25))),
-                        builder: (context) => Container(
-                            height: 50,
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceAround,
-                              children: [
-                                InkWell(
-                                    onTap: () => getImage(
-                                        source:
-                                        ImageSource.camera),
-                                    child: Icon(
-                                      Icons.camera_alt_outlined,
-                                      color: Colors.blue,
-                                      size: 40,
-                                    )),
-                                InkWell(
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (BuildContext context) {
+                    return BottomSheet(
+                      onClosing: () {},
+                      enableDrag: false,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25))),
+                      builder: (context) => Container(
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceAround,
+                            children: [
+                              InkWell(
                                   onTap: () => getImage(
                                       source:
-                                      ImageSource.gallery),
+                                      ImageSource.camera),
                                   child: Icon(
-                                    Icons.photo_library,
+                                    Icons.camera_alt_outlined,
                                     color: Colors.blue,
-                                    size: 40,
-                                  ),
+                                    size: 45,
+                                  )),
+                              InkWell(
+                                onTap: () => getImage(
+                                    source:
+                                    ImageSource.gallery),
+                                child: Icon(
+                                  Icons.photo_library,
+                                  color: Colors.blue,
+                                  size: 45,
                                 ),
-                              ],
+                              ),
+                            ],
+                          )),
+                    );
+                  });
+            },
+            child: Center(
+              child: imageFile != null
+                  ? Stack(children: [
+                      Container(
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: FileImage(imageFile!),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(50)),
+                        // child: Image.asset(AppImage.person),
+                      ),
+                      Positioned(
+                        height: 32,
+                        width: 32,
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: Colors.blue),
+                            child: Icon(
+                              Icons.linked_camera_outlined,
+                              color: Colors.white,
                             )),
-                      );
-                    });
-              },
-              child: Center(
-                child: imageFile != null
-                    ? Stack(children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: FileImage(imageFile!),
-                                  fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(50)),
-                          // child: Image.asset(AppImage.person),
-                        ),
-                        Positioned(
-                          height: 32,
-                          width: 32,
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  color: Colors.blue),
-                              child: Icon(
-                                Icons.linked_camera_outlined,
-                                color: Colors.white,
-                              )),
-                        )
-                      ])
-                    : Stack(children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Image.asset(AppImage.person),
-                        ),
-                        Positioned(
-                          height: 32,
-                          width: 32,
-                          bottom: 0,
-                          right: 0,
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  color: Colors.blue),
-                              child: Icon(
-                                Icons.linked_camera_outlined,
-                                color: Colors.white,
-                              )),
-                        )
-                      ]),
-              ),
+                      )
+                    ])
+                  : Stack(children: [
+                      Container(
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Image.asset(AppImage.person),
+                      ),
+                      Positioned(
+                        height: 32,
+                        width: 32,
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: Colors.blue),
+                            child: Icon(
+                              Icons.linked_camera_outlined,
+                              color: Colors.white,
+                            )),
+                      )
+                    ]),
             ),
-            Column(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
@@ -224,7 +219,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                   },
                 ),
                 SizedBox(
-                  height: 84,
+                  height: 120,
                 ),
                 ContainerColorView(
                   data: 'Save Change',
@@ -234,8 +229,12 @@ class _EditProfileViewState extends State<EditProfileView> {
                         context: context,
                         builder: (BuildContext context) {
                           return BottomSheetView(
+                            onTapContainerColor: (){
+                              //  TODO  onTap for save
+                            },
                             title: 'Undo Changes ?',
-                            hint: 'Are you sure you want to change what\n you entered?',
+                            hint:
+                                'Are you sure you want to change what\n you entered?',
                             nameColor: 'Save',
                             nameNonColor: 'Cancel',
                           );
@@ -243,9 +242,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                   },
                 )
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -258,6 +257,4 @@ class _EditProfileViewState extends State<EditProfileView> {
       });
     }
   }
-
-
 }

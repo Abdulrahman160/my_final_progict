@@ -2,7 +2,6 @@ class AppImage {
   static const String afterQuiz = "assets/images/afterQuiz.png";
   static const String beforeStartQuiz = "assets/images/beforeStartQuiz.png";
   static const String error = "assets/images/error.png";
-  static const String facebook = "assets/images/facebook.png";
   static const String google = "assets/images/google.png";
   static const String largeCard = "assets/images/largeCard.png";
   static const String logo = "assets/images/logo.png";
@@ -58,7 +57,18 @@ class AppImage {
   static const String largeMastercard = "assets/images/largeMastercard.png";
   static const String blueCircle = "assets/images/blueCircle.png";
   static const String rightMark = "assets/images/rightMark.png";
-  static const String calendar = "assets/images/calendar.png";
-  static const String calendar_gray = "assets/images/calendar_gray.png";
+  static const String CustomerService = "assets/images/CustomerService.png";
+  static const String WhatsApp = "assets/images/WhatsApp.png";
+  static const String Website = "assets/images/Website.png";
+  static const String facebook = "assets/images/facebook.png";
+  static const String arabic = "assets/images/arabic.png";
+  static const String english = "assets/images/english.png";
+  static const String france = "assets/images/france.png";
+  static const String german = "assets/images/german.png";
+  static const String japanese = "assets/images/japanese.png";
+  static const String expand_less = "assets/images/expand_less.png";
+  static const String expand_more = "assets/images/expand_more.png";
+
+
 
 }

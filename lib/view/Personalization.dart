@@ -26,7 +26,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: Stack(
           children: [
             Image.asset(

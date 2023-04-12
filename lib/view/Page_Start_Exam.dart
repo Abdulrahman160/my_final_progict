@@ -4,6 +4,7 @@ import '../conestant/image.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Container_Button_nonColor.dart';
 import 'Page_Finish_Exam.dart';
+import 'Pages_for_SPIN_Question/exam_view.dart';
 
 class PageStartExamView extends StatelessWidget {
   const PageStartExamView({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class PageStartExamView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backColor,
+      backgroundColor: kWhite,
       body: Stack(
         children: [
           Image.asset(
@@ -19,11 +20,13 @@ class PageStartExamView extends StatelessWidget {
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30,right: 30,bottom: 40),
+            padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),
             child: Column(
               children: [
-                SizedBox(height: 260,),
-                Image.asset(AppImage.startExam),
+                SizedBox(
+                  height: 260,
+                ),
+                Image.asset(AppImage.startExam,fit: BoxFit.cover,),
                 SizedBox(
                   height: 50,
                 ),
@@ -38,24 +41,33 @@ class PageStartExamView extends StatelessWidget {
                     Expanded(
                       child: ContainerNonColorView(
                         data: 'Skip',
-                         onTap: (){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FinishExamView(),));
-                         },
+                        onTap: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FinishExamView(),
+                              ));
+                        },
                       ),
                     ),
-                    SizedBox(width: 44,),
+                    SizedBox(
+                      width: 44,
+                    ),
                     Expanded(
                       child: ContainerColorView(
                         data: 'GO',
-                         onTap: () {
-
-
-                         },
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ExamView(),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
                 )
-
               ],
             ),
           )

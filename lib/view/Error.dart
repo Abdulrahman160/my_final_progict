@@ -10,7 +10,7 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backColor,
+      backgroundColor: kWhite,
       appBar: AppBar(
         actions: [
           Row(

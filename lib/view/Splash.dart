@@ -25,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: Center(
           child: Image.asset(
             AppImage.logo,

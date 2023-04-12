@@ -19,7 +19,7 @@ class _UploadCardViewState extends State<UploadCardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backColor,
+      backgroundColor: kWhite,
       body: Stack(
         children: [
           Image.asset(

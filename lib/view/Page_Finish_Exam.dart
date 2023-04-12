@@ -10,12 +10,12 @@ class FinishExamView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backColor,
+      backgroundColor: kWhite,
       body: Stack(
         children: [
           Image.asset(
             AppImage.background,
-            width: double.infinity,
+            fit: BoxFit.cover,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),

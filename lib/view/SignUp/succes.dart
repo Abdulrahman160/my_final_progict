@@ -22,7 +22,7 @@ class SignUpSuccessfully extends StatelessWidget {
               topRight: Radius.circular(25),
               topLeft: Radius.circular(25),
             ),
-            color: backColor),
+            color: kWhite),
         height: 500,
         width: double.infinity,
         child: Padding(

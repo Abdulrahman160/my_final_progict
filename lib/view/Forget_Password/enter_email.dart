@@ -23,7 +23,7 @@ class _EnterEmailViewState extends State<EnterEmailView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: Form(
           key: formKay,
           child: ListView(

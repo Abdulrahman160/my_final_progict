@@ -30,7 +30,7 @@ class _SignUpConfirmationViewState extends State<SignUpConfirmationView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: Padding(
           padding: const EdgeInsets.all(40.0),
           child: Form(

@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widget/Container_Button_Color.dart';
 import '../../../widget/Container_Button_nonColor.dart';
+import '../../Login.dart';
 
 class BottomSheetView extends StatefulWidget {
   const BottomSheetView(
@@ -9,12 +11,14 @@ class BottomSheetView extends StatefulWidget {
       required this.title,
       required this.hint,
       required this.nameColor,
-      required this.nameNonColor})
+      required this.nameNonColor,
+      this.onTapContainerColor})
       : super(key: key);
   final String? title;
   final String? hint;
   final String? nameColor;
   final String? nameNonColor;
+  final GestureTapCallback? onTapContainerColor;
 
   @override
   State<BottomSheetView> createState() => _BottomSheetViewState();
@@ -22,15 +26,18 @@ class BottomSheetView extends StatefulWidget {
 
 class _BottomSheetViewState extends State<BottomSheetView> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext apContext) {
     return BottomSheet(
         onClosing: () {},
         enableDrag: false,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(25))),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(25),
+          ),
+        ),
         builder: (context) => Container(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              height: 330,
+              height: 350,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,11 +64,7 @@ class _BottomSheetViewState extends State<BottomSheetView> {
                   ),
                   ContainerColorView(
                     data: widget.nameColor!,
-                    onTap: () {
-                      // _save();
-                      // _read();
-                      // TODO Abdulrahman HAssn
-                    },
+                    onTap: widget.onTapContainerColor!,
                   ),
                   SizedBox(
                     height: 10,

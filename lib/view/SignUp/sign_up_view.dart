@@ -66,7 +66,7 @@ class _SignUpViewState extends State<SignUpView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backColor,
+        backgroundColor: kWhite,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Form(

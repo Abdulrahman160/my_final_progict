@@ -32,9 +32,7 @@ class _ScheduleViewState extends State<ScheduleView> {
             padding: const EdgeInsets.symmetric(horizontal: 32.0),
             child: Row(
               children: [
-                Image.asset(
-                  AppImage.calendar_gray,
-                ),
+
                 SizedBox(
                   width: 15,
                 ),

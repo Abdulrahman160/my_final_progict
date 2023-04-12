@@ -33,7 +33,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
       elevation: 0,
       backgroundColor: kTransparent,
       leading: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.only(top: 20,bottom: 20,right: 50),
         child: CircleAvatar(
           radius: 23,
           backgroundColor: kGray,
