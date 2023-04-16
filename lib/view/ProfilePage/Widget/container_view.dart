@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../conestant/conset.dart';
 import '../Help_Center/contact_us_model.dart';
 
-class CustomView extends StatefulWidget {
-  const CustomView({
+class ContainerContactUsView extends StatefulWidget {
+  const ContainerContactUsView({
     Key? key,
     required this.data,
   }) : super(key: key);
@@ -12,10 +12,10 @@ class CustomView extends StatefulWidget {
   final ContactUs data;
 
   @override
-  State<CustomView> createState() => _CustomViewState();
+  State<ContainerContactUsView> createState() => _ContainerContactUsViewState();
 }
 
-class _CustomViewState extends State<CustomView> {
+class _ContainerContactUsViewState extends State<ContainerContactUsView> {
   @override
   Widget build(BuildContext context) {
     return Column(

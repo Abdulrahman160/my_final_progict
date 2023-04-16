@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/ProfilePage/Help_Center/page_contact_us.dart';
 import 'package:my_final_progict/view/ProfilePage/Help_Center/page_faq.dart';
-
 import '../../../conestant/conset.dart';
 import '../../../widget/appbar_widget.dart';
 
@@ -32,10 +31,13 @@ class _HelpCenterViewState extends State<HelpCenterView>
       backgroundColor: kWhite,
       body: Column(
         children: [
-          AppBarWidget(title: "Help Center"),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: AppBarWidget(title: "Help Center"),
+          ),
           DefaultTabController(
             length: 2,
-            initialIndex: 1,
+            initialIndex: widget.x,
             child: TabBar(
               controller: _tabController,
               labelColor: Color(0xff2E91EF),
@@ -53,7 +55,7 @@ class _HelpCenterViewState extends State<HelpCenterView>
             child: TabBarView(
               controller: _tabController,
               children: [
-                PageFAQView(),
+                Expanded(child: PageFAQView(),),
                 ContactUsView(),
               ],
             ),

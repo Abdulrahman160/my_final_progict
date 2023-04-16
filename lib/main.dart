@@ -43,10 +43,9 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         navigatorKey: _globalKey,
-        home:
-         // isLogin! ? NavBarView() : LoginView(),
+         home:
+         isLogin! ? NavBarView() : LoginView(),
         // it is to login
-        EditProfileView(),
         builder: (context, child) => SafeArea(child: child!),
         debugShowCheckedModeBanner: false,
         title: 'Mentis',

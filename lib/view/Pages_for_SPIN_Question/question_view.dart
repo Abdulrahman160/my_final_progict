@@ -1,33 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/view/Pages_for_SPIN_Question/exam_model.dart';
-
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
-import '../../widget/Radio_View.dart';
+import '../../widget/CustomLatterRadio.dart';
 import '../Page_Finish_Exam.dart';
 import 'exam_view.dart';
 
 class QuestionView extends StatefulWidget {
-  const QuestionView({Key? key, required this.data,}) : super(key: key);
+  const QuestionView({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
   final Question data;
-
 
   @override
   State<QuestionView> createState() => _QuestionViewState();
 }
 
 class _QuestionViewState extends State<QuestionView> {
-  String choose = '';
-  final chooses = [
-    'Not At All',
-    'A Little Bit',
-    'Somewhat',
-    'Very Much',
-    'Extremely'
-  ];
-
-
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,15 +32,13 @@ class _QuestionViewState extends State<QuestionView> {
           SizedBox(
             height: 15,
           ),
-          ...chooses.map((e) {
-            return CustomRadio(
-              title: e,
-              onChange: (v) => setState(() => choose = e),
-              value: e,
-              groupValue: choose,
-            );
-          }),
-          Spacer(),
+          Expanded(
+            flex: 5,
+            child: CustomLatterRadioView(),
+          ),
+          Spacer(
+            flex: 1,
+          ),
           widget.data.changeButton
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.center,

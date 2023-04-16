@@ -23,8 +23,7 @@ class _ContainerListTileViewState extends State<ContainerListTileView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Directionality(
+    return  Directionality(
         textDirection: TextDirection.rtl,
         child: AnimatedContainer(
           duration: Duration(
@@ -33,7 +32,7 @@ class _ContainerListTileViewState extends State<ContainerListTileView> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: containerBorderColor)),
-          height: _expanded ? 150 : 63,
+          height: _expanded ? 163 : 63,
           child: Card(
             elevation: 0.0,
             margin: EdgeInsets.symmetric(
@@ -43,8 +42,7 @@ class _ContainerListTileViewState extends State<ContainerListTileView> {
               children: [
               ListTile(
               trailing: Text(
-              widget.data.title!
-              ,
+              widget.data.title!,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             leading: IconButton(
@@ -67,11 +65,8 @@ class _ContainerListTileViewState extends State<ContainerListTileView> {
           ),
           AnimatedContainer(
               duration: Duration(milliseconds: 250),
-              height: _expanded ? 80 : 0,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              height: _expanded ? 75 : 0,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
                   Container(
@@ -84,16 +79,17 @@ class _ContainerListTileViewState extends State<ContainerListTileView> {
                   ),
                   Text(
                     widget.data.text!,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w500),
+                        fontSize: 13, fontWeight: FontWeight.w500),
                   ),
                 ],
               ))
           ],
         ),
       ),
-    ),)
-    ,
-    );
+    ),);
+
   }
 }
