@@ -57,6 +57,8 @@ dependencies:
   bloc: ^8.1.1
   calendar_agenda: ^0.0.2+3
   webview_flutter: ^3.0.4
+  flutter_cupertino_datetime_picker: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

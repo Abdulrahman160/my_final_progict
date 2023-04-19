@@ -43,7 +43,7 @@ class SettingView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25)
                       ),
                       child: Icon(
-                        Icons.edit_square,
+                        Icons.edit,
                         color: kBlack,
                         size: 30,
                       )),

@@ -11,7 +11,7 @@ class ContainerSettingView extends StatefulWidget {
     required this.data,
   }) : super(key: key);
 
-  final Setting_Pation data;
+  final SettingModel data;
 
   @override
   State<ContainerSettingView> createState() => _ContainerSettingViewState();

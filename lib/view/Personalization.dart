@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
 import 'package:my_final_progict/conestant/image.dart';
 
+import '../main.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Radio_View.dart';
 import '../widget/Text_From_Filed.dart';
@@ -116,12 +117,14 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                         // }
 
                         if (userType == "Patient") {
+                          users='Patient';
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => CompleteInformationView(),
                               ));
                         } else if (userType == "Doctor") {
+                          users='Doctor';
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

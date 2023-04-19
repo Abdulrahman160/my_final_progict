@@ -72,10 +72,10 @@ class _ContainerViewState extends State<TextFormFieldView> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             hintText: widget.text,
-            helperStyle: TextStyle(
-                color: hintTextColor.withOpacity(0.01),
-                fontWeight: FontWeight.w500,
-                fontSize: 16),
+              hintStyle: TextStyle(
+                  color: hintTextColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
             border: InputBorder.none,
           ),
           maxLines: widget.number,
