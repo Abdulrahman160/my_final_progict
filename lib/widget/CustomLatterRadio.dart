@@ -16,6 +16,7 @@ class CustomLatterRadioViewState extends State<CustomLatterRadioView> {
 
   @override
   void initState() {
+
     super.initState();
     sampleData.add( RadioModel(false, 'A', 'Not At All'));
     sampleData.add( RadioModel(false, 'B', 'A Little Bit'));

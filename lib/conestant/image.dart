@@ -68,7 +68,7 @@ class AppImage {
   static const String japanese = "assets/images/japanese.png";
   static const String expand_less = "assets/images/expand_less.png";
   static const String expand_more = "assets/images/expand_more.png";
-
-
+  static const String salary= "assets/images/salary.png";
+  // static const String training= "  assets/images/training.png";
 
 }

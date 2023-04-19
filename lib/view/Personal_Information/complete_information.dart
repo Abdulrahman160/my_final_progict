@@ -154,7 +154,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                           ),
                           widget.chooseUser
                               ? TextFormFieldView(
-                                  number: 1,
+                                  number: 3,
                                   text: 'Headline',
                                   keyboardType: TextInputType.text,
                                   onchange: (String value) {

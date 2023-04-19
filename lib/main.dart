@@ -6,6 +6,7 @@ import 'package:my_final_progict/payment/paymob.dart';
 import 'package:my_final_progict/text.dart';
 import 'package:my_final_progict/view/Login.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
+import 'package:my_final_progict/view/Page_Start_Exam.dart';
 import 'package:my_final_progict/view/Pages_for_SPIN_Question/exam_view.dart';
 import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
 import 'package:my_final_progict/view/ProfilePage/Edit_profile.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         navigatorKey: _globalKey,
          home:
-         isLogin! ? NavBarView() : LoginView(),
+          isLogin! ? NavBarView() : LoginView(),
         // it is to login
         builder: (context, child) => SafeArea(child: child!),
         debugShowCheckedModeBanner: false,

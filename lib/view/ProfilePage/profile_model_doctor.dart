@@ -4,14 +4,14 @@ import 'Help_Center/help_center.dart';
 import 'Page_Language/language_view.dart';
 import 'Update_Password.dart';
 
-class Setting_Pation {
+class Setting_Doctor {
   final String? icon;
   final String? text;
   final bool changeSwitch;
   final Widget? namePage;
   final bool? enableButtonSheet;
 
-  Setting_Pation(
+  Setting_Doctor(
       {this.namePage,
       required this.icon,
       required this.text,
@@ -19,42 +19,52 @@ class Setting_Pation {
       this.enableButtonSheet = false});
 }
 
-List<Setting_Pation> pation_setting_01 = [
-  Setting_Pation(
+List<Setting_Doctor> doctor_setting_01 = [
+  Setting_Doctor(
+    icon: AppImage.salary,
+    text: 'Salary',
+  ),
+  Setting_Doctor(
     icon: AppImage.lock,
     text: 'Change Password',
     namePage: PageUpdatePasswordView(),
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.Globe,
     text: 'Language',
     namePage: LanguageView(),
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.Notification,
     text: 'Notification',
     changeSwitch: true,
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.darkMode,
     text: 'Dark mode',
     changeSwitch: true,
   ),
 ];
 
-List<Setting_Pation> pation_setting_02 = [
-  Setting_Pation(
+List<Setting_Doctor> doctor_setting_02 = [
+  Setting_Doctor(
+    icon: AppImage.training,
+    text: 'Training',
+  ),
+];
+List<Setting_Doctor> doctor_setting_03 = [
+  Setting_Doctor(
     icon: AppImage.Help,
     text: 'FAQ',
     namePage: HelpCenterView(
       x: 0,
     ),
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.Security,
     text: 'Privacy Policy',
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.Team,
     text: 'Contact Us',
     namePage: HelpCenterView(
@@ -63,16 +73,16 @@ List<Setting_Pation> pation_setting_02 = [
   ),
 ];
 
-List<Setting_Pation> pation_setting_03 = [
-  Setting_Pation(
+List<Setting_Doctor> doctor_setting_04 = [
+  Setting_Doctor(
     icon: AppImage.Share,
     text: 'Share',
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.Mobile,
     text: 'Get The Latest Version',
   ),
-  Setting_Pation(
+  Setting_Doctor(
     icon: AppImage.logout,
     text: 'Log out',
     enableButtonSheet: true,

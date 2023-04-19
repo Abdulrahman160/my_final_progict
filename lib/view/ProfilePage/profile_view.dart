@@ -117,10 +117,10 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                     child: ListView.separated(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: setting_01.length,
+                      itemCount: pation_setting_01.length,
                       separatorBuilder: (context, index) => SizedBox(),
                       itemBuilder: (context, index) => ContainerSettingView(
-                        data: setting_01[index],
+                        data: pation_setting_01[index],
                       ),
                     ),
                   ),
@@ -134,10 +134,10 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                     child: ListView.separated(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: setting_02.length,
+                      itemCount: pation_setting_02.length,
                       separatorBuilder: (context, index) => SizedBox(),
                       itemBuilder: (context, index) => ContainerSettingView(
-                        data: setting_02[index],
+                        data: pation_setting_02[index],
                       ),
                     ),
                   ),
@@ -152,10 +152,10 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                     child: ListView.separated(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: setting_03.length,
+                      itemCount: pation_setting_03.length,
                       separatorBuilder: (context, index) => SizedBox(),
                       itemBuilder: (context, index) => ContainerSettingView(
-                        data: setting_03[index],
+                        data: pation_setting_03[index],
                       ),
                     ),
                   ),

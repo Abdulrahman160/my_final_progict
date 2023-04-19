@@ -15,7 +15,8 @@ class FinishExamView extends StatelessWidget {
         children: [
           Image.asset(
             AppImage.background,
-            fit: BoxFit.cover,
+            width: double.infinity,
+            fit: BoxFit.fitWidth,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),

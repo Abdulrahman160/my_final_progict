@@ -18,6 +18,7 @@ class PageStartExamView extends StatelessWidget {
           Image.asset(
             AppImage.background,
             width: double.infinity,
+            fit: BoxFit.fitWidth,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30, bottom: 40),
