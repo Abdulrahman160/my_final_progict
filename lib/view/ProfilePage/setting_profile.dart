@@ -4,7 +4,6 @@ import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
 import '../../widget/icon_back_view.dart';
 import 'Edit_profile.dart';
-import 'Update_Password.dart';
 import 'Widget/Custom_Text.dart';
 
 class SettingView extends StatelessWidget {
@@ -43,7 +42,7 @@ class SettingView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25)
                       ),
                       child: Icon(
-                        Icons.edit_square,
+                        Icons.edit,
                         color: kBlack,
                         size: 30,
                       )),

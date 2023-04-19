@@ -2,32 +2,45 @@ import 'package:flutter/material.dart';
 
 import '../../../conestant/conset.dart';
 
-class ContainerTypeView extends StatelessWidget {
+class ContainerTypeView extends StatefulWidget {
   const ContainerTypeView({
     Key? key,
     required this.text,
-    this.color = false,
+    required this.index,
   }) : super(key: key);
   final String text;
-  final bool color;
+  final int index;
+
+  @override
+  State<ContainerTypeView> createState() => _ContainerTypeViewState();
+}
+
+class _ContainerTypeViewState extends State<ContainerTypeView> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-        alignment: Alignment.center,
+      child: InkWell(
+        onTap: () {
 
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: color ? kDarkGreen : kGray,
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 15,
-            color: color ? Colors.white : textColor,
+          selectedIndex = widget.index;
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: selectedIndex == widget.index ? kDarkGreen : kGray,
+          ),
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              fontSize: 15,
+              color: selectedIndex == widget.index ?   kGray:kDarkGreen,
+
+            ),
           ),
         ),
       ),

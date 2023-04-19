@@ -6,16 +6,34 @@ import 'package:my_final_progict/view/HomePage/widget/container_place_view.dart'
 import 'package:my_final_progict/view/HomePage/widget/container_type_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
 import 'package:my_final_progict/widget/header_sections_home_view.dart';
-import 'package:my_final_progict/widget/header_sections_home_view.dart';
-import 'package:my_final_progict/view/Login.dart';
-
 import '../../conestant/conset.dart';
 import '../../widget/container_search/container_search_view.dart';
 import '../Doctors/view/all_doctor_view.dart';
 import '../Doctors/widget/doctor_model.dart';
+import '../auth/Login.dart';
 
-class HomePageView extends StatelessWidget {
+class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);
+
+  @override
+  State<HomePageView> createState() => _HomePageViewState();
+}
+
+class _HomePageViewState extends State<HomePageView> {
+  List<Map<String, dynamic>> containerType = [
+    {
+      'text': "all",
+      'isSelected': true,
+    },
+    {
+      'text': "Puplic Speaking",
+      'isSelected': true,
+    },
+    {
+      'text': "Social Anxiety",
+      'isSelected': true,
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -152,20 +170,13 @@ class HomePageView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: SizedBox(
                   height: 53,
-                  child: ListView(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) => ContainerTypeView(
+                      index: index, //todo: hosni how to make color change
+                      text: containerType[index]['text'],
+                    ),
+                    itemCount: containerType.length,
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      ContainerTypeView(
-                        text: "All",
-                        color: true,
-                      ),
-                      ContainerTypeView(
-                        text: "Puplic Speaking",
-                      ),
-                      ContainerTypeView(
-                        text: "Social Anxiety",
-                      ),
-                    ],
                   ),
                 ),
               ),
@@ -251,3 +262,5 @@ class HomePageView extends StatelessWidget {
     );
   }
 }
+
+

@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
 import 'package:my_final_progict/conestant/image.dart';
 
+import '../main.dart';
 import '../widget/Container_Button_Color.dart';
 import '../widget/Radio_View.dart';
-import '../widget/Text_From_Filed.dart';
-import 'NavBar/nav_bar_view.dart';
+
 import 'Personal_Information/complete_information.dart';
-import 'Splash.dart';
 
 class PersonalizationView extends StatefulWidget {
   const PersonalizationView({Key? key}) : super(key: key);
@@ -119,13 +118,13 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CompleteInformationView(),
+                                builder: (context) => CompleteInformationView(userType: userType,),
                               ));
                         } else if (userType == "Doctor") {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CompleteInformationView(chooseUser: true),
+                                builder: (context) => CompleteInformationView(userType: userType),
                               ));
                         }
                       },

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
-import '../Login.dart';
-import '../SignUp/confirmation.dart';
+import '../auth/Login.dart';
+import '../auth/SignUp/confirmation.dart';
 
 
 class EnterEmailView extends StatefulWidget {

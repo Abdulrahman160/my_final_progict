@@ -3,16 +3,17 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:my_final_progict/conestant/image.dart';
-import 'package:my_final_progict/view/HomePage/home_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../conestant/conset.dart';
-import '../widget/Container_Button_Color.dart';
-import '../widget/Container_Button_nonColor.dart';
-import '../widget/Text_From_Filed.dart';
-import 'Personalization.dart';
-import 'SignUp/sign_up_view.dart';
-import 'forget_password/Enter_Email.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../conestant/conset.dart';
+import '../../main.dart';
+import '../../view/Forget_Password/enter_email.dart';
+import '../../view/Personalization.dart';
+import '../../widget/Container_Button_Color.dart';
+import '../../widget/Container_Button_nonColor.dart';
+import '../../widget/Text_From_Filed.dart';
+import 'SignUp/sign_up_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({
@@ -73,11 +74,15 @@ class _LoginViewState extends State<LoginView> {
   // SigIn With google  hassan.
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount? userId = await GoogleSignIn().signIn();
+
+    print(userId);
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication? googleAuth = await userId?.authentication;
+
+    userIdNumber = userId!.id;
+    userEmail = userId.email;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -109,7 +114,9 @@ class _LoginViewState extends State<LoginView> {
                         child: Container(
                           height: 120,
                           width: 120,
-                          child: Image.asset("assets/images/logo.png",),
+                          child: Image.asset(
+                            "assets/images/logo.png",
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -142,10 +149,10 @@ class _LoginViewState extends State<LoginView> {
                         },
                         onSaved: (val) {
                           email = val;
-                        }, number: 1,
+                        },
+                        number: 1,
                       ),
                       TextFormFieldView(
-
                         //controller: passwordController,
                         secure: true,
                         keyboardType: TextInputType.emailAddress,
@@ -164,7 +171,8 @@ class _LoginViewState extends State<LoginView> {
                         },
                         onSaved: (val) {
                           password = val;
-                        }, number: 1,
+                        },
+                        number: 1,
                       ),
                       Row(
                         children: [

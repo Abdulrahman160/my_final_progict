@@ -3,6 +3,7 @@ import 'package:my_final_progict/widget/Container_Button_Color.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
+import '../../../payment/paymob.dart';
 
 class TrainingDetailsView extends StatelessWidget {
   const TrainingDetailsView({Key? key}) : super(key: key);
@@ -140,7 +141,16 @@ class TrainingDetailsView extends StatelessWidget {
               ],
             ),
             Spacer(),
-            ContainerColorView(data: "Buy Now"),
+            ContainerColorView(data: "Buy Now",onTap: () async {
+              final response = await PaymobUtils.instance.pay(
+                currency: "EGP",
+                amount: "20000000",
+              );
+              print('*' * 20);
+              print(response?.id);
+              print(response?.success);
+              print(response?.message);
+            },),
             SizedBox(
               height: 30,
             )

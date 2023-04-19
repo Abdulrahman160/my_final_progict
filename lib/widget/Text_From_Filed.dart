@@ -11,7 +11,9 @@ class TextFormFieldView extends StatefulWidget {
     this.validator,
     this.secure = false,
     required this.onSaved,
-    required this.number,
+     this.number = 1,
+    this.controller,
+    this.onTap,
   }) : super(key: key);
 
   final String text;
@@ -21,6 +23,8 @@ class TextFormFieldView extends StatefulWidget {
   final bool secure;
   final Function(String?)? onSaved;
   final int number;
+  final TextEditingController? controller;
+  final GestureTapCallback? onTap;
 
   @override
   State<TextFormFieldView> createState() => _ContainerViewState();
@@ -39,6 +43,7 @@ class _ContainerViewState extends State<TextFormFieldView> {
     return Column(
       children: [
         TextFormField(
+          controller: widget.controller,
           onSaved: widget.onSaved,
           obscureText: secure,
           keyboardType: widget.keyboardType,
@@ -72,15 +77,16 @@ class _ContainerViewState extends State<TextFormFieldView> {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             hintText: widget.text,
-            helperStyle: TextStyle(
-                color: hintTextColor.withOpacity(0.01),
-                fontWeight: FontWeight.w500,
-                fontSize: 16),
+              hintStyle: TextStyle(
+                  color: hintTextColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
             border: InputBorder.none,
           ),
           maxLines: widget.number,
           onChanged: widget.onchange,
           validator: widget.validator,
+          onTap: widget.onTap,
         ),
         SizedBox(
           height: 16,

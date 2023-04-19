@@ -22,7 +22,7 @@ class _NavBarViewState extends State<NavBarView> {
       HomePageView(),
     ],
     [
-      AppImage.training,
+      AppImage.training02,
       "Training",
       TrainingPageView(),
     ],

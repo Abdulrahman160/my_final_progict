@@ -3,20 +3,19 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/payment/paymob.dart';
-import 'package:my_final_progict/text.dart';
-import 'package:my_final_progict/view/Login.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
-import 'package:my_final_progict/view/Page_Start_Exam.dart';
-import 'package:my_final_progict/view/Pages_for_SPIN_Question/exam_view.dart';
 import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
-import 'package:my_final_progict/view/ProfilePage/Edit_profile.dart';
-import 'package:my_final_progict/view/ProfilePage/Help_Center/page_faq.dart';
-import 'package:my_final_progict/view/ProfilePage/profile_view.dart';
+import 'package:my_final_progict/view/Personalization.dart';
+import 'package:my_final_progict/view/auth/Login.dart';
+
+
 
 final _globalKey = GlobalKey<NavigatorState>();
 BuildContext appContext = _globalKey.currentContext!;
 bool? isLogin;
-
+String? users ='Doctor';
+String? userIdNumber;
+String? userEmail;
 void main() async {
   PaymobUtils.instance.init();
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,9 +43,11 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         navigatorKey: _globalKey,
-         home:
-          isLogin! ? NavBarView() : LoginView(),
+        home:
+             // isLogin! ? NavBarView() : LoginView(),
+          PersonalizationView(),
         // it is to login
+        // ScheduleView(),
         builder: (context, child) => SafeArea(child: child!),
         debugShowCheckedModeBanner: false,
         title: 'Mentis',

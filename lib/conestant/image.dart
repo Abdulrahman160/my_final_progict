@@ -20,7 +20,7 @@ class AppImage {
   static const String street = "assets/images/street.png";
   static const String profile = "assets/images/profile.png";
   static const String star = "assets/images/star.png";
-  static const String training = "assets/images/training.png";
+  static const String training02 = "assets/images/training02.png";
   static const String home = "assets/images/home.png";
   static const String message = "assets/images/message.png";
   static const String finishExam = "assets/images/finish_exam.png";
@@ -68,7 +68,6 @@ class AppImage {
   static const String japanese = "assets/images/japanese.png";
   static const String expand_less = "assets/images/expand_less.png";
   static const String expand_more = "assets/images/expand_more.png";
-  static const String salary= "assets/images/salary.png";
-  // static const String training= "  assets/images/training.png";
-
+  static const String salary = "assets/images/salary.png";
+  static const String training = "assets/images/training.png";
 }

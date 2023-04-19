@@ -20,13 +20,13 @@ class BirthDateView extends StatefulWidget {
 
 class _BirthDateViewState extends State<BirthDateView> {
   @override
-  TextEditingController? _date = TextEditingController();
+  TextEditingController? controller = TextEditingController();
 
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextFormField(
-          controller: _date,
+          controller: controller,
           keyboardType: TextInputType.none,
           decoration: InputDecoration(
               hintText: widget.text,
@@ -58,7 +58,7 @@ class _BirthDateViewState extends State<BirthDateView> {
                 lastDate: DateTime(2101));
             if (pickddate != null) {
               setState(() {
-                _date!.text = DateFormat('yyyy-MM-dd').format(pickddate);
+                controller!.text = DateFormat('yyyy-MM-dd').format(pickddate);
               });
             }
           },

@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../../../widget/Container_Button_Color.dart';
 import '../../../widget/Container_Button_nonColor.dart';
-import '../../Login.dart';
 
 class BottomSheetView extends StatefulWidget {
   const BottomSheetView(

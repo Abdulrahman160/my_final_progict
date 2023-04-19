@@ -11,21 +11,21 @@ class SpearatorView extends StatelessWidget {
       children: [
         Container(
           height: 1.5,
-          width: 130,
-          color: TextFiled,
+          width: 135,
+          color: Colors.black.withOpacity(0.2),
         ),
-        SizedBox(width: 5,),
+        SizedBox(width: 8,),
         Text(
           'OR',
           style: TextStyle(
               color: Colors.black, fontSize: 10, fontWeight: FontWeight.w500),
         ),
-        SizedBox(width: 5,),
+        SizedBox(width: 8,),
 
         Container(
-          width: 130,
+          width: 135,
           height: 1.5,
-          color: TextFiled,
+          color: Colors.black.withOpacity(0.2),
 
         ),
       ],

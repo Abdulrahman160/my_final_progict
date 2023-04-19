@@ -5,7 +5,7 @@ import '../../conestant/image.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
-import '../Login.dart';
+import '../auth/Login.dart';
 
 class SetNewPassword extends StatefulWidget {
   const SetNewPassword({Key? key}) : super(key: key);

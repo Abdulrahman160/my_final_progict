@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/conset.dart';
-import '../../conestant/image.dart';
-import '../../widget/Container_Button_Color.dart';
-import '../../widget/Container_Button_nonColor.dart';
-import '../../widget/Text_From_Filed.dart';
-import '../Forget_Password/set_new_password.dart';
+import '../../../conestant/image.dart';
+import '../../../view/Forget_Password/set_new_password.dart';
+import '../../../widget/Container_Button_Color.dart';
+import '../../../widget/Container_Button_nonColor.dart';
+import '../../../widget/Text_From_Filed.dart';
 import '../Login.dart';
 import 'succes.dart';
 

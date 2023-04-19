@@ -46,9 +46,9 @@ class _PageFAQViewState extends State<PageFAQView> {
             height: 30,
           ),
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SizedBox(
-              height: 500,
+              height: 600,
               child: ListView.separated(
                 separatorBuilder: (context, index) => SizedBox(height: 20,),
                 physics:  NeverScrollableScrollPhysics(),

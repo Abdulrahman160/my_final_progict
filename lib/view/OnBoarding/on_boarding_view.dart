@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/OnBoarding/on_boarding%20_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
-import '../Login.dart';
+
+import '../auth/Login.dart';
 import 'on_bording.dart';
 
 class OnBoardingView extends StatefulWidget {

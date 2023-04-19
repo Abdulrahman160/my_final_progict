@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../conestant/conset.dart';
-import '../../Login.dart';
+import '../../auth/Login.dart';
 import '../profile_model.dart';
 import 'bottomSheet.dart';
 
@@ -11,7 +11,7 @@ class ContainerSettingView extends StatefulWidget {
     required this.data,
   }) : super(key: key);
 
-  final Setting_Pation data;
+  final SettingModel data;
 
   @override
   State<ContainerSettingView> createState() => _ContainerSettingViewState();

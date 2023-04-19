@@ -20,7 +20,7 @@ class _ContainerTextState extends State<ContainerText> {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          padding: EdgeInsets.symmetric(horizontal: 15.0,),
           height: 40,
           decoration: BoxDecoration(
             color: widget.data.values! ? kTransparent : Colors.blue,

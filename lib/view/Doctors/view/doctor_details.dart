@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
+import '../../../payment/paymob.dart';
 import '../../../widget/Container_Button_Color.dart';
 import '../widget/container_image.dart';
 import '../widget/doctor_day.dart';
@@ -172,7 +173,16 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
               height: 25,
             ),
             ContainerColorView(
-              data: 'Book Appointment',
+              data: 'Book Appointment',onTap: () async {
+              final response = await PaymobUtils.instance.pay(
+                currency: "EGP",
+                amount: "20000000",
+              );
+              print('*' * 20);
+              print(response?.id);
+              print(response?.success);
+              print(response?.message);
+            },
             ),
 
 
