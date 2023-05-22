@@ -115,12 +115,14 @@ class _PersonalizationViewState extends State<PersonalizationView> {
                         // }
 
                         if (userType == "Patient") {
+                          users='Patient';
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => CompleteInformationView(userType: userType,),
                               ));
                         } else if (userType == "Doctor") {
+                          users='Doctor';
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
