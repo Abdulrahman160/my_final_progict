@@ -97,9 +97,9 @@ class _OpenCameraViewState extends State<OpenCameraView> {
 
 }
 
-Future<String> UploadImageToStorage() async {
-  Reference imageRef = FirebaseStorage.instance.ref(basename(imageFile!.path));
-  await imageRef.putFile(imageFile!);
-  print('ImagePath:${imageFile!.path}-----------------------------------------------');
+Future<String> UploadImageToStorage(File? image) async {
+  Reference imageRef = FirebaseStorage.instance.ref(basename(image!.path));
+  await imageRef.putFile(image!);
+  print('ImagePath:${image!.path}-----------------------------------------------');
   return await imageRef.getDownloadURL();
 }

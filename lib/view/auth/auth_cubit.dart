@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_final_progict/view/Personal_Information/user_model.dart';
 import '../../main.dart';
 import 'auth_states.dart';
 
@@ -14,6 +15,7 @@ class AuthCubit extends Cubit<AuthStates> {
       {required String email,
       required String password,
       required String confirmPassword}) async {
+
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -33,6 +35,9 @@ class AuthCubit extends Cubit<AuthStates> {
       }
     }
   }
+
+
+
 
 
 }

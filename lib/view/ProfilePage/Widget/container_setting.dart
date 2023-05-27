@@ -60,7 +60,7 @@ class _ContainerSettingViewState extends State<ContainerSettingView> {
                             nameNonColor: 'Cancel',
                           );
                         })
-                    : Navigator.push(
+                    : Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => widget.data.namePage!));

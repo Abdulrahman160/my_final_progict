@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/Personal_Information/states.dart';
+import '../../main.dart';
 import '../../widget/OpenCamera/Widget_Open_Camera.dart';
-import '../Upload_Photo_Card.dart';
+import 'Upload_Photo_Card.dart';
 import '../../conestant/conset.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Radio_View.dart';
@@ -25,10 +26,7 @@ class CompleteInformationView extends StatefulWidget {
       _CompleteInformationViewState();
 }
 
-String userGender = '';
-final userGenders = ['Male', 'Female'];
-String withDoctor = '';
-final choose = ['Yes', 'No'];
+String? image;
 
 class _CompleteInformationViewState extends State<CompleteInformationView> {
   String? name;
@@ -36,10 +34,6 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
   String? headline;
   DateTime? date;
   final formKay = GlobalKey<FormState>();
-  final nameController = TextEditingController();
-  final addressController = TextEditingController();
-  final headlineController = TextEditingController();
-  final birthDayController = TextEditingController();
 
   String? birthDay;
 
@@ -97,12 +91,14 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               height: 10,
                             ),
                             TextFormFieldView(
-                              controller: nameController,
+                              controller:
+                                  BlocProvider.of<CompleteInfoCubit>(context)
+                                      .nameController,
                               number: 1,
                               text: 'Full Name',
                               keyboardType: TextInputType.text,
                               onchange: (String value) {
-                                name =value;
+                                name = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -113,10 +109,12 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               onSaved: (val) {},
                             ),
                             TextFormFieldView(
-                              controller: birthDayController,
+                              controller:
+                                  BlocProvider.of<CompleteInfoCubit>(context)
+                                      .birthDayController,
                               text: 'Data of Birth',
                               onchange: (dynamic value) {
-                                birthDay = value ;
+                                birthDay = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -133,8 +131,11 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                     lastDate: DateTime(2101));
                                 if (pickddate != null) {
                                   setState(() {
-                                    birthDay = DateFormat('yyyy-MM-dd')
-                                        .format(pickddate);
+                                    BlocProvider.of<CompleteInfoCubit>(context)
+                                            .birthDayController!
+                                            .text =
+                                        DateFormat('yyyy-MM-dd')
+                                            .format(pickddate);
                                   });
                                 }
                               },
@@ -162,13 +163,21 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      ...userGenders.map((e) {
+                                      ...BlocProvider.of<CompleteInfoCubit>(
+                                              context)
+                                          .userGenders
+                                          .map((e) {
                                         return CustomRadio(
                                           title: e,
-                                          onChange: (v) =>
-                                              setState(() => userGender = e),
+                                          onChange: (v) => setState(() =>
+                                              BlocProvider.of<
+                                                          CompleteInfoCubit>(
+                                                      context)
+                                                  .userGender = e),
                                           value: e,
-                                          groupValue: userGender,
+                                          groupValue: BlocProvider.of<
+                                                  CompleteInfoCubit>(context)
+                                              .userGender,
                                         );
                                       }),
                                     ],
@@ -180,12 +189,14 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               height: 16,
                             ),
                             TextFormFieldView(
-                              controller: addressController,
+                              controller:
+                                  BlocProvider.of<CompleteInfoCubit>(context)
+                                      .addressController,
                               number: 1,
                               text: 'Address',
                               keyboardType: TextInputType.text,
                               onchange: (String value) {
-                                address =value;
+                                address = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -197,12 +208,15 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                             ),
                             widget.userType == "Doctor"
                                 ? TextFormFieldView(
-                                    controller: headlineController,
+                                    controller:
+                                        BlocProvider.of<CompleteInfoCubit>(
+                                                context)
+                                            .headlineController,
                                     number: 3,
                                     text: 'Headline',
                                     keyboardType: TextInputType.text,
                                     onchange: (String value) {
-                                      headline =value;
+                                      headline = value;
                                     },
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
@@ -235,13 +249,22 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            ...choose.map((e) {
+                                            ...BlocProvider.of<
+                                                    CompleteInfoCubit>(context)
+                                                .choose
+                                                .map((e) {
                                               return CustomRadio(
                                                 title: e,
-                                                onChange: (v) => setState(
-                                                    () => withDoctor = e),
+                                                onChange: (v) => setState(() =>
+                                                    BlocProvider.of<
+                                                                CompleteInfoCubit>(
+                                                            context)
+                                                        .withDoctor = e),
                                                 value: e,
-                                                groupValue: withDoctor,
+                                                groupValue: BlocProvider.of<
+                                                            CompleteInfoCubit>(
+                                                        context)
+                                                    .withDoctor,
                                               );
                                             }),
                                           ],
@@ -256,19 +279,21 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               data: 'Continue',
                               onTap: () async {
                                 if (formKay.currentState!.validate()) {
-                                  String ImgUrl = await UploadImageToStorage();
-
-                                  BlocProvider.of<CompleteInfoCubit>(context)
-                                      .sendUserDataToFireStore(
-                                    name: nameController.text,
-                                    address: addressController.text,
-                                    headLine: headlineController.text,
-                                    uRl: ImgUrl,
-                                    userGender: userGender,
-                                    withDoctor: withDoctor,
-                                    userType: widget.userType,
-                                    birthDay: birthDayController.text,
-                                  );
+                                  String ImgUrl =
+                                      await UploadImageToStorage(imageFile);
+                                  if (users == 'Doctor') {
+                                    BlocProvider.of<CompleteInfoCubit>(context)
+                                        .sendDoctorDataToFireStore(
+                                      uRl: ImgUrl,
+                                      userType: widget.userType,
+                                    );
+                                  } else {
+                                    BlocProvider.of<CompleteInfoCubit>(context)
+                                        .sendPatientDataToFireStore(
+                                      uRl: ImgUrl,
+                                      userType: widget.userType,
+                                    );
+                                  }
                                 }
                               },
                             ),
