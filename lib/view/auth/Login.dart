@@ -13,6 +13,7 @@ import '../../view/Personalization.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/Container_Button_nonColor.dart';
 import '../../widget/Text_From_Filed.dart';
+import '../NavBar/nav_bar_view.dart';
 import 'SignUp/sign_up_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -203,13 +204,14 @@ class _LoginViewState extends State<LoginView> {
                       ContainerColorView(
                         data: 'Login',
                         onTap: () async {
+                          
                           var user = await SignIn();
                           if (user != null) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        PersonalizationView()));
+                                        NavBarView()));
                           }
                         },
                       ),

@@ -10,22 +10,53 @@ class CompleteInfoCubit extends Cubit<CompleteInfoStates> {
   CompleteInfoCubit() : super(InitialCompleteInfoState());
 
 
-  void sendUserDataToFireStore({
+
+  void sendDoctorDataToFireStore({
     required String name,
     required String address,
     required dynamic uRl,
     required String headLine,
      required String userGender,
+    required String userType,
+    required String birthDay,
+  }) async {
+    try {
+      await FirebaseFirestore.instance.collection('Doctor').doc(userIdNumber).set({
+        'name': name,
+        'address': address,
+        'uRl': uRl,
+        'headLine': headLine,
+        'userID': userIdNumber,
+        'email': userEmail,
+        'userGender' : userGender,
+        'userType':userType,
+        'birthDay':birthDay
+
+
+
+      });
+      emit(SuccessCompleteInfoOnFireStoreState());
+    }
+    on FirebaseException catch (e) {
+      emit(FailedCompleteInfoOnFireStoreState());
+    }
+  }
+
+
+  void sendPatientDataToFireStore({
+    required String name,
+    required String address,
+    required dynamic uRl,
+    required String userGender,
     required String withDoctor,
     required String userType,
     required String birthDay,
   }) async {
     try {
-      await FirebaseFirestore.instance.collection('Users').doc(userIdNumber).set({
+      await FirebaseFirestore.instance.collection('Patient').doc(userIdNumber).set({
         'name': name,
         'address': address,
         'uRl': uRl,
-        'headLine': headLine,
         'userID': userIdNumber,
         'email': userEmail,
         'userGender' : userGender,
@@ -42,4 +73,5 @@ class CompleteInfoCubit extends Cubit<CompleteInfoStates> {
       emit(FailedCompleteInfoOnFireStoreState());
     }
   }
+
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import 'package:my_final_progict/view/Personal_Information/states.dart';
+import '../../main.dart';
 import '../../widget/OpenCamera/Widget_Open_Camera.dart';
 import '../Upload_Photo_Card.dart';
 import '../../conestant/conset.dart';
@@ -102,7 +103,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               text: 'Full Name',
                               keyboardType: TextInputType.text,
                               onchange: (String value) {
-                                name =value;
+                                name = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -116,7 +117,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               controller: birthDayController,
                               text: 'Data of Birth',
                               onchange: (dynamic value) {
-                                birthDay = value ;
+                                birthDay = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -133,8 +134,9 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                     lastDate: DateTime(2101));
                                 if (pickddate != null) {
                                   setState(() {
-                                    birthDay = DateFormat('yyyy-MM-dd')
-                                        .format(pickddate);
+                                    birthDayController!.text =
+                                        DateFormat('yyyy-MM-dd')
+                                            .format(pickddate);
                                   });
                                 }
                               },
@@ -185,7 +187,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               text: 'Address',
                               keyboardType: TextInputType.text,
                               onchange: (String value) {
-                                address =value;
+                                address = value;
                               },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -202,7 +204,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                     text: 'Headline',
                                     keyboardType: TextInputType.text,
                                     onchange: (String value) {
-                                      headline =value;
+                                      headline = value;
                                     },
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
@@ -257,18 +259,29 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                               onTap: () async {
                                 if (formKay.currentState!.validate()) {
                                   String ImgUrl = await UploadImageToStorage();
-
-                                  BlocProvider.of<CompleteInfoCubit>(context)
-                                      .sendUserDataToFireStore(
-                                    name: nameController.text,
-                                    address: addressController.text,
-                                    headLine: headlineController.text,
-                                    uRl: ImgUrl,
-                                    userGender: userGender,
-                                    withDoctor: withDoctor,
-                                    userType: widget.userType,
-                                    birthDay: birthDayController.text,
-                                  );
+                                  if (users == 'Doctor') {
+                                    BlocProvider.of<CompleteInfoCubit>(context)
+                                        .sendDoctorDataToFireStore(
+                                      name: nameController.text,
+                                      address: addressController.text,
+                                      headLine: headlineController.text,
+                                      uRl: ImgUrl,
+                                      userGender: userGender,
+                                      userType: widget.userType,
+                                      birthDay: birthDayController.text,
+                                    );
+                                  } else {
+                                    BlocProvider.of<CompleteInfoCubit>(context)
+                                        .sendPatientDataToFireStore(
+                                      name: nameController.text,
+                                      address: addressController.text,
+                                      uRl: ImgUrl,
+                                      userGender: userGender,
+                                      userType: widget.userType,
+                                      birthDay: birthDayController.text,
+                                      withDoctor: withDoctor,
+                                    );
+                                  }
                                 }
                               },
                             ),

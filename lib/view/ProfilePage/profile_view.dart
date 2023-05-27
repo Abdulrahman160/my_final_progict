@@ -176,8 +176,7 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                   itemBuilder: (context, index) => ProfileSection(
                       title: profile[index]['title'],
                       list: profile[index]['list']),
-
-                  itemCount: patientProfile.length),
+                  itemCount: profile.length),
             ),
           )
         ],

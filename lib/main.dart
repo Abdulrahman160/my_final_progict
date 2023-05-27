@@ -8,14 +8,13 @@ import 'package:my_final_progict/view/Personal_Information/complete_information.
 import 'package:my_final_progict/view/Personalization.dart';
 import 'package:my_final_progict/view/auth/Login.dart';
 
-
-
 final _globalKey = GlobalKey<NavigatorState>();
 BuildContext appContext = _globalKey.currentContext!;
 bool? isLogin;
-String? users ='Doctor';
+String? users = 'Doctor';
 String? userIdNumber;
 String? userEmail;
+
 void main() async {
   PaymobUtils.instance.init();
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,11 +42,8 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         navigatorKey: _globalKey,
-        home:
-             // isLogin! ? NavBarView() : LoginView(),
-          PersonalizationView(),
+        home: isLogin! ? NavBarView() : LoginView(),
         // it is to login
-        // ScheduleView(),
         builder: (context, child) => SafeArea(child: child!),
         debugShowCheckedModeBanner: false,
         title: 'Mentis',

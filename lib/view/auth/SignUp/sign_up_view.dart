@@ -48,6 +48,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ));
                 }
                 if (state is UserCreatedSuccessState){
+
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
