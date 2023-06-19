@@ -62,7 +62,7 @@ dependencies:
   flutter_cupertino_datetime_picker: ^3.0.0
   firebase_storage: ^11.1.2
   path: ^1.8.2
-
+  calendar_view: ^1.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

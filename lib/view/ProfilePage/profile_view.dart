@@ -141,21 +141,19 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                             ),
                           );
                         },
-                        child: Container(
+                        child: Container(alignment: Alignment.center,
                           height: 40,
                           width: 120,
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.6),
                             borderRadius: BorderRadius.circular(40),
                           ),
-                          child: Center(
-                            child: Text(
-                              'Edit Profile',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Colors.white),
-                            ),
+                          child: Text(
+                            'Edit Profile',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -179,8 +177,41 @@ class _ProfilePageViewState extends State<ProfilePageView> {
                   itemCount: profile.length),
             ),
           )
+
         ],
       ),
     );
   }
 }
+//   Text(
+//     'Settings',
+//     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+//   ),
+//   ContainerSettingView(data: setting_01[0]),
+//   ContainerSettingView(data: setting_01[1]),
+//   ContainerSettingView(data: setting_01[2]),
+//   ContainerSettingView(data: setting_01[3]),
+//   SizedBox(
+//     height: 20,
+//   ),
+//   Text(
+//     'About Us',
+//     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+//   ),
+//   ContainerSettingView(data: setting_02[0]),
+//   ContainerSettingView(data: setting_02[1]),
+//   ContainerSettingView(data: setting_02[2]),
+//   SizedBox(
+//     height: 20,
+//   ),
+//   Text(
+//     'Other',
+//     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+//   ),
+//   ContainerSettingView(data: setting_03[0]),
+//   ContainerSettingView(data: setting_03[1]),
+//   ContainerSettingView(data: setting_03[2],),
+//   SizedBox(
+//     height: 20,
+//   ),
+//

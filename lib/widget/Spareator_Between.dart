@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../conestant/conset.dart';
+
 
 class SpearatorView extends StatelessWidget {
   const SpearatorView({Key? key}) : super(key: key);

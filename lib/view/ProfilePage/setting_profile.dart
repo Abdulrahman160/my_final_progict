@@ -2,13 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
+import '../../main.dart';
 import '../../widget/icon_back_view.dart';
 import 'Edit_profile.dart';
 import 'Widget/Custom_Text.dart';
 
-class SettingView extends StatelessWidget {
+class SettingView extends StatefulWidget {
   const SettingView({Key? key}) : super(key: key);
 
+  @override
+  State<SettingView> createState() => _SettingViewState();
+}
+
+class _SettingViewState extends State<SettingView> {
+  // bool? enableHeadline=false;
+  // List<Map<String,dynamic>?> details=[
+  //   {
+  //     'title': 'Full Name',
+  //     'content':'Tiana Saris',
+  //   },
+  //  enableHeadline? {
+  //     'title': 'Full Name',
+  //     'content':'Tiana Saris',
+  //   }:null,
+  //   {
+  //     'title': 'Full Name',
+  //     'content':'Tiana Saris',
+  //   },
+  //   {
+  //     'title': 'Full Name',
+  //     'content': 'Tiana Saris',
+  //   },
+  // ];
+  // void initState() {
+  //   users = 'Doctor';
+  //   if (users == 'Doctor') {
+  //     enableHeadline = true;
+  //   } else if (users == 'Patient') {
+  //     enableHeadline = false;
+  //
+  //   }
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +52,9 @@ class SettingView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -31,16 +68,17 @@ class SettingView extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => EditProfileView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditProfileView()));
                   },
                   child: Container(
                       height: 50,
                       width: 50,
                       decoration: BoxDecoration(
                           color: kGray,
-                          borderRadius: BorderRadius.circular(25)
-                      ),
+                          borderRadius: BorderRadius.circular(25)),
                       child: Icon(
                         Icons.edit,
                         color: kBlack,
@@ -57,7 +95,7 @@ class SettingView extends StatelessWidget {
                 height: 100,
                 width: 100,
                 decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                    BoxDecoration(borderRadius: BorderRadius.circular(50)),
                 child: Image.asset(AppImage.person),
               ),
             ),
@@ -73,6 +111,11 @@ class SettingView extends StatelessWidget {
                     title: 'Full Name',
                     name: 'Tiana Saris',
                   ),
+                 users=='Doctor'? CustomTextView(
+                    title: 'Headline',
+                    name:
+                        'dddddddddddddddddddddddddd;lkndflaekjgfbskfhyvbgjksdfhbgladkjfgblsdfjgn;bsdklfbv;ldbjvkjldbvkdsjfjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',
+                  ):Container(),
                   CustomTextView(
                     title: 'Address',
                     name: '11 Ahmed Maher Apt. # 15\n Mansoura, CA 94109',

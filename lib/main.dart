@@ -4,8 +4,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/payment/paymob.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
+import 'package:my_final_progict/view/PatientInformation/patient_environment/view.dart';
+import 'package:my_final_progict/view/PatientInformation/view.dart';
 import 'package:my_final_progict/view/Personal_Information/complete_information.dart';
 import 'package:my_final_progict/view/Personalization.dart';
+import 'package:my_final_progict/view/SelectSalary/view.dart';
 import 'package:my_final_progict/view/auth/Login.dart';
 
 final _globalKey = GlobalKey<NavigatorState>();
@@ -42,7 +45,9 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         navigatorKey: _globalKey,
-        home: isLogin! ? NavBarView() : LoginView(),
+        home:
+        PatientInfoView(),
+        // isLogin! ? NavBarView() : LoginView(),
         // it is to login
         builder: (context, child) => SafeArea(child: child!),
         debugShowCheckedModeBanner: false,

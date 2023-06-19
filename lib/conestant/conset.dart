@@ -31,6 +31,8 @@ Color doctorDetailsColor = Color(0xff577CEF);
 Color blueBorderColor = Color(0xff577CEF);
 
 
+
+
 const kKeepUserLoggedIn = 'keepUserLogIn';
 
 void closeKeyboard(context) => FocusScope.of(context).unfocus();

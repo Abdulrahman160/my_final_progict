@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import '../../conestant/conset.dart';
+import '../../main.dart';
 import '../HomePage/home_view.dart';
 import '../ProfilePage/profile_view.dart';
 import '../TrainingPage/view/tranning_page_view.dart';
@@ -15,7 +16,9 @@ class NavBarView extends StatefulWidget {
 
 class _NavBarViewState extends State<NavBarView> {
   int currentIndex = 0;
-  final List content = [
+  Icon? icon;
+  List content = [];
+  final List patientContent = [
     [
       AppImage.home,
       "Home",
@@ -34,24 +37,56 @@ class _NavBarViewState extends State<NavBarView> {
     [
       AppImage.profile,
       "Profile",
-       ProfilePageView(),
+      ProfilePageView(),
+    ],
+  ];
+  final List doctorContent = [
+    [
+      AppImage.home,
+      "Home",
+      HomePageView(),
+    ],
+    [
+      AppImage.training,
+      "Schedule",
+      TrainingPageView(),
+    ],
+    [
+      AppImage.message,
+      "Message",
+      HomePageView(),
+    ],
+    [
+      AppImage.profile,
+      "Profile",
+      ProfilePageView(),
     ],
   ];
 
-  getUser(){
-    var user=FirebaseAuth.instance.currentUser;
+  getUser() {
+    var user = FirebaseAuth.instance.currentUser;
     print(user!.email);
   }
+
   @override
   void initState() {
     getUser();
+
+    if (users == 'Doctor') {
+      content = doctorContent;
+      icon=Icon(Icons.people);
+    } else if (users == 'Patient') {
+      content = patientContent;
+      icon=Icon(Icons.add);
+
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: content[currentIndex][2],
+      body: patientContent[currentIndex][2],
       backgroundColor: kWhite,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -93,7 +128,7 @@ class _NavBarViewState extends State<NavBarView> {
       ),
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child:icon ,
         onPressed: () {},
       ),
       floatingActionButtonLocation:

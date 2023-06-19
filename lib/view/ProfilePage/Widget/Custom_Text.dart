@@ -16,26 +16,28 @@ class CustomTextView extends StatefulWidget {
 class _CustomTextViewState extends State<CustomTextView> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 16,),
-        Text(widget.title,
-          style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-              fontWeight: FontWeight.w500),
-        ),
-        SizedBox(height: 16,),
-        Text(
-          widget.name,
-          style: TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 16
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 16,),
+          Text(widget.title,
+            style: TextStyle(
+                color: Colors.grey,
+                fontSize: 14,
+                fontWeight: FontWeight.w500),
           ),
-        ),SizedBox(height: 16,),
-        Container(height: 1,
-        width: 327,color: Colors.grey.shade300,)
-      ],
+          SizedBox(height: 16,),
+          Text(
+            widget.name,
+            style: TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 16
+            ),
+          ),SizedBox(height: 16,),
+          Container(height: 1,
+            width: 327,color: Colors.grey.shade300,)
+        ],
+      ),
     );
   }
 }
