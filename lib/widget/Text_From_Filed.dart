@@ -17,6 +17,7 @@ class TextFormFieldView extends StatefulWidget {
   }) : super(key: key);
 
   final String text;
+  final GestureTapCallback? onTap;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onchange;
   final FormFieldValidator<String>? validator;
@@ -24,7 +25,6 @@ class TextFormFieldView extends StatefulWidget {
   final Function(String?)? onSaved;
   final int number;
   final TextEditingController? controller;
-  final GestureTapCallback? onTap;
 
   @override
   State<TextFormFieldView> createState() => _ContainerViewState();
@@ -42,8 +42,8 @@ class _ContainerViewState extends State<TextFormFieldView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          controller: widget.controller,
+        TextFormField(onTap:widget.onTap ,
+          controller:widget. controller,
           onSaved: widget.onSaved,
           obscureText: secure,
           keyboardType: widget.keyboardType,
@@ -86,11 +86,8 @@ class _ContainerViewState extends State<TextFormFieldView> {
           maxLines: widget.number,
           onChanged: widget.onchange,
           validator: widget.validator,
-          onTap: widget.onTap,
         ),
-        SizedBox(
-          height: 16,
-        ),
+
       ],
     );
   }

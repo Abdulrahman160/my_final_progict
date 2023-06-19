@@ -1,10 +1,14 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:my_final_progict/view/ProfilePage/sections_edit_profile.dart';
+
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
+import '../../main.dart';
 import '../../widget/Container_Button_Color.dart';
-import '../../widget/Text_From_Filed.dart';
 import '../../widget/icon_back_view.dart';
 import '../Personal_Information/birth_date.dart';
 import 'Widget/bottomSheet.dart';
@@ -20,7 +24,8 @@ class _EditProfileViewState extends State<EditProfileView> {
   File? imageFile;
   String? name;
   String? address;
-  DateTime? date;
+  String? headline;
+  TextEditingController? _date = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,27 +65,24 @@ class _EditProfileViewState extends State<EditProfileView> {
                       onClosing: () {},
                       enableDrag: false,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(25))),
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(25))),
                       builder: (context) => Container(
                           height: 100,
                           child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               InkWell(
-                                  onTap: () => getImage(
-                                      source:
-                                      ImageSource.camera),
+                                  onTap: () =>
+                                      getImage(source: ImageSource.camera),
                                   child: Icon(
                                     Icons.camera_alt_outlined,
                                     color: Colors.blue,
                                     size: 45,
                                   )),
                               InkWell(
-                                onTap: () => getImage(
-                                    source:
-                                    ImageSource.gallery),
+                                onTap: () =>
+                                    getImage(source: ImageSource.gallery),
                                 child: Icon(
                                   Icons.photo_library,
                                   color: Colors.blue,
@@ -153,71 +155,78 @@ class _EditProfileViewState extends State<EditProfileView> {
                 SizedBox(
                   height: 32,
                 ),
-                Text(
-                  'Full Name',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormFieldView(
-                  keyboardType: TextInputType.text,
-                  text: 'Name',
-                  onchange: (String value) {
-                    value = name!;
-                  },
-                  validator: (value) {
+                SessionEditProfile(
+                  title: 'Full Name',
+                  hintText: 'Name',
+                  validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Name can be not empty';
                     } else {
                       return null;
                     }
                   },
-                  onSaved: (val) {},
-                  number: 1,
-                ),
-                Text(
-                  'Address ',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                TextFormFieldView(
-                  keyboardType: TextInputType.text,
-                  text: 'Address',
-                  onchange: (String value) {
-                    value = address!;
+                  onchange: (value) {
+                    name = value;
                   },
-                  validator: (value) {
+                ),
+                SessionEditProfile(
+                  title: 'Address',
+                  hintText: 'Address',
+                  validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Address can be not empty';
                     } else {
                       return null;
                     }
                   },
-                  onSaved: (val) {},
-                  number: 5,
-                ),
-                Text(
-                  'Birthday ',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                BirthDateView(
-                  text: 'Data of Birth',
-                  Onchage: (dynamic value) {
-                    value = date;
-                    (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Date can be not empty';
-                      } else
-                        return null;
-                    };
+                  onchange: (value) {
+                    address = value;
                   },
+                  numLine: 5,
                 ),
+               users=='Doctor'? SessionEditProfile(
+                  title: 'Headline',
+                  hintText: 'Headline',
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Headline can be not empty';
+                    } else {
+                      return null;
+                    }
+                  },
+                  onchange: (value) {
+                    headline = value;
+                  },
+                  numLine: 5,
+                ):SizedBox(),
+                SessionEditProfile(
+                    controller: _date,
+                    title: 'Birthday',
+                    hintText: 'Data of Birth',
+                    onchange: (value) {
+                      (dynamic value) {
+                        (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Date can be not empty';
+                          } else
+                            return null;
+                        };
+                      };
+                    },
+                    onTap: () async {
+                      DateTime? pickDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2101));
+                      if (pickDate != null) {
+                        setState(() {
+                          _date!.text =
+                              DateFormat('yyyy-MM-dd').format(pickDate);
+                        });
+                      }
+                      ;
+                    }),
                 SizedBox(
                   height: 120,
                 ),
@@ -229,7 +238,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         context: context,
                         builder: (BuildContext context) {
                           return BottomSheetView(
-                            onTapContainerColor: (){
+                            onTapContainerColor: () {
                               //  TODO  onTap for save
                             },
                             title: 'Undo Changes ?',
@@ -240,6 +249,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                           );
                         });
                   },
+                ),
+                SizedBox(
+                  height: 25,
                 )
               ],
             ),
