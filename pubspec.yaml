@@ -43,8 +43,14 @@ dependencies:
   cloud_firestore: ^4.5.3
   flutter_bloc: ^8.1.2
   bloc: ^8.1.1
+  flutter_chat_ui: ^1.6.5
 
-  #firebase_core_platform_interface: 4.5.1
+
+
+
+
+
+  #  firebase_core_platform_interface: 4.5.1
 
 
 

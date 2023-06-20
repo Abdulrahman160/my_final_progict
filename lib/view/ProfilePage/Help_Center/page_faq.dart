@@ -30,8 +30,7 @@ class _PageFAQViewState extends State<PageFAQView> {
                       setState(() {
                         containerData
                             .forEach((element) => element.values = true);
-                        containerData[index].values =
-                        !containerData[index].values!;
+                        containerData[index].values = !containerData[index].values!;
                       });
                     },
                     child: ContainerText(

@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_final_progict/payment/paymob.dart';
+import 'package:my_final_progict/view/Chat_Bot/chat_page.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 import 'package:my_final_progict/view/ProfilePage/State_Mangement/cubit.dart';
 import 'package:my_final_progict/view/auth/Login.dart';
@@ -29,10 +30,10 @@ void main() async {
     isLogin = true;
   }
   final sharedPre = await SharedPreferences.getInstance();
-   String? userId =sharedPre.getString('userIdNumber');
-  print('*'*99);
+  String? userId = sharedPre.getString('userIdNumber');
+  print('*' * 99);
   print(userId);
-  print('*'*99);
+  print('*' * 99);
   runApp(MyApp());
 }
 
@@ -43,9 +44,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-
-        BlocProvider(create: (context)=> ProfileCubit()),
-
+        BlocProvider(create: (context) => ProfileCubit()),
       ],
       child: GestureDetector(
         onTap: () {
@@ -53,8 +52,10 @@ class MyApp extends StatelessWidget {
         },
         child: MaterialApp(
           navigatorKey: _globalKey,
-          home: isLogin! ? NavBarView() : LoginView(),
+          home: ChatPageView(),
           // it is to login
+          // isLogin! ? NavBarView() : LoginView(),
+
           builder: (context, child) => SafeArea(child: child!),
           debugShowCheckedModeBanner: false,
           title: 'Mentis',
