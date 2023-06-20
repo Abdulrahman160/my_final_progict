@@ -17,6 +17,7 @@ String? users = 'Doctor';
 String? userIdNumber;
 String? userEmail;
 
+
 void main() async {
   PaymobUtils.instance.init();
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,10 +30,10 @@ void main() async {
   } else {
     isLogin = true;
   }
-  final sharedPre = await SharedPreferences.getInstance();
-  String? userId = sharedPre.getString('userIdNumber');
+
+
   print('*' * 99);
-  print(userId);
+
   print('*' * 99);
   runApp(MyApp());
 }

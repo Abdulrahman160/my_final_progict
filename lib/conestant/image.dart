@@ -71,4 +71,5 @@ class AppImage {
   static const String salary = "assets/images/salary.png";
   static const String training = "assets/images/training.png";
   static const String checkCircle = "assets/images/CheckCircle.png";
+  static const String send_icon = "assets/images/send_icon.png";
 }

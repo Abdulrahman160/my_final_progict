@@ -17,7 +17,10 @@ class _ChatPageViewState extends State<ChatPageView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Chat(
-          messages: _messages, onSendPressed: _handleSendPressed, user: _user),
+        messages: _messages,
+        onSendPressed: _handleSendPressed,
+        user: _user,
+      ),
     );
   }
 

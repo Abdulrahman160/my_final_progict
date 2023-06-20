@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_final_progict/view/Personal_Information/user_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../main.dart';
 import 'auth_states.dart';
 
@@ -20,7 +21,9 @@ class AuthCubit extends Cubit<AuthStates> {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       if (userCredential.user?.uid != null) {
-        userIdNumber=userCredential.user?.uid;
+        final sharedPre = await SharedPreferences.getInstance();
+        userIdNumber= sharedPre.getString('${userCredential.user?.uid}');
+        userCredential.user?.uid;
         userEmail=email;
         debugPrint("User Create Success With vid :${userCredential.user!.uid}");
 
