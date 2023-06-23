@@ -8,7 +8,7 @@ class IconBackView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 25,
-      backgroundColor: kGray,
+      backgroundColor: backgroundCircleAvatar,
       child: IconButton(
         icon: Icon(
           Icons.arrow_back_ios_new,

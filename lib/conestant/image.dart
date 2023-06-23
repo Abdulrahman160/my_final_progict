@@ -21,8 +21,8 @@ class AppImage {
   static const String profile = "assets/images/profile.png";
   static const String star = "assets/images/star.png";
   static const String training02 = "assets/images/training02.png";
-  static const String home = "assets/images/home.png";
   static const String message = "assets/images/message.png";
+  static const String home = "assets/images/home.png";
   static const String finishExam = "assets/images/finish_exam.png";
   static const String downlode = "aassets/images/downlode.png";
   static const String person1 = "assets/images/person1.png";
@@ -72,4 +72,6 @@ class AppImage {
   static const String training = "assets/images/training.png";
   static const String checkCircle = "assets/images/CheckCircle.png";
   static const String send_icon = "assets/images/send_icon.png";
+  static const String Schedule = "assets/images/Schedule.png";
+  static const String people = "assets/images/people.png";
 }

@@ -7,10 +7,12 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   const AppBarWidget({
     Key? key,
     required this.title,
-    this.iconWidget,
+    this.iconWidget, this.fontSize=18, this.elevation=0,
   }) : super(key: key);
   final String title;
   final Widget? iconWidget;
+  final double? fontSize;
+  final double? elevation;
 
   @override
   State<AppBarWidget> createState() => _AppBarWidgetState();
@@ -26,25 +28,21 @@ class _AppBarWidgetState extends State<AppBarWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 80,
         centerTitle: true,
         title: Text(
           widget.title,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: widget.fontSize,
             fontWeight: FontWeight.w900,
             color: textColor,
           ),
         ),
-        elevation: 0,
+        elevation: widget.elevation,
         backgroundColor: kTransparent,
         leading: Padding(
           padding: const EdgeInsets.only(top: 20, bottom: 20, right: 50),
-          child: CircleAvatar(
-            radius: 23,
-            backgroundColor: kGray,
-            child: IconBackView(),
-          ),
+          child:  IconBackView(),
         ),
         leadingWidth: 100,
         // actions: [widget.iconWidget!],

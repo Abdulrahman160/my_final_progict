@@ -1,9 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:grouped_list/grouped_list.dart';
 import 'package:my_final_progict/conestant/conset.dart';
 import 'package:my_final_progict/conestant/image.dart';
+import 'package:my_final_progict/widget/appbar_widget.dart';
 
 class MessageView extends StatefulWidget {
   const MessageView({Key? key}) : super(key: key);
@@ -13,85 +13,119 @@ class MessageView extends StatefulWidget {
 }
 
 class _MessageViewState extends State<MessageView> {
-  Message message=Message(text: '',date: DateTime.now(),isSendByMe: false);
-  List<Message> messages = [
-    Message(
-      text: 'hallo',
-      date: DateTime.now().subtract(Duration(minutes: 1)),
-      isSendByMe: false,
-    ),
-    Message(
-      text: 'bay',
-      date: DateTime.now().subtract(Duration(minutes: 1)),
-      isSendByMe: true,
-    ),
-    Message(
-      text: 'welcom',
-      date: DateTime.now().subtract(Duration(minutes: 1)),
-      isSendByMe: false,
-    ),
-  ].reversed.toList();
+  TextEditingController? controller = TextEditingController();
+
+  List<Message> messages = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-              child: GroupedListView<Message, DateTime>(
-            elements: messages,
-            groupBy: (message) => DateTime(
-              message.date.year,
-              message.date.hour,
-              message.date.minute,
-            ),
-            groupHeaderBuilder: (Message message) => SizedBox(),
-            itemBuilder: (context, Message message) => Align(
-              alignment: message.isSendByMe
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
-              child: Card(
-                elevation: 8,
-                child: Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Text(message.text),
-                ),
-              ),
-            ),
-          )),
+          AppBarWidget(
+            title: 'Mentis Bot',
+            fontSize: 22,
+          ),
           Container(
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: textResult.withOpacity(0.3),
-                      filled: true,
-                      contentPadding: EdgeInsets.all(11),
-                      hintText: 'message',
+            margin: EdgeInsets.only(bottom: 5),
+            height: 2,
+            width: double.infinity,
+            color: kBlack.withOpacity(.2),
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return Container(
+                    alignment: messages[index].isSendByMe
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
+                    padding: EdgeInsets.all(10),
+                    margin: messages[index].isSendByMe
+                        ? EdgeInsets.only(
+                            right: 10,
+                            left: messages[index].isSendByMe ? 100 : 0,
+                          )
+                        : EdgeInsets.only(
+                            left: 10,
+                            right: messages[index].isSendByMe ? 0 : 100),
+                    decoration: BoxDecoration(
+                      color: messages[index].isSendByMe
+                          ? kBlue
+                          : GrayText.withOpacity(0.4),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(
+                          messages[index].isSendByMe ? 10 : 0,
+                        ),
+                        bottomRight: Radius.circular(
+                          messages[index].isSendByMe ? 0 : 10,
+                        ),
+                      ),
                     ),
-                    onFieldSubmitted: (newValue) {
-                       message = Message(
-                          text: newValue!,
-                          date: DateTime.now(),
-                          isSendByMe: true);
-                      setState(
-                        () {
-                          messages.add(message);
-                          newValue='';
-                        },
-                      );
-                    },
+                    child: Text(
+                      messages![index].text,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: messages[index].isSendByMe ? kWhite : kBlack,
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) => SizedBox(
+                      height: 15,
+                    ),
+                itemCount: messages.length),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Container(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: controller,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide.none),
+                        fillColor: textResult.withOpacity(0.1),
+                        filled: true,
+                        contentPadding: EdgeInsets.all(11),
+                        hintText: 'Type Your Message',
+                      ),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: InkWell(
-                    child: Image.asset(AppImage.send_icon),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: InkWell(
+                      onTap: () async {
+                        if (controller!.text.isNotEmpty) {
+                          messages.insert(0,
+                            Message(
+                              text: controller!.text,
+                              isSendByMe: true,
+                            ),
+                          );
+                          controller!.clear();
+                          print('0000' * 8);
+                          setState(() {});
+                          final response = await Dio()
+                              .post('http://127.0.0.1:5000/bot', data: {
+                            "res": 'hi',
+                          });
+                          print('0000' * 8);
 
+                          print(response.data);
+                        }
+                      },
+                      child: Image.asset(
+                        AppImage.send_icon,
+                      ),
+                    ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
           )
         ],
@@ -103,11 +137,9 @@ class _MessageViewState extends State<MessageView> {
 class Message {
   final String text;
   final bool isSendByMe;
-  final DateTime date;
 
   Message({
     required this.text,
-    required this.date,
     required this.isSendByMe,
   });
 }

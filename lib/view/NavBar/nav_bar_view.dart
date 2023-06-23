@@ -16,7 +16,7 @@ class NavBarView extends StatefulWidget {
 
 class _NavBarViewState extends State<NavBarView> {
   int currentIndex = 0;
-  Icon? icon;
+  Widget? icon;
   List content = [];
   final List patientContent = [
     [
@@ -47,7 +47,7 @@ class _NavBarViewState extends State<NavBarView> {
       HomePageView(),
     ],
     [
-      AppImage.training,
+      AppImage.Schedule,
       "Schedule",
       TrainingPageView(),
     ],
@@ -74,11 +74,13 @@ class _NavBarViewState extends State<NavBarView> {
 
     if (users == 'Doctor') {
       content = doctorContent;
-      icon=Icon(Icons.people);
+      icon = Image.asset(AppImage.people);
     } else if (users == 'Patient') {
       content = patientContent;
-      icon=Icon(Icons.add);
-
+      icon = Image.asset(
+        AppImage.logo,
+        color: kWhite,
+      );
     }
     super.initState();
   }
@@ -128,7 +130,7 @@ class _NavBarViewState extends State<NavBarView> {
       ),
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
-        child:icon ,
+        child: icon,
         onPressed: () {},
       ),
       floatingActionButtonLocation:

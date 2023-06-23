@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -204,14 +205,14 @@ class _LoginViewState extends State<LoginView> {
                       ContainerColorView(
                         data: 'Login',
                         onTap: () async {
-                          
-                          var user = await SignIn();
-                          if (user != null) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        NavBarView()));
+                          if (formKay.currentState!.validate()) {
+                            var user = await SignIn();
+                            if (user != null) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NavBarView()));
+                            }
                           }
                         },
                       ),

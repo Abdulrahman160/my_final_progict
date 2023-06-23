@@ -1,326 +1,339 @@
+// // import 'package:flutter/material.dart';
+// // import 'package:firebase_core/firebase_core.dart';
+// // import 'package:cloud_firestore/cloud_firestore.dart';
+// //
+// // void main() async {
+// //   WidgetsFlutterBinding.ensureInitialized();
+// //   await Firebase.initializeApp();
+// //   runApp(ChatApp());
+// // }
+// //
+// // class ChatApp extends StatelessWidget {
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return MaterialApp(
+// //       title: 'Chat Bot',
+// //       home: ChatScreen(),
+// //     );
+// //   }
+// // }
+// //
+// // class ChatScreen extends StatefulWidget {
+// //   @override
+// //   _ChatScreenState createState() => _ChatScreenState();
+// // }
+// //
+// // class _ChatScreenState extends State<ChatScreen> {
+// //   final TextEditingController _textController = TextEditingController();
+// //   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+// //   final List<ChatMessage> _messages = <ChatMessage>[];
+// //
+// //   void _handleSubmitted(String text) {
+// //     _textController.clear();
+// //     ChatMessage message = ChatMessage(
+// //       text: text,
+// //       name: 'Me',
+// //       type: true,
+// //     );
+// //     setState(() {
+// //       _messages.insert(0, message);
+// //     });
+// //
+// //     _firestore.collection('messages').add({
+// //       'text': text,
+// //       'name': 'Bot',
+// //     }).then((value) {
+// //       String botText = 'Hello! This is a bot.';
+// //       ChatMessage botMessage = ChatMessage(
+// //         text: botText,
+// //         name: 'Bot',
+// //         type: false,
+// //       );
+// //       setState(() {
+// //         _messages.insert(0, botMessage);
+// //       });
+// //     });
+// //   }
+// //
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(
+// //         title: Text('Chat Bot'),
+// //       ),
+// //       body: Column(
+// //         children: <Widget>[
+// //           Flexible(
+// //             child: StreamBuilder<QuerySnapshot>(
+// //               stream: _firestore.collection('messages').snapshots(),
+// //               builder: (context, snapshot) {
+// //                 if (!snapshot.hasData) {
+// //                   return Center(
+// //                     child: CircularProgressIndicator(),
+// //                   );
+// //                 }
+// //                 List<DocumentSnapshot> documents = snapshot.data!.docs;
+// //                 List<ChatMessage> messages = documents
+// //                     .map((doc) => ChatMessage(
+// //                   text: doc['text'],
+// //                   name: doc['name'],
+// //                   type: false,
+// //                 ))
+// //                     .toList();
+// //                 return ListView.builder(
+// //                   padding: EdgeInsets.all(8.0),
+// //                   reverse: true,
+// //                   itemBuilder: (_, int index) => messages[index],
+// //                   itemCount: messages.length,
+// //                 );
+// //               },
+// //             ),
+// //           ),
+// //           Divider(height: 1.0),
+// //           Container(
+// //             decoration: BoxDecoration(
+// //               color: Theme.of(context).cardColor,
+// //             ),
+// //             child: Row(
+// //               children: <Widget>[
+// //                 Expanded(
+// //                   child: TextField(
+// //                     controller: _textController,
+// //                     decoration: InputDecoration(
+// //                       hintText: 'Type a message',
+// //                     ),
+// //                     onSubmitted: _handleSubmitted,
+// //                   ),
+// //                 ),
+// //                 IconButton(
+// //                   icon: Icon(Icons.send),
+// //                   onPressed: () => _handleSubmitted(_textController.text),
+// //                 ),
+// //               ],
+// //             ),
+// //           ),
+// //         ],
+// //       ),
+// //     );
+// //   }
+// // }
+// //
+// // class ChatMessage extends StatelessWidget {
+// //   ChatMessage({required this.text,required this.name, required this.type});
+// //
+// //   final String text;
+// //   final String name;
+// //   final bool type;
+// //
+// //   List<Widget> get messageChildren {
+// //     return <Widget>[
+// //       Text(name + ': '),
+// //       Text(text),
+// //     ];
+// //   }
+// //
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Container(
+// //       margin: EdgeInsets.symmetric(vertical: 10.0),
+// //       child: Row(
+// //         crossAxisAlignment:
+// //         type ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+// //         children: <Widget>[
+// //           type
+// //               ? Expanded(child: Column(children: messageChildren))
+// //               : Padding(
+// //             padding: EdgeInsets.only(right: 16.0),
+// //             child: CircleAvatar(child: Text(name[0])),
+// //           ),
+// //           !type
+// //               ? Expanded(child: Column(children: messageChildren))
+// //               : Padding(
+// //             padding: EdgeInsets.only(left: 16.0),
+// //             child: CircleAvatar(child: Text(name[0])),
+// //           ),
+// //         ],
+// //       ),
+// //     );
+// //   }
+// // }
+//
+//
+//
+//
 // import 'package:flutter/material.dart';
-// import 'package:socket_io_client/socket_io_client.dart' as IO;
+// import 'package:flutter_bloc/flutter_bloc.dart';
 //
-// class ChatPage extends StatefulWidget {
-//   @override
-//   _ChatPageState createState() => _ChatPageState();
-// }
+// import 'main.dart';
 //
-// class _ChatPageState extends State<ChatPage> {
-//   final TextEditingController _messageController = TextEditingController();
-//   IO.Socket socket;
 //
-//   @override
-//   void initState() {
-//     super.initState();
-//     connectToServer();
-//   }
+// class ChatDetailsScreen extends StatelessWidget {
 //
-//   void connectToServer() {
-//     socket = IO.io('http://localhost:3000', <String, dynamic>{
-//       'transports': ['websocket'],
-//     });
 //
-//     socket.on('connect', (_) {
-//       print('Connected to server');
-//     });
+//   ChatDetailsScreen( {Key? key}) : super(key: key);
 //
-//     socket.on('chat message', (data) {
-//       print('Received message: $data');
-//       // قم بمعالجة الرسالة المستلمة هنا وتحديث واجهة المستخدم
-//     });
-//   }
-//
-//   void sendMessage(String message) {
-//     socket.emit('chat message', message);
-//   }
-//
-//   @override
-//   void dispose() {
-//     socket.disconnect();
-//     super.dispose();
-//   }
+//   var messageController = TextEditingController();
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//         appBar: AppBar(
-//           title: Text('Chat'),
+//       appBar: AppBar(
+//         titleSpacing: 0,
+//         title: Row(
+//           children: [
+//             CircleAvatar(
+//               radius: 22,
+//               backgroundImage: NetworkImage(userModel.image),
+//             ),
+//             const SizedBox(
+//               width: 15,
+//             ),
+//             Text(userModel.name)
+//           ],
 //         ),
-//         body: Column(
+//       ),
+//       body: BuildCondition(
+//         condition: true,
+//         builder: (context) => Padding(
+//           padding: const EdgeInsets.all(20.0),
+//           child: Column(
 //             children: [
 //               Expanded(
-//                 child: ListView.builder(
-//                   itemCount: _messages.length,
-//                   itemBuilder: (context, index) {
-//                     return ListTile(
-//                       title: Text(_messages[index]),
-//                     );
-//                   },
-//                 ),
+//                 child: ListView.separated(
+//                     itemBuilder: (context,index){
+//                       var message = ChatCubit.get(context).messages[index];
+//                       if(ChatCubit.get(context).userModel!.uId== message.senderId){
+//                         return buildMyMessage(message);
+//                       }else {
+//                         return buildMessage(message);
+//                       }
+//                     },
+//                     separatorBuilder: (context,index)=> const SizedBox(height: 5,),
+//                     itemCount: ChatCubit.get(context).messages.length),
 //               ),
-//               Padding(
-//                 padding: EdgeInsets.all(8.0),
+//               Container(
+//                 decoration: BoxDecoration(
+//                   border: Border.all(
+//                     color: Colors.grey,
+//                   ),
+//                   borderRadius: BorderRadius.circular(10),
+//                 ),
 //                 child: Row(
 //                   children: [
 //                     Expanded(
-//                       child: TextField(
-//                         controller: _messageController,
-//                         decoration: InputDecoration(
-//                           hintText: 'Type a message...',
+//                       child: Padding(
+//                         padding: const EdgeInsets.only(left: 5, top: 3),
+//                         child: TextFormField(
+//                           controller: messageController,
+//                           decoration: const InputDecoration(
+//                             hintText: 'Write here ....',
+//                             border: InputBorder.none,
+//                           ),
 //                         ),
 //                       ),
 //                     ),
-//                     IconButton(
-//                       icon: Icon(Icons.send),
+//                     MaterialButton(
 //                       onPressed: () {
-//                         sendMessage(_messageController.text);
-//                         _messageController.clear();
+//                         ChatCubit.get(context).sendMessage(
+//                             receiverId:userIdNumber,
+//                             dateTime: DateTime.now().toString(),
+//                             text: messageController.text);
 //                       },
-//                     ),
+//                       child: Icon(
+//                         Icons.send,
+//                         color: Colors.red,
+//                       ),
+//                     )
 //                   ],
 //                 ),
-//               ),
+//               )
 //             ],
-//             ),
-//         );
-//     }
+//           ),
+//         ),
+//         fallback: (context) =>
+//         const Center(child: CircularProgressIndicator()),
+//       ),
+//     );
+//   }
+//
+//   Widget buildMyMessage(MessageModel model) {
+//     return Align(
+//       alignment: AlignmentDirectional.centerEnd,
+//       child: Container(
+//         decoration: BoxDecoration(
+//           color: color2.withOpacity(.7),
+//           borderRadius: const BorderRadiusDirectional.only(
+//             topEnd: Radius.circular(10),
+//             topStart: Radius.circular(10),
+//             bottomStart: Radius.circular(10),
+//           ),
+//         ),
+//         padding: const EdgeInsets.symmetric(
+//           vertical: 10,
+//           horizontal: 10,
+//         ),
+//         child: Text( '${model.text}'),
+//       ),
+//     );
+//   }
+//
+//   Widget buildMessage(MessageModel model) {
+//     return Align(
+//       alignment: AlignmentDirectional.centerStart,
+//       child: Container(
+//         decoration: BoxDecoration(
+//           color: color1.withOpacity(.2),
+//           borderRadius: const BorderRadiusDirectional.only(
+//             topEnd: Radius.circular(10),
+//             topStart: Radius.circular(10),
+//             bottomEnd: Radius.circular(10),
+//           ),
+//         ),
+//         padding: const EdgeInsets.symmetric(
+//           vertical: 10,
+//           horizontal: 10,
+//         ),
+//         child: Text('${model.text}'),
+//       ),
+//     );
+//   }
 // }
-// // import 'dart:convert';
-// // import 'dart:io';
-// //
-// // import 'package:file_picker/file_picker.dart';
-// // import 'package:flutter/material.dart';
-// // import 'package:flutter/services.dart' show rootBundle;
-// // import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-// // import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-// // import 'package:http/http.dart' as http;
-// // import 'package:image_picker/image_picker.dart';
-// // import 'package:intl/date_symbol_data_local.dart';
-// // import 'package:mime/mime.dart';
-// // import 'package:open_filex/open_filex.dart';
-// // import 'package:path_provider/path_provider.dart';
-// // import 'package:uuid/uuid.dart';
-// //
-// // void main() {
-// //   initializeDateFormatting().then((_) => runApp(const MyApp()));
-// // }
-// //
-// // class MyApp extends StatelessWidget {
-// //   const MyApp({super.key});
-// //
-// //   @override
-// //   Widget build(BuildContext context) => const MaterialApp(
-// //     home: ChatPage(),
-// //   );
-// // }
-// //
-// // class ChatPage extends StatefulWidget {
-// //   const ChatPage({super.key});
-// //
-// //   @override
-// //   State<ChatPage> createState() => _ChatPageState();
-// // }
-// //
-// // class _ChatPageState extends State<ChatPage> {
-// //   List<types.Message> _messages = [];
-// //   final _user = const types.User(
-// //     id: '82091008-a484-4a89-ae75-a22bf8d6f3ac',
-// //   );
-// //
-// //   @override
-// //   void initState() {
-// //     super.initState();
-// //     _loadMessages();
-// //   }
-// //
-// //   void _addMessage(types.Message message) {
-// //     setState(() {
-// //       _messages.insert(0, message);
-// //     });
-// //   }
-// //
-// //   void _handleAttachmentPressed() {
-// //     showModalBottomSheet<void>(
-// //       context: context,
-// //       builder: (BuildContext context) => SafeArea(
-// //         child: SizedBox(
-// //           height: 144,
-// //           child: Column(
-// //             crossAxisAlignment: CrossAxisAlignment.stretch,
-// //             children: <Widget>[
-// //               TextButton(
-// //                 onPressed: () {
-// //                   Navigator.pop(context);
-// //                   _handleImageSelection();
-// //                 },
-// //                 child: const Align(
-// //                   alignment: AlignmentDirectional.centerStart,
-// //                   child: Text('Photo'),
-// //                 ),
-// //               ),
-// //               TextButton(
-// //                 onPressed: () {
-// //                   Navigator.pop(context);
-// //                   _handleFileSelection();
-// //                 },
-// //                 child: const Align(
-// //                   alignment: AlignmentDirectional.centerStart,
-// //                   child: Text('File'),
-// //                 ),
-// //               ),
-// //               TextButton(
-// //                 onPressed: () => Navigator.pop(context),
-// //                 child: const Align(
-// //                   alignment: AlignmentDirectional.centerStart,
-// //                   child: Text('Cancel'),
-// //                 ),
-// //               ),
-// //             ],
-// //           ),
-// //         ),
-// //       ),
-// //     );
-// //   }
-// //
-// //   void _handleFileSelection() async {
-// //     final result = await FilePicker.platform.pickFiles(
-// //       type: FileType.any,
-// //     );
-// //
-// //     if (result != null && result.files.single.path != null) {
-// //       final message = types.FileMessage(
-// //         author: _user,
-// //         createdAt: DateTime.now().millisecondsSinceEpoch,
-// //         id: const Uuid().v4(),
-// //         mimeType: lookupMimeType(result.files.single.path!),
-// //         name: result.files.single.name,
-// //         size: result.files.single.size,
-// //         uri: result.files.single.path!,
-// //       );
-// //
-// //       _addMessage(message);
-// //     }
-// //   }
-// //
-// //   void _handleImageSelection() async {
-// //     final result = await ImagePicker().pickImage(
-// //       imageQuality: 70,
-// //       maxWidth: 1440,
-// //       source: ImageSource.gallery,
-// //     );
-// //
-// //     if (result != null) {
-// //       final bytes = await result.readAsBytes();
-// //       final image = await decodeImageFromList(bytes);
-// //
-// //       final message = types.ImageMessage(
-// //         author: _user,
-// //         createdAt: DateTime.now().millisecondsSinceEpoch,
-// //         height: image.height.toDouble(),
-// //         id: const Uuid().v4(),
-// //         name: result.name,
-// //         size: bytes.length,
-// //         uri: result.path,
-// //         width: image.width.toDouble(),
-// //       );
-// //
-// //       _addMessage(message);
-// //     }
-// //   }
-// //
-// //   void _handleMessageTap(BuildContext _, types.Message message) async {
-// //     if (message is types.FileMessage) {
-// //       var localPath = message.uri;
-// //
-// //       if (message.uri.startsWith('http')) {
-// //         try {
-// //           final index =
-// //           _messages.indexWhere((element) => element.id == message.id);
-// //           final updatedMessage =
-// //           (_messages[index] as types.FileMessage).copyWith(
-// //             isLoading: true,
-// //           );
-// //
-// //           setState(() {
-// //             _messages[index] = updatedMessage;
-// //           });
-// //
-// //           final client = http.Client();
-// //           final request = await client.get(Uri.parse(message.uri));
-// //           final bytes = request.bodyBytes;
-// //           final documentsDir = (await getApplicationDocumentsDirectory()).path;
-// //           localPath = '$documentsDir/${message.name}';
-// //
-// //           if (!File(localPath).existsSync()) {
-// //             final file = File(localPath);
-// //             await file.writeAsBytes(bytes);
-// //           }
-// //         } finally {
-// //           final index =
-// //           _messages.indexWhere((element) => element.id == message.id);
-// //           final updatedMessage =
-// //           (_messages[index] as types.FileMessage).copyWith(
-// //             isLoading: null,
-// //           );
-// //
-// //           setState(() {
-// //             _messages[index] = updatedMessage;
-// //           });
-// //         }
-// //       }
-// //
-// //       await OpenFilex.open(localPath);
-// //     }
-// //   }
-// //
-// //   void _handlePreviewDataFetched(
-// //       types.TextMessage message,
-// //       types.PreviewData previewData,
-// //       ) {
-// //     final index = _messages.indexWhere((element) => element.id == message.id);
-// //     final updatedMessage = (_messages[index] as types.TextMessage).copyWith(
-// //       previewData: previewData,
-// //     );
-// //
-// //     setState(() {
-// //       _messages[index] = updatedMessage;
-// //     });
-// //   }
-// //
-// //   void _handleSendPressed(types.PartialText message) {
-// //     final textMessage = types.TextMessage(
-// //       author: _user,
-// //       createdAt: DateTime.now().millisecondsSinceEpoch,
-// //       id: const Uuid().v4(),
-// //       text: message.text,
-// //     );
-// //
-// //     _addMessage(textMessage);
-// //   }
-// //
-// //   void _loadMessages() async {
-// //     final response = await rootBundle.loadString('assets/messages.json');
-// //     final messages = (jsonDecode(response) as List)
-// //         .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
-// //         .toList();
-// //
-// //     setState(() {
-// //       _messages = messages;
-// //     });
-// //   }
-// //
-// //   @override
-// //   Widget build(BuildContext context) => Scaffold(
-// //     body: Chat(
-// //       messages: _messages,
-// //       onAttachmentPressed: _handleAttachmentPressed,
-// //       onMessageTap: _handleMessageTap,
-// //       onPreviewDataFetched: _handlePreviewDataFetched,
-// //       onSendPressed: _handleSendPressed,
-// //       showUserAvatars: true,
-// //       showUserNames: true,
-// //       user: _user,
-// //     ),
-// //   );
-// // }
+// void sendMessage({
+//   required String receiverId,
+//   required String dateTime,
+//   required String text,
+// }) {
+//   MessageModel model = MessageModel(
+//     senderId: userModel!.uId,
+//     receiverId: receiverId,
+//     dateTime: dateTime,
+//     text: text,
+//   );
+//   //sender Chat
+//   FirebaseFirestore.instance
+//       .collection('users')
+//       .doc(userModel!.uId)
+//       .collection('chats')
+//       .doc(receiverId)
+//       .collection('message')
+//       .add(model.toMap())
+//       .then((value) {
+//     emit(SuccessSendMessageStates());
+//   }).catchError((error) {
+//     emit(ErrorSendMessageStates());
+//   });
+// //receiver Chat
+//   FirebaseFirestore.instance
+//       .collection('users')
+//       .doc(receiverId)
+//       .collection('chats')
+//       .doc(userModel!.uId)
+//       .collection('message')
+//       .add(model.toMap())
+//       .then((value) {
+//     emit(SuccessSendMessageStates());
+//   }).catchError((error) {
+//     emit(ErrorSendMessageStates());
+//   });
+// }
+//

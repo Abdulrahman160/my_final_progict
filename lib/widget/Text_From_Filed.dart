@@ -87,7 +87,7 @@ class _ContainerViewState extends State<TextFormFieldView> {
           onChanged: widget.onchange,
           validator: widget.validator,
         ),
-
+SizedBox(height: 10,)
       ],
     );
   }
