@@ -34,8 +34,8 @@ class _NavBarViewState extends State<NavBarView> {
     ],
     [
       AppImage.message,
-      "Message",
-      HomePageView(),
+      "Mentis Bot",
+      MessageView(),
     ],
     [
       AppImage.profile,
@@ -91,7 +91,7 @@ class _NavBarViewState extends State<NavBarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: patientContent[currentIndex!][2],
+      body: content[currentIndex!][2],
       backgroundColor: kWhite,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -132,16 +132,7 @@ class _NavBarViewState extends State<NavBarView> {
         }).toList(),
       ),
       resizeToAvoidBottomInset: false,
-      floatingActionButton: users == 'Patient'
-          ? FloatingActionButton(
-              child: icon,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MessageView(),));
-              },
-            )
-          : SizedBox(),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
+
     );
   }
 }

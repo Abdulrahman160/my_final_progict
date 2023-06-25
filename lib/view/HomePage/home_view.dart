@@ -7,11 +7,14 @@ import 'package:my_final_progict/view/HomePage/widget/container_type_view.dart';
 import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
 import 'package:my_final_progict/widget/header_sections_home_view.dart';
 import '../../conestant/conset.dart';
+import '../../main.dart';
 import '../../widget/container_search/container_search_view.dart';
 import '../AllTraining/view/all_trainig_view.dart';
 import '../Doctors/view/all_doctor_view.dart';
 import '../Doctors/view/doctor_details.dart';
 import '../Doctors/widget/doctor_model.dart';
+import '../PatientInformation/view.dart';
+import '../PatientWithDoctor/widget/patient_model.dart';
 import '../auth/Login.dart';
 
 class HomePageView extends StatefulWidget {
@@ -173,11 +176,10 @@ class _HomePageViewState extends State<HomePageView> {
                 child: SizedBox(
                   height: 53,
                   child: ListView.builder(
-                    itemBuilder: (context, index) =>
-                        ContainerTypeView(
-                          index: index, //todo: hosni how to make color change
-                          text: containerType[index]['text'],
-                        ),
+                    itemBuilder: (context, index) => ContainerTypeView(
+                      index: index, //todo: hosni how to make color change
+                      text: containerType[index]['text'],
+                    ),
                     itemCount: containerType.length,
                     scrollDirection: Axis.horizontal,
                   ),
@@ -216,33 +218,90 @@ class _HomePageViewState extends State<HomePageView> {
               Padding(
                 padding: const EdgeInsets.only(right: 35),
                 child: HeaderSectionsHomeView(
-                  title: 'Top  Doctors',
+                  title: users == 'Patient' ? 'Top  Doctors' : 'Patient',
                   hintTitle: 'explore',
-                  onTap: () =>
+                  onTap: () {
+                    if(users=='Patient'){
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => AllDoctorView(),
-                          )),
+                          ));
+                    }
+                  } ,
                 ),
               ),
               SizedBox(
                 height: 112,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: doctorDetailes.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return InkWell(onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (
-                          context) => DoctorDetailsView(
-                        image: doctorDetailes[index].image!,
-                        name: doctorDetailes[index].name!,),));
-                    },
-                      child: CircleImage(
-                        doctors: doctorDetailes[index],
-                      ),);
-                  },
-                ),
+                child: users == 'Patient'
+                    ? ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: doctorDetailes.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return InkWell(
+                            onTap: () {
+
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DoctorDetailsView(
+                                      image: doctorDetailes[index].image!,
+                                      name: doctorDetailes[index].name!,
+                                    ),
+                                  ));
+                            },
+                            child: CircleImage(
+                              doctors: doctorDetailes[index],
+                            ),
+                          );
+                        },
+                      )
+                    : ListView.separated(
+                        separatorBuilder: (context, index) => SizedBox(
+                          width: 10,
+                        ),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: doctorDetailes.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => users == 'Patient'
+                                          ? DoctorDetailsView(
+                                              image:
+                                                  doctorDetailes[index].image!,
+                                              name: doctorDetailes[index].name!,
+                                            )
+                                          : PatientInfoView(
+                                              image: patientModel[index].image,
+                                              name: patientModel[index].name,
+                                            ),
+                                    ));
+                              },
+                              child: Column(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 36,
+                                    backgroundColor: kBlue,
+                                    child: CircleAvatar(
+                                      backgroundImage:
+                                          AssetImage(patientModel[index].image),
+                                      radius: 33,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 6,
+                                  ),
+                                  Text(
+                                    patientModel[index].name,
+                                    style: TextStyle(fontSize: 15),
+                                  )
+                                ],
+                              ));
+                        },
+                      ),
               ),
               SizedBox(
                 height: 17,

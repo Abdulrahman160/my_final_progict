@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../conestant/conset.dart';
@@ -6,11 +5,11 @@ import '../conestant/conset.dart';
 class HeaderSectionsHomeView extends StatelessWidget {
   const HeaderSectionsHomeView({
     Key? key,
-
     required this.title,
-   this.hintTitle,
-     this.hintTitleColor,
-    this.onTap,  this.enableHintTitle=true,
+    this.hintTitle,
+    this.hintTitleColor,
+    this.onTap,
+    this.enableHintTitle = true,
   }) : super(key: key);
   final GestureTapCallback? onTap;
   final String title;
@@ -34,15 +33,14 @@ class HeaderSectionsHomeView extends StatelessWidget {
         InkWell(
           onTap: onTap,
           child: Text(
-           enableHintTitle? hintTitle!:"",
+            enableHintTitle ? hintTitle! : "",
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w600,
-              color: hintTitleColor != null?hintTitleColor!:kDarkGreen,
+              color: hintTitleColor != null ? hintTitleColor! : kDarkGreen,
             ),
           ),
         ),
-
       ]),
     );
   }

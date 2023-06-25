@@ -50,7 +50,7 @@ class _PeopleViewState extends State<PeopleView> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            PatientInfoView(image: patientModel[index].image),
+                            PatientInfoView(image: patientModel[index].image, name: patientModel[index].name,),
                       ));
                 },
                 child: Column(

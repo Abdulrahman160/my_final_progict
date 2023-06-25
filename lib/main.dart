@@ -17,7 +17,7 @@ final GlobalKey<NavigatorState> navigatorKey =  GlobalKey<NavigatorState>();
 
 BuildContext appContext = _globalKey.currentContext!;
 bool? isLogin;
-String? users = 'Doctor';
+String? users = 'Patient';
 String? userIdNumber;
 String? userEmail;
 

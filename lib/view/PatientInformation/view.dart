@@ -18,8 +18,9 @@ List levels = [
 ];
 
 class PatientInfoView extends StatefulWidget {
-  const PatientInfoView({Key? key, required this.image}) : super(key: key);
+  const PatientInfoView({Key? key, required this.image, required this.name}) : super(key: key);
 final String image;
+final String name;
   @override
   State<PatientInfoView> createState() => _PatientInfoViewState();
 }
@@ -55,7 +56,7 @@ class _PatientInfoViewState extends State<PatientInfoView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Tiana Seris',
+                            widget.name,
                             style: TextStyle(
                               color: kBlack,
                               fontSize: 17,
