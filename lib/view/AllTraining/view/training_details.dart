@@ -8,8 +8,11 @@ import '../../../payment/paymob.dart';
 class TrainingDetailsView extends StatelessWidget {
   const TrainingDetailsView({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    int Salary=22000;
+
     return Scaffold(
       backgroundColor: kWhite,
       appBar: AppBar(
@@ -122,7 +125,7 @@ class TrainingDetailsView extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$ 220",
+                      "\$ $Salary",
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w800,
@@ -144,7 +147,7 @@ class TrainingDetailsView extends StatelessWidget {
             ContainerColorView(data: "Buy Now",onTap: () async {
               final response = await PaymobUtils.instance.pay(
                 currency: "EGP",
-                amount: "20000000",
+                amount: "$Salary",
               );
               print('*' * 20);
               print(response?.id);

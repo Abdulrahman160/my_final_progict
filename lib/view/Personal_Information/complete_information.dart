@@ -132,7 +132,7 @@ class _CompleteInformationViewState extends State<CompleteInformationView> {
                                 if (pickddate != null) {
                                   setState(() {
                                     BlocProvider.of<CompleteInfoCubit>(context)
-                                            .birthDayController!
+                                            .birthDayController
                                             .text =
                                         DateFormat('yyyy-MM-dd')
                                             .format(pickddate);

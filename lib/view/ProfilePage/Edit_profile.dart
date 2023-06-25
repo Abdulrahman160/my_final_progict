@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:my_final_progict/view/ProfilePage/sections_edit_profile.dart';
+import 'package:my_final_progict/view/ProfilePage/setting_profile.dart';
 
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
@@ -11,6 +12,7 @@ import '../../main.dart';
 import '../../widget/Container_Button_Color.dart';
 import '../../widget/icon_back_view.dart';
 import '../Personal_Information/birth_date.dart';
+import '../Personalization.dart';
 import 'Widget/bottomSheet.dart';
 
 class EditProfileView extends StatefulWidget {
@@ -25,13 +27,18 @@ class _EditProfileViewState extends State<EditProfileView> {
   String? name;
   String? address;
   String? headline;
-  TextEditingController? _date = TextEditingController();
+  TextEditingController? birthday_cont = TextEditingController();
+  TextEditingController? name_cont = TextEditingController();
+  TextEditingController? address_cont = TextEditingController();
+  TextEditingController? headline_cont = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhite,
-      body: ListView(
+      body: Form(
+         key: formKay,
+          child: ListView(
         children: [
           SizedBox(
             height: 10,
@@ -66,7 +73,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       enableDrag: false,
                       shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(25))),
+                          BorderRadius.vertical(top: Radius.circular(25))),
                       builder: (context) => Container(
                           height: 100,
                           child: Row(
@@ -97,54 +104,54 @@ class _EditProfileViewState extends State<EditProfileView> {
             child: Center(
               child: imageFile != null
                   ? Stack(children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: FileImage(imageFile!),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(50)),
-                        // child: Image.asset(AppImage.person),
-                      ),
-                      Positioned(
-                        height: 32,
-                        width: 32,
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Colors.blue),
-                            child: Icon(
-                              Icons.linked_camera_outlined,
-                              color: Colors.white,
-                            )),
-                      )
-                    ])
+                Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: FileImage(imageFile!),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(50)),
+                  // child: Image.asset(AppImage.person),
+                ),
+                Positioned(
+                  height: 32,
+                  width: 32,
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.blue),
+                      child: Icon(
+                        Icons.linked_camera_outlined,
+                        color: Colors.white,
+                      )),
+                )
+              ])
                   : Stack(children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Image.asset(AppImage.person),
-                      ),
-                      Positioned(
-                        height: 32,
-                        width: 32,
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Colors.blue),
-                            child: Icon(
-                              Icons.linked_camera_outlined,
-                              color: Colors.white,
-                            )),
-                      )
-                    ]),
+                Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50)),
+                  child: Image.asset(AppImage.person),
+                ),
+                Positioned(
+                  height: 32,
+                  width: 32,
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.blue),
+                      child: Icon(
+                        Icons.linked_camera_outlined,
+                        color: Colors.white,
+                      )),
+                )
+              ]),
             ),
           ),
           Padding(
@@ -156,6 +163,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                   height: 32,
                 ),
                 SessionEditProfile(
+                  controller: name_cont,
                   title: 'Full Name',
                   hintText: 'Name',
                   validator: (String? value) {
@@ -170,6 +178,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                   },
                 ),
                 SessionEditProfile(
+                  controller: address_cont,
                   title: 'Address',
                   hintText: 'Address',
                   validator: (String? value) {
@@ -184,7 +193,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                   },
                   numLine: 5,
                 ),
-               users=='Doctor'? SessionEditProfile(
+                users == 'Doctor'
+                    ? SessionEditProfile(
+                  controller: headline_cont,
                   title: 'Headline',
                   hintText: 'Headline',
                   validator: (String? value) {
@@ -198,14 +209,15 @@ class _EditProfileViewState extends State<EditProfileView> {
                     headline = value;
                   },
                   numLine: 5,
-                ):SizedBox(),
+                )
+                    : SizedBox(),
                 SessionEditProfile(
-                    controller: _date,
+                    controller: birthday_cont,
                     title: 'Birthday',
                     hintText: 'Data of Birth',
                     onchange: (value) {
-                      (dynamic value) {
-                        (value) {
+                          (dynamic value) {
+                            (value) {
                           if (value == null || value.isEmpty) {
                             return 'Date can be not empty';
                           } else
@@ -221,7 +233,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                           lastDate: DateTime(2101));
                       if (pickDate != null) {
                         setState(() {
-                          _date!.text =
+                          birthday_cont!.text =
                               DateFormat('yyyy-MM-dd').format(pickDate);
                         });
                       }
@@ -233,21 +245,34 @@ class _EditProfileViewState extends State<EditProfileView> {
                 ContainerColorView(
                   data: 'Save Change',
                   onTap: () {
-                    showModalBottomSheet(
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (BuildContext context) {
-                          return BottomSheetView(
-                            onTapContainerColor: () {
-                              //  TODO  onTap for save
-                            },
-                            title: 'Undo Changes ?',
-                            hint:
+                    if (formKay.currentState!.validate())
+                      {
+                        showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (BuildContext context) {
+                              return BottomSheetView(
+                                onTapContainerColor: () {
+                                  //  TODO  onTap for save
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => SettingView(
+                                            name: name_cont!.text,
+                                            address: address_cont!.text,
+                                            birthday: birthday_cont!.text,
+                                            headline: headline_cont!.text),
+                                      ));
+                                },
+                                title: 'Undo Changes ?',
+                                hint:
                                 'Are you sure you want to change what\n you entered?',
-                            nameColor: 'Save',
-                            nameNonColor: 'Cancel',
-                          );
-                        });
+                                nameColor: 'Save',
+                                nameNonColor: 'Cancel',
+                              );
+                            });
+                      }
+
                   },
                 ),
                 SizedBox(
@@ -257,7 +282,7 @@ class _EditProfileViewState extends State<EditProfileView> {
             ),
           )
         ],
-      ),
+      )),
     );
   }
 

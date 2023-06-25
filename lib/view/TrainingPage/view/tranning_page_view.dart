@@ -36,7 +36,7 @@ class TrainingPageView extends StatelessWidget {
       backgroundColor: kWhite,
       body: ListView.separated(
         itemBuilder: (context, index) => LargeCardTrainingView(),
-        itemCount: 5,
+        itemCount: 1,
         separatorBuilder: (BuildContext context, int index) {
           return SizedBox(
             height: 20,

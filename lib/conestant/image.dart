@@ -30,7 +30,7 @@ class AppImage {
   static const String person3 = "assets/images/person3.png";
   static const String person4 = "assets/images/person4.png";
   static const String person5 = "assets/images/person5.png";
-  static const String house = "assets/images/home.png";
+  static const String house = "assets/images/house.png";
   static const String bigCompany = "assets/images/big Company.png";
   static const String publicSpeaking = "assets/images/public Speaking.png";
   static const String streets = "assets/images/street.png";
@@ -74,4 +74,14 @@ class AppImage {
   static const String send_icon = "assets/images/send_icon.png";
   static const String Schedule = "assets/images/Schedule.png";
   static const String people = "assets/images/people.png";
+  static const String Border1 = "assets/images/Border (1).png";
+  static const String Border2 = "assets/images/Border (2).png";
+  static const String Border3 = "assets/images/Border (3).png";
+  static const String Border4 = "assets/images/Border (4).png";
+  static const String Border5 = "assets/images/Border (5).png";
+  static const String Border6 = "assets/images/Border (6).png";
+  static const String Border7 = "assets/images/Border (7).png";
+  static const String Border8 = "assets/images/Border (8).png";
+  static const String Border9 = "assets/images/Border (9).png";
+  static const String Border = "assets/images/Border.png";
 }

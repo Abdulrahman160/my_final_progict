@@ -18,8 +18,8 @@ List levels = [
 ];
 
 class PatientInfoView extends StatefulWidget {
-  const PatientInfoView({Key? key}) : super(key: key);
-
+  const PatientInfoView({Key? key, required this.image}) : super(key: key);
+final String image;
   @override
   State<PatientInfoView> createState() => _PatientInfoViewState();
 }
@@ -84,7 +84,7 @@ class _PatientInfoViewState extends State<PatientInfoView> {
                         ],
                       ),
                     ),
-                    ImageContainer()
+                    ImageContainer(image: widget.image,)
                   ],
                 ),
                 SizedBox(
@@ -174,12 +174,6 @@ class _PatientInfoViewState extends State<PatientInfoView> {
                 SizedBox(
                   height: 30,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25),
-                  child: ContainerColorView(
-                    data: 'Send Message',
-                  ),
-                )
               ],
             ),
           ),

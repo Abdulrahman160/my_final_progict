@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../conestant/image.dart';
+import '../AllTraining/view/all_trainig_view.dart';
+import '../SelectSalary/view.dart';
 import 'Help_Center/help_center.dart';
 import 'Page_Language/language_view.dart';
 import 'Update_Password.dart';
@@ -82,6 +84,7 @@ List<SettingModel> doctorSetting = [
   SettingModel(
     icon: AppImage.salary,
     text: 'Salary',
+    namePage: SelectSalary(),
   ),
   SettingModel(
     icon: AppImage.lock,
@@ -109,6 +112,7 @@ List<SettingModel> doctorTraining = [
   SettingModel(
     icon: AppImage.training,
     text: 'Training',
+    namePage: AllTrainingView(),
   ),
 ];
 List<SettingModel> doctorAboutUs = [
@@ -132,7 +136,7 @@ List<SettingModel> doctorAboutUs = [
   ),
 ];
 
-List<SettingModel> doctorOther= [
+List<SettingModel> doctorOther = [
   SettingModel(
     icon: AppImage.Share,
     text: 'Share',

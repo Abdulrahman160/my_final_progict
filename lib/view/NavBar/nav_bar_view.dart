@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:my_final_progict/conestant/image.dart';
 import '../../conestant/conset.dart';
 import '../../main.dart';
+import '../Chat_Bot/chat_page.dart';
 import '../HomePage/home_view.dart';
+import '../PatientWithDoctor/view/people_view.dart';
 import '../ProfilePage/profile_view.dart';
 import '../TrainingPage/view/tranning_page_view.dart';
 
 class NavBarView extends StatefulWidget {
-  const NavBarView({Key? key}) : super(key: key);
+  const NavBarView({Key? key, this.currentIndex = 0}) : super(key: key);
+  final int? currentIndex;
 
   @override
   State<NavBarView> createState() => _NavBarViewState();
 }
 
 class _NavBarViewState extends State<NavBarView> {
-  int currentIndex = 0;
+  int? currentIndex;
   Widget? icon;
   List content = [];
   final List patientContent = [
@@ -52,9 +55,9 @@ class _NavBarViewState extends State<NavBarView> {
       TrainingPageView(),
     ],
     [
-      AppImage.message,
-      "Message",
-      HomePageView(),
+      AppImage.people,
+      "Patients",
+      PeopleView(),
     ],
     [
       AppImage.profile,
@@ -70,11 +73,11 @@ class _NavBarViewState extends State<NavBarView> {
 
   @override
   void initState() {
+    currentIndex = widget.currentIndex;
     getUser();
 
     if (users == 'Doctor') {
       content = doctorContent;
-      icon = Image.asset(AppImage.people);
     } else if (users == 'Patient') {
       content = patientContent;
       icon = Image.asset(
@@ -88,7 +91,7 @@ class _NavBarViewState extends State<NavBarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: patientContent[currentIndex][2],
+      body: patientContent[currentIndex!][2],
       backgroundColor: kWhite,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -100,7 +103,7 @@ class _NavBarViewState extends State<NavBarView> {
           currentIndex = v;
           setState(() {});
         },
-        currentIndex: currentIndex,
+        currentIndex: currentIndex!,
         elevation: 0,
         items: content.map((e) {
           final index = content.indexOf(e);
@@ -129,10 +132,14 @@ class _NavBarViewState extends State<NavBarView> {
         }).toList(),
       ),
       resizeToAvoidBottomInset: false,
-      floatingActionButton: FloatingActionButton(
-        child: icon,
-        onPressed: () {},
-      ),
+      floatingActionButton: users == 'Patient'
+          ? FloatingActionButton(
+              child: icon,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MessageView(),));
+              },
+            )
+          : SizedBox(),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
     );

@@ -8,7 +8,9 @@ import 'package:my_final_progict/view/HomePage/widget/small_trinning_card.dart';
 import 'package:my_final_progict/widget/header_sections_home_view.dart';
 import '../../conestant/conset.dart';
 import '../../widget/container_search/container_search_view.dart';
+import '../AllTraining/view/all_trainig_view.dart';
 import '../Doctors/view/all_doctor_view.dart';
+import '../Doctors/view/doctor_details.dart';
 import '../Doctors/widget/doctor_model.dart';
 import '../auth/Login.dart';
 
@@ -171,10 +173,11 @@ class _HomePageViewState extends State<HomePageView> {
                 child: SizedBox(
                   height: 53,
                   child: ListView.builder(
-                    itemBuilder: (context, index) => ContainerTypeView(
-                      index: index, //todo: hosni how to make color change
-                      text: containerType[index]['text'],
-                    ),
+                    itemBuilder: (context, index) =>
+                        ContainerTypeView(
+                          index: index, //todo: hosni how to make color change
+                          text: containerType[index]['text'],
+                        ),
                     itemCount: containerType.length,
                     scrollDirection: Axis.horizontal,
                   ),
@@ -215,11 +218,12 @@ class _HomePageViewState extends State<HomePageView> {
                 child: HeaderSectionsHomeView(
                   title: 'Top  Doctors',
                   hintTitle: 'explore',
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AllDoctorView(),
-                      )),
+                  onTap: () =>
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AllDoctorView(),
+                          )),
                 ),
               ),
               SizedBox(
@@ -228,9 +232,15 @@ class _HomePageViewState extends State<HomePageView> {
                   scrollDirection: Axis.horizontal,
                   itemCount: doctorDetailes.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return CircleImage(
-                      doctors: doctorDetailes[index],
-                    );
+                    return InkWell(onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (
+                          context) => DoctorDetailsView(
+                        image: doctorDetailes[index].image!,
+                        name: doctorDetailes[index].name!,),));
+                    },
+                      child: CircleImage(
+                        doctors: doctorDetailes[index],
+                      ),);
                   },
                 ),
               ),
@@ -240,14 +250,24 @@ class _HomePageViewState extends State<HomePageView> {
               Padding(
                 padding: const EdgeInsets.only(right: 35),
                 child: HeaderSectionsHomeView(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AllTrainingView(),
+                        ));
+                  },
                   title: 'Explore Training ',
                   hintTitle: 'view all',
                 ),
               ),
               GridView.count(
                 childAspectRatio: 3 / 4,
-                children: List.generate(5, (index) {
-                  return SmallCardView();
+                children: List.generate(trainingModel.length, (index) {
+                  return SmallCardView(
+                    image: trainingModel[index].image,
+                    text: trainingModel[index].text,
+                  );
                 }),
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -262,5 +282,3 @@ class _HomePageViewState extends State<HomePageView> {
     );
   }
 }
-
-

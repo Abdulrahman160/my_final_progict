@@ -4,12 +4,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_final_progict/payment/paymob.dart';
-import 'package:my_final_progict/text.dart';
 import 'package:my_final_progict/view/Chat_Bot/chat_page.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
+import 'package:my_final_progict/view/PatientInformation/view.dart';
 import 'package:my_final_progict/view/ProfilePage/State_Mangement/cubit.dart';
 import 'package:my_final_progict/view/auth/Login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Test.dart';
 

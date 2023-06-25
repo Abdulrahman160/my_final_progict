@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:my_final_progict/view/ProfilePage/profile_view.dart';
 import '../../conestant/conset.dart';
 import '../../conestant/image.dart';
 import '../../main.dart';
 import '../../widget/icon_back_view.dart';
+import '../NavBar/nav_bar_view.dart';
 import 'Edit_profile.dart';
 import 'Widget/Custom_Text.dart';
 
 class SettingView extends StatefulWidget {
-  const SettingView({Key? key}) : super(key: key);
+  const SettingView(
+      {Key? key,
+      this.name = 'Ali Mahmoud',
+      this.address = 'Mansoura',
+      this.birthday = '1999-06-14',
+      this.headline = 'Hassan El Khawal'})
+      : super(key: key);
+  final String? name;
+  final String? address;
+  final String? birthday;
+  final String? headline;
 
   @override
   State<SettingView> createState() => _SettingViewState();
@@ -58,7 +70,24 @@ class _SettingViewState extends State<SettingView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconBackView(),
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: kGray,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios_new,
+                      color: kBlack,
+                      size: 18,
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBarView(currentIndex: 3),
+                          ));
+                    },
+                  ),
+                ),
                 Text(
                   'My Profile',
                   style: TextStyle(
@@ -109,20 +138,21 @@ class _SettingViewState extends State<SettingView> {
                 children: [
                   CustomTextView(
                     title: 'Full Name',
-                    name: 'Tiana Saris',
+                    name: widget.name!,
                   ),
-                 users=='Doctor'? CustomTextView(
-                    title: 'Headline',
-                    name:
-                        'dddddddddddddddddddddddddd;lkndflaekjgfbskfhyvbgjksdfhbgladkjfgblsdfjgn;bsdklfbv;ldbjvkjldbvkdsjfjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',
-                  ):Container(),
+                  users == 'Doctor'
+                      ? CustomTextView(
+                          title: 'Headline',
+                          name: widget.headline!,
+                        )
+                      : Container(),
                   CustomTextView(
                     title: 'Address',
-                    name: '11 Ahmed Maher Apt. # 15\n Mansoura, CA 94109',
+                    name: widget.address!,
                   ),
                   CustomTextView(
                     title: 'Birthday',
-                    name: '11/2/2001',
+                    name: widget.birthday!,
                   ),
                   CustomTextView(
                     title: 'Gender',

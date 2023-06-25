@@ -9,6 +9,7 @@ class AllTrainingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -64,7 +65,6 @@ class AllTrainingView extends StatelessWidget {
                   child: Row(
                     children: [
                       Image.asset(AppImage.startExam, height: 55),
-
                       Padding(
                         padding: const EdgeInsets.only(left: 25),
                         child: Text(
@@ -95,8 +95,8 @@ class AllTrainingView extends StatelessWidget {
                 ),
                 GridView.count(
                   childAspectRatio: 3 / 4,
-                  children: List.generate(5, (index) {
-                    return SmallCardView();
+                  children: List.generate(trainingModel.length, (index) {
+                    return SmallCardView(image: trainingModel[index].image, text:trainingModel[index].text ,);
                   }),
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -112,3 +112,19 @@ class AllTrainingView extends StatelessWidget {
     );
   }
 }
+
+class TrainingModel {
+  final String image;
+  final String text;
+
+  TrainingModel({
+    required this.text,
+    required this.image,
+  });
+}
+List<TrainingModel> trainingModel = [
+  TrainingModel(text: 'Social Anxiety', image: AppImage.smallCard),
+  TrainingModel(text: 'Big Company', image: AppImage.bigCompany),
+  TrainingModel(text: 'Public Speaking', image: AppImage.publicSpeaking),
+  TrainingModel(text: 'House', image: AppImage.house),
+];

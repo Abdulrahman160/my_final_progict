@@ -208,7 +208,7 @@ class _LoginViewState extends State<LoginView> {
                           if (formKay.currentState!.validate()) {
                             var user = await SignIn();
                             if (user != null) {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => NavBarView()));

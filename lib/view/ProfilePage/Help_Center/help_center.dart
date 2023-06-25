@@ -31,10 +31,7 @@ class _HelpCenterViewState extends State<HelpCenterView>
       backgroundColor: kWhite,
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: AppBarWidget(title: "Help Center"),
-          ),
+          AppBarWidget(title: "Help Center"),
           DefaultTabController(
             length: 2,
             initialIndex: widget.x,
@@ -46,7 +43,7 @@ class _HelpCenterViewState extends State<HelpCenterView>
                   text: 'FAQ',
                 ),
                 Tab(
-                  text: 'contact us',
+                  text: 'Contact Us',
                 ),
               ],
             ),

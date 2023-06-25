@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_final_progict/main.dart';
+import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 import 'package:my_final_progict/view/Personal_Information/cubit.dart';
 import 'package:my_final_progict/view/Personal_Information/states.dart';
 import 'package:my_final_progict/view/Personal_Information/user_model.dart';
@@ -150,9 +151,13 @@ class _UploadCardViewState extends State<UploadCardView> {
                             FirebaseFirestore.instance
                                 .collection('Doctor')
                                 .doc(userIdNumber)
-                                .set({
-                              'card':imgUrlCard
-                            },SetOptions(merge: true));
+                                .set({'card': imgUrlCard},
+                                    SetOptions(merge: true));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NavBarView(),
+                                ));
                           })
                     ],
                   ),

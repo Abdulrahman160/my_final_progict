@@ -12,25 +12,25 @@ class LanguageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: kWhite,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              AppBarWidget(title: 'Language'),
-              SearchContainer(),
-              SizedBox(
-                height: 15,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: language.length,
-                  itemBuilder: (context, index) => LanguageContainer(
-                    data: language[index],
-                  ),
+        body: Column(
+          children: [
+            AppBarWidget(title: 'Language'),
+            SearchContainer(),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: language.length,
+                itemBuilder: (context, index) => LanguageContainer(
+                  data: language[index],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ));
   }
 }

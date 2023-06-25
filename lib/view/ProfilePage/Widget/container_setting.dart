@@ -19,7 +19,7 @@ class ContainerSettingView extends StatefulWidget {
 
 class _ContainerSettingViewState extends State<ContainerSettingView> {
   bool state = true;
-  bool _switchValue = true;
+  bool _switchValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class _ContainerSettingViewState extends State<ContainerSettingView> {
                             nameNonColor: 'Cancel',
                           );
                         })
-                    : Navigator.pushReplacement(
+                    : Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => widget.data.namePage!));

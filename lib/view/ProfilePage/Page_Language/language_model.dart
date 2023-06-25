@@ -10,5 +10,4 @@ List<Language> language = [
   Language(text: 'English', image: 'assets/images/english.png'),
   Language(text: 'French' , image: 'assets/images/france.png'),
   Language(text: 'German' , image: 'assets/images/german.png'),
-  Language(text: 'Japanese', image: 'assets/images/japanese.png'),
 ];

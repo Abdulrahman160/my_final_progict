@@ -4,8 +4,8 @@ import '../../../conestant/conset.dart';
 import '../../../conestant/image.dart';
 
 class ImageContainer extends StatelessWidget {
-  const ImageContainer({Key? key}) : super(key: key);
-
+  const ImageContainer({Key? key, required this.image}) : super(key: key);
+final String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +28,7 @@ class ImageContainer extends StatelessWidget {
           child: CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage(
-                AppImage.person3,
+                image,
               ))),
     );
   }

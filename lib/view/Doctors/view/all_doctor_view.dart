@@ -6,6 +6,7 @@ import '../../../widget/container_search/container_search_view.dart';
 import '../../../widget/icon_back_view.dart';
 import '../widget/docotr_card_view.dart';
 import '../widget/doctor_model.dart';
+import 'doctor_details.dart';
 
 class AllDoctorView extends StatelessWidget {
   const AllDoctorView({Key? key}) : super(key: key);
@@ -60,9 +61,9 @@ class AllDoctorView extends StatelessWidget {
                 GridView.count(
                   childAspectRatio: 3 / 4,
                   children: List.generate(doctorDetailes.length, (index) {
-                    return DoctorCardView(
+                    return InkWell(onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorDetailsView(name:doctorDetailes[index].name!,image: doctorDetailes[index].image!, ),));},child: DoctorCardView(
                       doctor: doctorDetailes[index],
-                    );
+                    ),);
                   }),
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,

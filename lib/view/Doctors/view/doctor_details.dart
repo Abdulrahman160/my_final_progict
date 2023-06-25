@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
 
 import '../../../conestant/conset.dart';
@@ -10,16 +13,28 @@ import '../widget/doctor_time.dart';
 import '../widget/text_style.dart';
 
 class DoctorDetailsView extends StatefulWidget {
-  const DoctorDetailsView({Key? key}) : super(key: key);
+  const DoctorDetailsView({Key? key, required this.name, required this.image})
+      : super(key: key);
+  final String name;
+  final String image;
 
   @override
   State<DoctorDetailsView> createState() => _DoctorDetailsViewState();
 }
 
 class _DoctorDetailsViewState extends State<DoctorDetailsView> {
-  bool forAndroid =false;
-  @override
+  bool forAndroid = false;
+  CalendarAgendaController _calendarAgendaControllerNotAppBar =
+      CalendarAgendaController();
+  late DateTime _selectedDateNotAppBBar;
+  Random random = new Random();
 
+  void initState() {
+    _selectedDateNotAppBBar = DateTime.now();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhite,
@@ -69,7 +84,7 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 6),
                         child: Text(
-                          "Dr. Samantha",
+                          "Dr. ${widget.name}",
                           style: TextStyle(
                             color: textColor,
                             fontSize: 16,
@@ -142,7 +157,7 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
                 ),
                 Positioned(
                   right: 5,
-                  child: ImageContainer(),
+                  child: ImageContainer(image: widget.image),
                 ),
               ],
             ),
@@ -157,7 +172,36 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
                 ),
               ),
             ),
-
+            CalendarAgenda(
+              backgroundColor: kWhite,
+              fullCalendar: false,
+              fullCalendarScroll: FullCalendarScroll.horizontal,
+              controller: _calendarAgendaControllerNotAppBar,
+              locale: 'en',
+              weekDay: WeekDay.short,
+              fullCalendarDay: WeekDay.short,
+              selectedDateColor: kBlue,
+              dateColor: kShadowGray,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now().subtract(Duration(days: 140)),
+              lastDate: DateTime.now().add(Duration(days: 100)),
+              events: List.generate(
+                100,
+                (index) => DateTime.now().subtract(
+                  Duration(
+                    days: index * random.nextInt(5),
+                  ),
+                ),
+              ),
+              onDateSelected: (date) {
+                setState(() {
+                  _selectedDateNotAppBBar = date;
+                });
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
             //TODO:add doctor day
             GridView.count(
               crossAxisCount: 3,
@@ -173,19 +217,18 @@ class _DoctorDetailsViewState extends State<DoctorDetailsView> {
               height: 25,
             ),
             ContainerColorView(
-              data: 'Book Appointment',onTap: () async {
-              final response = await PaymobUtils.instance.pay(
-                currency: "EGP",
-                amount: "20000000",
-              );
-              print('*' * 20);
-              print(response?.id);
-              print(response?.success);
-              print(response?.message);
-            },
+              data: 'Book Appointment',
+              onTap: () async {
+                final response = await PaymobUtils.instance.pay(
+                  currency: "EGP",
+                  amount: "2000",
+                );
+                print('*' * 20);
+                print(response?.id);
+                print(response?.success);
+                print(response?.message);
+              },
             ),
-
-
           ],
         ),
       ),
