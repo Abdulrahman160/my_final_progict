@@ -7,7 +7,9 @@ import 'package:my_final_progict/payment/paymob.dart';
 import 'package:my_final_progict/view/Chat_Bot/chat_page.dart';
 import 'package:my_final_progict/view/NavBar/nav_bar_view.dart';
 import 'package:my_final_progict/view/PatientInformation/view.dart';
+import 'package:my_final_progict/view/Personalization.dart';
 import 'package:my_final_progict/view/ProfilePage/State_Mangement/cubit.dart';
+import 'package:my_final_progict/view/Splash.dart';
 import 'package:my_final_progict/view/auth/Login.dart';
 
 import 'Test.dart';
@@ -58,9 +60,9 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           navigatorKey: _globalKey,
           home:
-          // MessageView(),
+          SplashView(),
           // it is to login
-          isLogin! ? NavBarView() : LoginView(),
+          // isLogin! ? NavBarView() : LoginView(),
 
           builder: (context, child) => SafeArea(child: child!),
           debugShowCheckedModeBanner: false,

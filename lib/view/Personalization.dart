@@ -29,7 +29,7 @@ class _PersonalizationViewState extends State<PersonalizationView> {
         body: Stack(
           children: [
             Image.asset(
-              AppImage.background,
+              AppImage.background,width: double.infinity,fit: BoxFit.fitWidth,
             ),
             Positioned(
                 child: Form(

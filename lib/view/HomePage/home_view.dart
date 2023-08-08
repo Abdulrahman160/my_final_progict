@@ -221,18 +221,18 @@ class _HomePageViewState extends State<HomePageView> {
                   title: users == 'Patient' ? 'Top  Doctors' : 'Patient',
                   hintTitle: 'explore',
                   onTap: () {
-                    if(users=='Patient'){
+                    if (users == 'Patient') {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => AllDoctorView(),
                           ));
                     }
-                  } ,
+                  },
                 ),
               ),
               SizedBox(
-                height: 112,
+                height: 130,
                 child: users == 'Patient'
                     ? ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -240,7 +240,6 @@ class _HomePageViewState extends State<HomePageView> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: () {
-
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -320,19 +319,22 @@ class _HomePageViewState extends State<HomePageView> {
                   hintTitle: 'view all',
                 ),
               ),
-              GridView.count(
-                childAspectRatio: 3 / 4,
-                children: List.generate(trainingModel.length, (index) {
-                  return SmallCardView(
-                    image: trainingModel[index].image,
-                    text: trainingModel[index].text,
-                  );
-                }),
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 30,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: GridView.count(
+                  childAspectRatio: 3 / 4,
+                  children: List.generate(trainingModel.length, (index) {
+                    return SmallCardView(
+                      image: trainingModel[index].image,
+                      text: trainingModel[index].text,
+                    );
+                  }),
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 40,
+                ),
               ),
             ],
           ),

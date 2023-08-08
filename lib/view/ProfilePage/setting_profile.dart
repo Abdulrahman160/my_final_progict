@@ -12,10 +12,10 @@ import 'Widget/Custom_Text.dart';
 class SettingView extends StatefulWidget {
   const SettingView(
       {Key? key,
-      this.name = 'Ali Mahmoud',
+      this.name = 'Abdulrahman Hassan',
       this.address = 'Mansoura',
-      this.birthday = '1999-06-14',
-      this.headline = 'Hassan El Khawal'})
+      this.birthday = '2001-01-01',
+      this.headline = 'Doctor psychological'})
       : super(key: key);
   final String? name;
   final String? address;

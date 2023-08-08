@@ -28,7 +28,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       body: Stack(
         children: [
           Image.asset(
-            AppImage.background,
+            AppImage.background,fit: BoxFit.fitWidth,width: double.infinity,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),

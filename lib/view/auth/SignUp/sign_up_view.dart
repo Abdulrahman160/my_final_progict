@@ -10,6 +10,7 @@ import '../../../widget/Container_Button_Color.dart';
 import '../../../widget/Container_Button_nonColor.dart';
 
 import '../../../widget/Text_From_Filed.dart';
+import '../../Personalization.dart';
 import '../Login.dart';
 import 'confirmation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,8 +54,7 @@ class _SignUpViewState extends State<SignUpView> {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          SignUpConfirmationView(
-                            controlacsses: true,
+                          PersonalizationView(
                           ),
                     ),
                   );
